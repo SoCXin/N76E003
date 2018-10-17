@@ -1,0 +1,6 @@
+Common\lua-5.1.4\* 	eol=lf
+Common\lua-5.2.4\* 	eol=lf
+Common\libelf\* 	eol=lf
+*.uvproj eol=lf
+*.uvmpw eol=lf
+*.uvopt eol=lf
