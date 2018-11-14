@@ -1,11 +1,16 @@
-﻿[![sites](docs/mcuyun.png)](http://www.mcuyun.com)
+﻿# [N76E003](https://github.com/mcuyun/N76E003) 
 
-# 新塘 N76E003
+台湾新唐51单片机
+
+[![sites](mcuyun/mcuyun.png)](http://www.mcuyun.com)
+
+#### 更多MCU：[mcuyun](https://github.com/mcuyun/whyme)可访问 www.mcuyun.com
+
+---
 
 ### 简介
 
 N76E003是低成本高可靠性单片机的代表，价格秒杀同规格产品，单片机的各种外设齐全，包括UART/SPI/IIC和12bit ADC等
-
 
 ---
 
@@ -15,13 +20,16 @@ N76E003是低成本高可靠性单片机的代表，价格秒杀同规格产品�
 
 包括芯片手册资料等
 
+- tools
+
+包括相关的工具
+
 - examples
 
-官方例程精简:https://github.com/OpenNuvoton
+更多官方例程:https://github.com/OpenNuvoton
+
 
 ---
 
-### 说明
-
-2018-10-17: 创建工程仓库，添加官方的一些库文件
+###  www.mcuyun.com   |    qitas@qitas.cn
 

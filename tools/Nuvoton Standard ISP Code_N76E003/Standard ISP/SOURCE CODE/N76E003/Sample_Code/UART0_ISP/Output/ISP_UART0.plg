@@ -1,0 +1,29 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Project:</h2>
+C:\WorkFolder\Code_Project\201602_ISPDIY\2rd_release\Nuvoton Standard ISP Code_N76E003\(2) Nuvoton Standard ISP Code\SOURCE CODE\N76E003\Sample_Code\UART0_ISP\ISP_UART0.uvproj
+Project File Date:  09/29/2016
+
+<h2>Output:</h2>
+Rebuild target 'UART_mode_2'
+compiling UART0_transfer.c...
+compiling main.c...
+assembling STARTUP.A51...
+linking...
+Program Size: data=42.5 xdata=129 code=1970
+creating hex file from ".\Output\ISP_UART0"...
+User command #1: .\output\hex2bin.exe .\output\ISP_UART0.hex
+hex2bin v1.0.8, Copyright (C) 1998 Jacques Pelletier
+checksum extensions Copyright (C) 2004 Rockwell Automation
+improved P.G. 2007
+Lowest address  = 00000000
+Highest address = 000007BF
+Pad Byte        = FF
+8-bit Checksum = 11
+".\Output\ISP_UART0" - 0 Error(s), 0 Warning(s).
+Load "C:\\WorkFolder\\Code_Project\\201602_ISPDIY\\2rd_release\\Nuvoton Standard ISP Code_N76E003\\(2) Nuvoton Standard ISP Code\\SOURCE CODE\\N76E003\\Sample_Code\\UART0_ISP\\Output\\ISP_UART0" 
+Flash Erase Done.
+Flash Write Done: 1970 bytes programmed.
+Flash Verify Done: 1970 bytes verified.
