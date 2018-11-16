@@ -1,0 +1,150 @@
+C51 COMPILER V9.52.0.0   UART1                                                             07/06/2017 11:47:23 PAGE 1   
+
+
+C51 COMPILER V9.52.0.0, COMPILATION OF MODULE UART1
+OBJECT MODULE PLACED IN .\Output\UART1.obj
+COMPILER INVOKED BY: C:\Keil\C51\BIN\C51.EXE Source\UART1.c BROWSE INCDIR(..\..\Include) DEFINE(FOSC_160000) DEBUG OBJEC
+                    -TEXTEND PRINT(.\LST\UART1.lst) TABS(2) OBJECT(.\Output\UART1.obj)
+
+line level    source
+
+   1          /*--------------------------------------------------------------------------------------------------------
+             --*/
+   2          /*                                                                                                        
+             - */
+   3          /* Copyright(c) 2017 Nuvoton Technology Corp. All rights reserved.                                        
+             - */
+   4          /*                                                                                                        
+             - */
+   5          /*--------------------------------------------------------------------------------------------------------
+             --*/
+   6          
+   7          //********************************************************************************************************
+             -***
+   8          //  Nuvoton Technoledge Corp. 
+   9          //  Website: http://www.nuvoton.com
+  10          //  E-Mail : MicroC-8bit@nuvoton.com
+  11          //  Date   : Apr/21/2017
+  12          //********************************************************************************************************
+             -***
+  13          
+  14          //********************************************************************************************************
+             -***
+  15          //  File Function: N76E003 UART-1 Mode1 demo code
+  16          //********************************************************************************************************
+             -***
+  17          #include "N76E003.h"
+  18          #include "Common.h"
+  19          #include "Delay.h"
+  20          #include "SFR_Macro.h"
+  21          #include "Function_define.h"
+  22          
+  23          #define BUFFER_SIZE   16
+  24          UINT8  UART_BUFFER[BUFFER_SIZE],temp;
+  25          UINT16 u16CNT=0,u16CNT1=0;
+  26          bit riflag;
+  27          
+  28          /******************************************************************************
+  29           * FUNCTION_PURPOSE: Serial port 1 interrupt, echo received data.
+  30           * FUNCTION_INPUTS : P0.2(RXD) serial input
+  31           * FUNCTION_OUTPUTS: P1.6(TXD) serial output
+  32           * Following setting in Common.c
+  33           ******************************************************************************/
+  34          #if 0
+              //void InitialUART1_Timer3(UINT32 u32Baudrate) //use timer3 as Baudrate generator
+              //{
+              //    P02_Quasi_Mode;   //Setting UART pin as Quasi mode for transmit
+              //    P16_Quasi_Mode;   //Setting UART pin as Quasi mode for transmit
+              //  
+              //    SCON_1 = 0x50;    //UART1 Mode1,REN_1=1,TI_1=1
+              //    T3CON = 0x08;     //T3PS2=0,T3PS1=0,T3PS0=0(Prescale=1), UART1 in MODE 1
+              //    clr_BRCK;
+              //  
+              //#ifdef FOSC_160000
+              //    RH3    = HIBYTE(65536 - (1000000/u32Baudrate)-1);     /*16 MHz */
+C51 COMPILER V9.52.0.0   UART1                                                             07/06/2017 11:47:23 PAGE 2   
+
+              //    RL3    = LOBYTE(65536 - (1000000/u32Baudrate)-1);     /*16 MHz */
+              //#endif
+              //#ifdef FOSC_166000
+              //    RH3    = HIBYTE(65536 - (1037500/u32Baudrate));       /*16.6 MHz */
+              //    RL3    = LOBYTE(65536 - (1037500/u32Baudrate));       /*16.6 MHz */
+              //#endif
+              //    set_TR3;         //Trigger Timer3
+              //}
+              #endif
+  55          
+  56          void SerialPort1_ISR(void) interrupt 15 
+  57          {
+  58   1          if (RI_1==1) 
+  59   1          {                                       /* if reception occur */
+  60   2              clr_RI_1;                             /* clear reception flag for next reception */
+  61   2              UART_BUFFER[u16CNT] = SBUF_1;
+  62   2              u16CNT ++;
+  63   2              riflag =1;
+  64   2          }
+  65   1          if(TI_1==1)
+  66   1          {
+  67   2              clr_TI_1;                             /* if emission occur */
+  68   2          }
+  69   1      }
+  70          
+  71          
+  72          /*********************************************************************************************************
+             -*******
+  73           * FUNCTION_PURPOSE: Main function 
+  74            
+  75           !!! N76E003 UART1 pin also occupied by debug pin, 
+  76           please remove Nu-link or not in debug mode to test UART1 function.
+  77          
+  78           External UART1 connect also disturb debug download
+  79          
+  80           *********************************************************************************************************
+             -******/
+  81          void main (void)
+  82          {
+  83   1        P12_PushPull_Mode;    // For I/O toggle display
+  84   1        
+  85   1      #if 0 
+              //for Simple use UART1 transmit out
+                  InitialUART1_Timer3(115200);    
+                  while(1)
+                  Send_Data_To_UART1(0x55);
+                  
+              #else     
+  92   1      // For interrupt setting check receive 
+  93   1          InitialUART1_Timer3(115200);
+  94   1          set_ES_1;         //For interrupt enable
+  95   1          set_EA;
+  96   1          
+  97   1          while(1)
+  98   1          {
+  99   2            if (riflag)
+ 100   2            {
+ 101   3                P12 = ~ P12;      //Receive each byte P12 toggle, never work under debug mode
+ 102   3                riflag = 0;
+ 103   3            }
+ 104   2          }
+ 105   1      
+C51 COMPILER V9.52.0.0   UART1                                                             07/06/2017 11:47:23 PAGE 3   
+
+ 106   1      #endif
+ 107   1            
+ 108   1        
+ 109   1          
+ 110   1      }
+ 111            
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     74    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =     21    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =      1    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

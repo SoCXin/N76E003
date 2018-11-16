@@ -1,0 +1,171 @@
+C51 COMPILER V9.52.0.0   ADC_BG_VDD_AVG_NEW                                                01/23/2018 17:46:09 PAGE 1   
+
+
+C51 COMPILER V9.52.0.0, COMPILATION OF MODULE ADC_BG_VDD_AVG_NEW
+OBJECT MODULE PLACED IN .\Output\ADC_BG_VDD_avg_new.obj
+COMPILER INVOKED BY: C:\Keil\C51\BIN\C51.EXE Code\ADC_BG_VDD_avg_new.c OPTIMIZE(7,SPEED) BROWSE INCDIR(..\..\Include) DE
+                    -FINE(FOSC_160000) DEBUG OBJECTEXTEND PRINT(.\LST\ADC_BG_VDD_avg_new.lst) TABS(2) OBJECT(.\Output\ADC_BG_VDD_avg_new.obj)
+
+line level    source
+
+   1          /*--------------------------------------------------------------------------------------------------------
+             --*/
+   2          /*                                                                                                        
+             - */
+   3          /* Copyright(c) 2016 Nuvoton Technology Corp. All rights reserved.                                        
+             - */
+   4          /*                                                                                                        
+             - */
+   5          /*--------------------------------------------------------------------------------------------------------
+             --*/
+   6          
+   7          //********************************************************************************************************
+             -***
+   8          //  Nuvoton Technoledge Corp. 
+   9          //  Website: http://www.nuvoton.com
+  10          //  E-Mail : MicroC-8bit@nuvoton.com
+  11          //  Date   : Apr/21/2016
+  12          //********************************************************************************************************
+             -***
+  13          
+  14          //********************************************************************************************************
+             -***
+  15          //  File Function: N76E885 ADC demo code
+  16          //********************************************************************************************************
+             -***
+  17          
+  18          #include "N76E003.h"
+  19          #include "SFR_Macro.h"
+  20          #include "Function_define.h"
+  21          #include "Common.h"
+  22          #include "Delay.h"
+  23          
+  24          //*****************  The Following is in define in Fucntion_define.h  ***************************
+  25          //****** Always include Function_define.h call the define you want, detail see main(void) *******
+  26          //***********************************************************************************************
+  27          #if 0
+              //#define Enable_ADC_BandGap  ADCCON0|=SET_BIT3;ADCCON0&=0xF8;                                                              //Band-gap 1.2
+             -2V
+              #endif
+  30          
+  31          double  Bandgap_Voltage,VDD_Voltage;      //please always use "double" mode for this
+  32          unsigned  char xdata ADCdataH[5], ADCdataL[5];
+  33          int ADCsumH=0, ADCsumL=0;
+  34          unsigned char ADCavgH,ADCavgL;
+  35          
+  36          void READ_BANDGAP()
+  37          {
+  38   1          UINT8 BandgapHigh,BandgapLow,BandgapMark;
+  39   1          double Bandgap_Value,Bandgap_Voltage_Temp;
+  40   1        
+  41   1          set_IAPEN;
+  42   1          IAPCN = READ_UID;
+  43   1          IAPAL = 0x0d;
+  44   1          IAPAH = 0x00;
+C51 COMPILER V9.52.0.0   ADC_BG_VDD_AVG_NEW                                                01/23/2018 17:46:09 PAGE 2   
+
+  45   1          set_IAPGO;
+  46   1          BandgapLow = IAPFD;
+  47   1          BandgapMark = BandgapLow&0xF0;
+  48   1            
+  49   1          if (BandgapMark==0x80)
+  50   1          {
+  51   2              BandgapLow = BandgapLow&0x0F;
+  52   2              IAPAL = 0x0C;
+  53   2              IAPAH = 0x00;
+  54   2              set_IAPGO;
+  55   2              BandgapHigh = IAPFD;
+  56   2              Bandgap_Value = (BandgapHigh<<4)+BandgapLow;
+  57   2              Bandgap_Voltage_Temp = Bandgap_Value*3/4;
+  58   2              Bandgap_Voltage = Bandgap_Voltage_Temp - 33;      //the actually banggap voltage value is similar this va
+             -lue.
+  59   2          }
+  60   1          if (BandgapMark==0x00)
+  61   1          {
+  62   2              BandgapLow = BandgapLow&0x0F;
+  63   2              IAPAL = 0x0C;
+  64   2              IAPAH = 0x00;
+  65   2              set_IAPGO;
+  66   2              BandgapHigh = IAPFD;
+  67   2              Bandgap_Value = (BandgapHigh<<4)+BandgapLow;
+  68   2              Bandgap_Voltage= Bandgap_Value*3/4;
+  69   2          }
+  70   1          if (BandgapMark==0x90)
+  71   1          {
+  72   2              IAPAL = 0x0E;
+  73   2              IAPAH = 0x00;
+  74   2              set_IAPGO;
+  75   2              BandgapHigh = IAPFD;
+  76   2              IAPAL = 0x0F;
+  77   2              IAPAH = 0x00;
+  78   2              set_IAPGO;
+  79   2              BandgapLow = IAPFD;
+  80   2              BandgapLow = BandgapLow&0x0F;
+  81   2              Bandgap_Value = (BandgapHigh<<4)+BandgapLow;
+  82   2              Bandgap_Voltage= Bandgap_Value*3/4;
+  83   2          }
+  84   1          clr_IAPEN;
+  85   1      //      printf ("\n BG High = %bX",BandgapHigh); 
+  86   1      //      printf ("\n BG Low = %bX",BandgapLow); 
+  87   1      //      printf ("\n BG ROMMAP = %e",Bandgap_Voltage); 
+  88   1      }
+  89              
+  90              
+  91          /******************************************************************************
+  92          The main C function.  Program execution starts
+  93          here after stack initialization.
+  94          ******************************************************************************/
+  95          void main (void) 
+  96          {
+  97   1          double bgvalue;
+  98   1          unsigned int i;
+  99   1        
+ 100   1          InitialUART0_Timer1(115200);
+ 101   1      
+ 102   1          READ_BANDGAP();
+ 103   1          Enable_ADC_BandGap;                       
+ 104   1      
+ 105   1          CKDIV = 0x02;                             // IMPORTANT!! Modify system clock to 4MHz ,then add the ADC sampling clock 
+C51 COMPILER V9.52.0.0   ADC_BG_VDD_AVG_NEW                                                01/23/2018 17:46:09 PAGE 3   
+
+             -base to add the sampling timing.
+ 106   1          for(i=0;i<5;i++)                          // All following ADC detect timing is 200uS run under 4MHz.
+ 107   1          {
+ 108   2            clr_ADCF;
+ 109   2            set_ADCS;                               
+ 110   2            while(ADCF == 0);
+ 111   2            ADCdataH[i] = ADCRH;
+ 112   2            ADCdataL[i] = ADCRL;
+ 113   2          }   
+ 114   1          CKDIV = 0x00;                             // After ADC sampling, modify system clock back to 16MHz to run next code.
+ 115   1          
+ 116   1          for(i=2;i<5;i++)                          // use the last 3 times data to make average 
+ 117   1          {
+ 118   2            ADCsumH = ADCsumH + ADCdataH[i];
+ 119   2            ADCsumL = ADCsumL + ADCdataL[i];
+ 120   2          }       
+ 121   1          ADCavgH = ADCsumH/3;
+ 122   1          ADCavgL = ADCsumL/3;
+ 123   1          bgvalue = (ADCavgH<<4) + ADCavgL;
+ 124   1          VDD_Voltage = (0x1000/bgvalue)*Bandgap_Voltage;
+ 125   1      //      printf ("\n BG ROMMAP = %e",Bandgap_Voltage); 
+ 126   1      //      printf ("\n VDD voltage = %e", VDD_Voltage); 
+ 127   1      
+ 128   1          while(1);
+ 129   1      }
+ 130          
+ 131          
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    637    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =     10    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =     14      11
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

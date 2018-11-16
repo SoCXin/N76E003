@@ -1,0 +1,128 @@
+C51 COMPILER V9.52.0.0   PUTCHAR                                                           01/09/2018 15:28:43 PAGE 1   
+
+
+C51 COMPILER V9.52.0.0, COMPILATION OF MODULE PUTCHAR
+OBJECT MODULE PLACED IN .\Output\PUTCHAR.obj
+COMPILER INVOKED BY: C:\Keil\C51\BIN\C51.EXE Code\PUTCHAR.C OPTIMIZE(4,SPEED) BROWSE INCDIR(..\..\Include) DEFINE(FOSC_1
+                    -60000) DEBUG OBJECTEXTEND PRINT(.\LST\PUTCHAR.lst) TABS(2) OBJECT(.\Output\PUTCHAR.obj)
+
+line level    source
+
+   1          /***********************************************************************/
+   2          /*  This file is part of the C51 Compiler package                      */
+   3          /*  Copyright KEIL ELEKTRONIK GmbH 1990 - 2002                         */
+   4          /***********************************************************************/
+   5          /*                                                                     */
+   6          /*  PUTCHAR.C:  This routine is the general character output of C51.   */
+   7          /*  You may add this file to a uVision2 project.                       */
+   8          /*                                                                     */
+   9          /*  To translate this file use C51 with the following invocation:      */
+  10          /*     C51 PUTCHAR.C <memory model>                                    */
+  11          /*                                                                     */
+  12          /*  To link the modified PUTCHAR.OBJ file to your application use the  */
+  13          /*  following Lx51 invocation:                                         */
+  14          /*     Lx51 <your object file list>, PUTCHAR.OBJ <controls>            */
+  15          /*                                                                     */
+  16          /***********************************************************************/
+  17          
+  18          //#include <reg51.h>
+  19          #include "N76E003.h"
+  20          
+  21          #define XON  0x11
+  22          #define XOFF 0x13
+  23          
+  24          #if 1
+  25          /****************************************************************************/
+  26          /* Define putchar send from UART1, printf function will send from P1.6(TXD_1)
+  27          /* NOTICE: Since UART1 pin is multi-function with OCD DATA/CLK pin.
+  28          /* Suggest download than use run with realchip but not OCD mode.
+  29          /****************************************************************************/
+  30          char putchar (char c)
+  31          {
+  32   1          while (!TI_1);  /* wait until transmitter ready */
+  33   1          TI_1 = 0;
+  34   1          SBUF_1 = c;      /* output character */
+  35   1          return (c);
+  36   1      }
+  37          #else
+              /*
+               * putchar (full version):  expands '\n' into CR LF and handles
+               *                          XON/XOFF (Ctrl+S/Ctrl+Q) protocol
+               */
+              char putchar (char c)  {
+              
+                if (c == '\n')  {
+                  if (RI)  {
+                    if (SBUF == XOFF)  {
+                      do  {
+                        RI = 0;
+                        while (!RI);
+                      }
+                      while (SBUF != XON);
+                      RI = 0; 
+                    }
+                  }
+C51 COMPILER V9.52.0.0   PUTCHAR                                                           01/09/2018 15:28:43 PAGE 2   
+
+                  while (!TI);
+                  TI = 0;
+                  SBUF = 0x0d;                         /* output CR  */
+                }
+                if (RI)  {
+                  if (SBUF == XOFF)  {
+                    do  {
+                      RI = 0;
+                      while (!RI);
+                    }
+                    while (SBUF != XON);
+                    RI = 0; 
+                  }
+                }
+                while (!TI);
+                TI = 0;
+                return (SBUF = c);
+              }
+              #endif
+  74          
+  75          
+  76          #if 0         // comment out versions below
+              
+              /*
+               * putchar (basic version): expands '\n' into CR LF
+               */
+              char putchar (char c)  {
+                if (c == '\n')  {
+                  while (!TI);
+                  TI = 0;
+                  SBUF = 0x0d;                         /* output CR  */
+                }
+                while (!TI);
+                TI = 0;
+                return (SBUF = c);
+              }
+              
+              
+              /*
+               * putchar (mini version): outputs charcter only
+               */
+              char putchar (char c)  {
+                while (!TI);
+                TI = 0;
+                return (SBUF = c);
+              }
+              
+              #endif
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =      8    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

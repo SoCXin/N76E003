@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<project>
+  <fileVersion>2</fileVersion>
+  <fileChecksum>669566839</fileChecksum>
+  <configuration>
+    <name>Debug</name>
+    <outputs>
+      <file>$PROJ_DIR$\Debug\Obj\Common.r51</file>
+      <file>$PROJ_DIR$\..\..\Common\Common.c</file>
+      <file>$PROJ_DIR$\..\..\Common\Delay.c</file>
+      <file>$PROJ_DIR$\Code\SPI_Master_Po.c</file>
+      <file>$TOOLKIT_DIR$\inc\clib\stdarg.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\SPI_Master_Polling.pbd</file>
+      <file>$PROJ_DIR$\Debug\Exe\SPI_Master_Polling.bin</file>
+      <file>$PROJ_DIR$\Debug\Obj\SPI_Master_Polling.r51</file>
+      <file>$PROJ_DIR$\Debug\Obj\SPI_Master_Polling.pbi</file>
+      <file>$PROJ_DIR$\..\..\Include\Common.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\Common.pbi</file>
+      <file>$TOOLKIT_DIR$\inc\clib\stdio.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\Delay.pbi</file>
+      <file>$PROJ_DIR$\..\..\Include\SFR_Macro.h</file>
+      <file>$PROJ_DIR$\..\..\Include\Function_define.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\Delay.r51</file>
+      <file>$TOOLKIT_DIR$\config\devices\_generic\lnk51ew_8052.xcl</file>
+      <file>$TOOLKIT_DIR$\lib\clib\cl-pli-nsid-1e16x01.r51</file>
+      <file>$PROJ_DIR$\..\..\Include\N76E003_iar.h</file>
+      <file>$TOOLKIT_DIR$\inc\clib\sysmac.h</file>
+      <file>$PROJ_DIR$\..\..\Include\Delay.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\SPI_Master_Po.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\SPI_Master_Po.r51</file>
+      <file>$PROJ_DIR$\..\..\..\..\Common\Common.c</file>
+      <file>$PROJ_DIR$\..\..\..\..\Include\SFR_Macro.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\Include\Function_define.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\Common\Delay.c</file>
+      <file>$PROJ_DIR$\..\..\..\..\Include\N76E003_iar.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\Include\Common.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\Include\Delay.h</file>
+    </outputs>
+    <file>
+      <name>$PROJ_DIR$\..\..\Common\Common.c</name>
+      <outputs>
+        <tool>
+          <name>ICC8051</name>
+          <file> 0</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 10</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICC8051</name>
+          <file> 18 9 20 13 14 11 4 19</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\Common\Delay.c</name>
+      <outputs>
+        <tool>
+          <name>ICC8051</name>
+          <file> 15</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 12</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICC8051</name>
+          <file> 18 9 20 13 14 11 4 19</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\Code\SPI_Master_Po.c</name>
+      <outputs>
+        <tool>
+          <name>ICC8051</name>
+          <file> 22</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 21</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICC8051</name>
+          <file> 27 24 25 11 4 19 28 29</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 27 24 25 11 4 19 28 29</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\Debug\Obj\SPI_Master_Polling.pbd</name>
+      <inputs>
+        <tool>
+          <name>BILINK</name>
+          <file> 10 12 21</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\Debug\Exe\SPI_Master_Polling.bin</name>
+      <inputs>
+        <tool>
+          <name>XLINK</name>
+          <file> 16 0 15 7 17</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\Common\Common.c</name>
+      <outputs>
+        <tool>
+          <name>ICC8051</name>
+          <file> 0</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 10</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICC8051</name>
+          <file> 27 28 29 24 25 11 4 19</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 27 28 29 24 25 11 4 19</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>[ROOT_NODE]</name>
+      <outputs>
+        <tool>
+          <name>XLINK</name>
+          <file> 6</file>
+        </tool>
+      </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\Common\Delay.c</name>
+      <outputs>
+        <tool>
+          <name>ICC8051</name>
+          <file> 15</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 12</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICC8051</name>
+          <file> 27 28 29 24 25 11 4 19</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 27 28 29 24 25 11 4 19</file>
+        </tool>
+      </inputs>
+    </file>
+    <forcedrebuild>
+      <name>[MULTI_TOOL]</name>
+      <tool>XLINK</tool>
+    </forcedrebuild>
+  </configuration>
+  <configuration>
+    <name>Release</name>
+    <outputs/>
+    <forcedrebuild>
+      <name>[MULTI_TOOL]</name>
+      <tool>XLINK</tool>
+    </forcedrebuild>
+    <forcedrebuild>
+      <name>[REBUILD_ALL]</name>
+    </forcedrebuild>
+  </configuration>
+</project>
+
+

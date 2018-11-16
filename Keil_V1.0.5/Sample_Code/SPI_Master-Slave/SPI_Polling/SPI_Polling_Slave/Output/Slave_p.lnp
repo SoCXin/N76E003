@@ -1,0 +1,7 @@
+".\Output\SPI_Slave_Po.obj",
+".\Output\Common.obj",
+".\Output\Delay.obj",
+".\Output\STARTUP.obj" 
+TO ".\Output\Slave_p" 
+PRINT(".\LST\Slave_p.m51") RAMSIZE(256) 
+DISABLEWARNING (16) 

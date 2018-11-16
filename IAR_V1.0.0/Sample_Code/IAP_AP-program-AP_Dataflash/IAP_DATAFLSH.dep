@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project>
+    <fileVersion>2</fileVersion>
+    <fileChecksum>4069126950</fileChecksum>
+    <configuration>
+        <name>Debug</name>
+        <outputs>
+            <file>$PROJ_DIR$\..\..\Common\Common.c</file>
+            <file>$PROJ_DIR$\..\..\Common\Delay.c</file>
+            <file>$PROJ_DIR$\Code\IAP_DATAFLASH.c</file>
+            <file>$PROJ_DIR$\Debug\Obj\Common.r51</file>
+            <file>$TOOLKIT_DIR$\inc\clib\stdarg.h</file>
+            <file>$PROJ_DIR$\Debug\Obj\Common.pbi</file>
+            <file>$PROJ_DIR$\Debug\Obj\IAP_DATAFLASH.r51</file>
+            <file>$PROJ_DIR$\..\..\Include\Common.h</file>
+            <file>$PROJ_DIR$\Debug\Exe\IAP_DATAFLSH.bin</file>
+            <file>$PROJ_DIR$\Debug\Obj\IAP_DATAFLSH.pbd</file>
+            <file>$TOOLKIT_DIR$\inc\clib\stdio.h</file>
+            <file>$PROJ_DIR$\Debug\Obj\Delay.pbi</file>
+            <file>$PROJ_DIR$\..\..\Include\SFR_Macro.h</file>
+            <file>$PROJ_DIR$\..\..\Include\Function_define.h</file>
+            <file>$PROJ_DIR$\Debug\Obj\Delay.r51</file>
+            <file>$TOOLKIT_DIR$\config\devices\_generic\lnk51ew_8052.xcl</file>
+            <file>$TOOLKIT_DIR$\lib\clib\cl-pli-nsid-1e16x01.r51</file>
+            <file>$PROJ_DIR$\..\..\Include\N76E003_iar.h</file>
+            <file>$TOOLKIT_DIR$\inc\clib\sysmac.h</file>
+            <file>$PROJ_DIR$\..\..\Include\Delay.h</file>
+            <file>$PROJ_DIR$\Debug\Obj\IAP_DATAFLASH.pbi</file>
+            <file>$PROJ_DIR$\Debug\Exe\IAP_DATAFLSH.d51</file>
+            <file>$PROJ_DIR$\Debug\Obj\IAP_DATAFLASH.__cstat.et</file>
+            <file>$PROJ_DIR$\Debug\Obj\Delay.__cstat.et</file>
+            <file>$PROJ_DIR$\Debug\Obj\Common.__cstat.et</file>
+            <file>$TOOLKIT_DIR$\config\devices\NuvoTon\lnk51ew_N76E003.xcl</file>
+        </outputs>
+        <file>
+            <name>[ROOT_NODE]</name>
+            <outputs>
+                <tool>
+                    <name>XLINK</name>
+                    <file> 21</file>
+                </tool>
+            </outputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\..\Common\Common.c</name>
+            <outputs>
+                <tool>
+                    <name>__cstat</name>
+                    <file> 24</file>
+                </tool>
+                <tool>
+                    <name>ICC8051</name>
+                    <file> 3</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 5</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICC8051</name>
+                    <file> 17 7 19 12 13 10 4 18</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 4 13 19 18 7 12 10 17</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\..\Common\Delay.c</name>
+            <outputs>
+                <tool>
+                    <name>__cstat</name>
+                    <file> 23</file>
+                </tool>
+                <tool>
+                    <name>ICC8051</name>
+                    <file> 14</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 11</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICC8051</name>
+                    <file> 17 7 19 12 13 10 4 18</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 4 13 19 7 12 18 17 10</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\Code\IAP_DATAFLASH.c</name>
+            <outputs>
+                <tool>
+                    <name>__cstat</name>
+                    <file> 22</file>
+                </tool>
+                <tool>
+                    <name>ICC8051</name>
+                    <file> 6</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 20</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICC8051</name>
+                    <file> 17 12 13 10 4 18 7 19</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 19 13 12 7 10 17 4 18</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\Debug\Exe\IAP_DATAFLSH.bin</name>
+            <inputs>
+                <tool>
+                    <name>XLINK</name>
+                    <file> 15 3 14 6 16</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\Debug\Exe\IAP_DATAFLSH.d51</name>
+            <inputs>
+                <tool>
+                    <name>XLINK</name>
+                    <file> 25 3 14 6 16</file>
+                </tool>
+            </inputs>
+        </file>
+    </configuration>
+    <configuration>
+        <name>Release</name>
+        <outputs />
+        <forcedrebuild>
+            <name>[MULTI_TOOL]</name>
+            <tool>XLINK</tool>
+        </forcedrebuild>
+        <forcedrebuild>
+            <name>[REBUILD_ALL]</name>
+        </forcedrebuild>
+    </configuration>
+</project>

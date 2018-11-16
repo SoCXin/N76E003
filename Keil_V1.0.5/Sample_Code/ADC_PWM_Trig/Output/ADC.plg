@@ -1,0 +1,17 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Project:</h2>
+C:\WorkFolder\0.Product_all\00.FA8265\N76E003_Release_201610\BSP\N76E003_BSP_C51_V1.0\Sample_Code\ADC_PWM_Trig\ADC_PWM.uvproj
+Project File Date:  08/23/2016
+
+<h2>Output:</h2>
+Rebuild target 'ADC'
+compiling ADC.C...
+compiling Common.c...
+assembling STARTUP_N76E003beta.A51...
+linking...
+Program Size: data=38.1 xdata=0 code=1886
+creating hex file from ".\Output\ADC_PWM"...
+".\Output\ADC_PWM" - 0 Error(s), 0 Warning(s).

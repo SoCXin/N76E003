@@ -1,0 +1,7 @@
+".\Output\SPI_Flash.obj",
+".\Output\Common.obj",
+".\Output\Delay.obj",
+".\Output\STARTUP.obj" 
+TO ".\Output\SPI_Flash" 
+PRINT(".\LST\SPI_Flash.m51") RAMSIZE(256) 
+DISABLEWARNING (16) 

@@ -1,0 +1,85 @@
+C51 COMPILER V9.52.0.0   UID_CHECK                                                         11/18/2016 11:12:57 PAGE 1   
+
+
+C51 COMPILER V9.52.0.0, COMPILATION OF MODULE UID_CHECK
+OBJECT MODULE PLACED IN .\Output\UID_check.obj
+COMPILER INVOKED BY: C:\Keil\C51\BIN\C51.EXE Code\UID_check.C BROWSE INCDIR(..\..\Common;..\..\Include) DEFINE(FOSC_1600
+                    -00) DEBUG OBJECTEXTEND PRINT(.\List\UID_check.lst) TABS(2) OBJECT(.\Output\UID_check.obj)
+
+line level    source
+
+   1          /*--------------------------------------------------------------------------------------------------------
+             --*/
+   2          /*                                                                                                        
+             - */
+   3          /* Copyright(c) 2015 Nuvoton Technology Corp. All rights reserved.                                        
+             - */
+   4          /*                                                                                                        
+             - */
+   5          /*--------------------------------------------------------------------------------------------------------
+             --*/
+   6          
+   7          //********************************************************************************************************
+             -***
+   8          //  Nuvoton Technoledge Corp. 
+   9          //  Website: http://www.nuvoton.com
+  10          //  E-Mail : MicroC-8bit@nuvoton.com
+  11          //  Date   : Apr/21/2016
+  12          //********************************************************************************************************
+             -***
+  13          
+  14          //********************************************************************************************************
+             -***
+  15          //  File Function: N76E003 Read actual bandgap value by IAP command
+  16          //********************************************************************************************************
+             -***
+  17          #include "N76E003.h"
+  18          #include "Common.h"
+  19          #include "Delay.h"
+  20          #include "SFR_Macro.h"
+  21          #include "Function_define.h"
+  22          
+  23          
+  24          double  Bandgap_Value,Bandgap_Voltage;      //please only use "double" mode for this
+  25          
+  26          void READ_BANDGAP()
+  27          {
+  28   1          UINT8 BandgapHigh,BandgapLow;
+  29   1          set_IAPEN;
+  30   1          IAPAL = 0x0C;
+  31   1          IAPAH = 0x00;
+  32   1          IAPCN = READ_UID;
+  33   1          set_IAPGO;
+  34   1          BandgapHigh = IAPFD;
+  35   1          IAPAL = 0x0d;
+  36   1          IAPAH = 0x00;
+  37   1          IAPCN = READ_UID;
+  38   1          set_IAPGO;
+  39   1          BandgapLow = IAPFD;
+  40   1          BandgapLow = BandgapLow&0x0F;
+  41   1          clr_IAPEN;
+  42   1          Bandgap_Value = (BandgapHigh<<4)+BandgapLow;
+  43   1          Bandgap_Voltage = 3072/(0x1000/Bandgap_Value);
+  44   1      }
+  45          
+C51 COMPILER V9.52.0.0   UID_CHECK                                                         11/18/2016 11:12:57 PAGE 2   
+
+  46          void main(void)
+  47          {
+  48   1        READ_BANDGAP();
+  49   1        while(1);
+  50   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    175    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =      8    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

@@ -1,0 +1,7 @@
+".\Output\IAP_BYTE.obj",
+".\Output\Common.obj",
+".\Output\Delay.obj",
+".\Output\STARTUP.obj" 
+TO ".\Output\IAP_BYTE" 
+PRINT(".\LST\IAP_BYTE.m51") RAMSIZE(256) 
+DISABLEWARNING (16) 

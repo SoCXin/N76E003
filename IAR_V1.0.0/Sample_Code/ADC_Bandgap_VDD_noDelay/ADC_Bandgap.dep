@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project>
+    <fileVersion>2</fileVersion>
+    <fileChecksum>3831429009</fileChecksum>
+    <configuration>
+        <name>Debug</name>
+        <outputs>
+            <file>$PROJ_DIR$\Code\ADC.C</file>
+            <file>$PROJ_DIR$\..\..\Common\Common.c</file>
+            <file>$PROJ_DIR$\..\..\Common\Delay.c</file>
+            <file>$PROJ_DIR$\Debug\Obj\main.r51</file>
+            <file>$PROJ_DIR$\..\..\Include\Function_define.h</file>
+            <file>$TOOLKIT_DIR$\lib\clib\cl-pli-nsid-1e16x01.r51</file>
+            <file>$PROJ_DIR$\Debug\Obj\ADC_Bandgap.pbd</file>
+            <file>$PROJ_DIR$\main.c</file>
+            <file>$PROJ_DIR$\Debug\Obj\main.pbi</file>
+            <file>$PROJ_DIR$\..\..\Include\N76E003_iar.h</file>
+            <file>$PROJ_DIR$\..\..\Include\SFR_Macro.h</file>
+            <file>$TOOLKIT_DIR$\inc\clib\stdio.h</file>
+            <file>$PROJ_DIR$\Debug\Obj\ADC.r51</file>
+            <file>$PROJ_DIR$\Debug\Obj\ADC.pbi</file>
+            <file>$PROJ_DIR$\Debug\Obj\Common.pbi</file>
+            <file>$PROJ_DIR$\Debug\Obj\Common.r51</file>
+            <file>$PROJ_DIR$\Debug\Obj\Delay.r51</file>
+            <file>$PROJ_DIR$\Debug\Obj\Delay.pbi</file>
+            <file>$TOOLKIT_DIR$\inc\clib\stdarg.h</file>
+            <file>$TOOLKIT_DIR$\inc\clib\sysmac.h</file>
+            <file>$PROJ_DIR$\..\..\Include\Delay.h</file>
+            <file>$PROJ_DIR$\..\..\Include\Common.h</file>
+            <file>$PROJ_DIR$\Debug\Exe\ADC_Bandgap.bin</file>
+            <file>$PROJ_DIR$\Debug\Obj\ADC.__cstat.et</file>
+            <file>$PROJ_DIR$\Debug\Obj\Common.__cstat.et</file>
+            <file>$PROJ_DIR$\Debug\Obj\Delay.__cstat.et</file>
+            <file>$TOOLKIT_DIR$\config\devices\NuvoTon\lnk51ew_N76E003.xcl</file>
+        </outputs>
+        <file>
+            <name>[ROOT_NODE]</name>
+            <outputs>
+                <tool>
+                    <name>XLINK</name>
+                    <file> 22</file>
+                </tool>
+            </outputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\Code\ADC.C</name>
+            <outputs>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 13</file>
+                </tool>
+                <tool>
+                    <name>ICC8051</name>
+                    <file> 12</file>
+                </tool>
+                <tool>
+                    <name>__cstat</name>
+                    <file> 23</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 20 4 18 19 10 21 11 9</file>
+                </tool>
+                <tool>
+                    <name>ICC8051</name>
+                    <file> 9 10 4 11 18 19 21 20</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\..\Common\Common.c</name>
+            <outputs>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 14</file>
+                </tool>
+                <tool>
+                    <name>ICC8051</name>
+                    <file> 15</file>
+                </tool>
+                <tool>
+                    <name>__cstat</name>
+                    <file> 24</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 18 4 20 19 21 10 11 9</file>
+                </tool>
+                <tool>
+                    <name>ICC8051</name>
+                    <file> 9 21 20 10 4 11 18 19</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\..\Common\Delay.c</name>
+            <outputs>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 17</file>
+                </tool>
+                <tool>
+                    <name>ICC8051</name>
+                    <file> 16</file>
+                </tool>
+                <tool>
+                    <name>__cstat</name>
+                    <file> 25</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 18 4 20 21 10 19 9 11</file>
+                </tool>
+                <tool>
+                    <name>ICC8051</name>
+                    <file> 9 21 20 10 4 11 18 19</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\main.c</name>
+            <outputs>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 8</file>
+                </tool>
+                <tool>
+                    <name>ICC8051</name>
+                    <file> 3</file>
+                </tool>
+            </outputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\Debug\Exe\ADC_Bandgap.bin</name>
+            <inputs>
+                <tool>
+                    <name>XLINK</name>
+                    <file> 26 12 15 16 5</file>
+                </tool>
+            </inputs>
+        </file>
+    </configuration>
+    <configuration>
+        <name>Release</name>
+        <outputs />
+        <forcedrebuild>
+            <name>[MULTI_TOOL]</name>
+            <tool>XLINK</tool>
+        </forcedrebuild>
+        <forcedrebuild>
+            <name>[REBUILD_ALL]</name>
+        </forcedrebuild>
+    </configuration>
+</project>

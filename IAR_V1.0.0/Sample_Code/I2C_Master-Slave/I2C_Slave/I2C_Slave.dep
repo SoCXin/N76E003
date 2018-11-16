@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project>
+    <fileVersion>2</fileVersion>
+    <fileChecksum>1264076488</fileChecksum>
+    <configuration>
+        <name>Debug</name>
+        <outputs>
+            <file>$PROJ_DIR$\..\..\..\Common\Common.c</file>
+            <file>$PROJ_DIR$\..\..\..\Common\Delay.c</file>
+            <file>$PROJ_DIR$\Code\I2C_S.c</file>
+            <file>$PROJ_DIR$\Debug\Obj\Common.r51</file>
+            <file>$PROJ_DIR$\..\..\Common\Common.c</file>
+            <file>$PROJ_DIR$\..\..\Common\Delay.c</file>
+            <file>$TOOLKIT_DIR$\inc\clib\stdarg.h</file>
+            <file>$PROJ_DIR$\Debug\Obj\I2C_Slave.pbd</file>
+            <file>$PROJ_DIR$\Debug\Exe\I2C_Slave.bin</file>
+            <file>$PROJ_DIR$\Debug\Obj\I2C_Slave.r51</file>
+            <file>$PROJ_DIR$\..\..\Include\Common.h</file>
+            <file>$PROJ_DIR$\Debug\Obj\Common.pbi</file>
+            <file>$TOOLKIT_DIR$\inc\clib\stdio.h</file>
+            <file>$PROJ_DIR$\Debug\Obj\Delay.pbi</file>
+            <file>$PROJ_DIR$\..\..\Include\SFR_Macro.h</file>
+            <file>$PROJ_DIR$\..\..\Include\Function_define.h</file>
+            <file>$PROJ_DIR$\Debug\Obj\Delay.r51</file>
+            <file>$TOOLKIT_DIR$\config\devices\_generic\lnk51ew_8052.xcl</file>
+            <file>$TOOLKIT_DIR$\lib\clib\cl-pli-nsid-1e16x01.r51</file>
+            <file>$PROJ_DIR$\..\..\Include\N76E003_iar.h</file>
+            <file>$TOOLKIT_DIR$\inc\clib\sysmac.h</file>
+            <file>$PROJ_DIR$\..\..\Include\Delay.h</file>
+            <file>$PROJ_DIR$\Debug\Obj\I2C_S.pbi</file>
+            <file>$PROJ_DIR$\Debug\Obj\I2C_S.r51</file>
+            <file>$PROJ_DIR$\..\..\..\Include\Function_define.h</file>
+            <file>$PROJ_DIR$\..\..\..\Include\SFR_Macro.h</file>
+            <file>$PROJ_DIR$\..\..\..\Include\N76E003_iar.h</file>
+            <file>$PROJ_DIR$\..\..\..\Include\Common.h</file>
+            <file>$PROJ_DIR$\..\..\..\Include\Delay.h</file>
+            <file>$PROJ_DIR$\Debug\Exe\I2C_Slave.d51</file>
+            <file>$PROJ_DIR$\Debug\Obj\I2C_S.__cstat.et</file>
+            <file>$PROJ_DIR$\Debug\Obj\Delay.__cstat.et</file>
+            <file>$PROJ_DIR$\Debug\Obj\Common.__cstat.et</file>
+            <file>$TOOLKIT_DIR$\config\devices\NuvoTon\lnk51ew_N76E003.xcl</file>
+        </outputs>
+        <file>
+            <name>[ROOT_NODE]</name>
+            <outputs>
+                <tool>
+                    <name>XLINK</name>
+                    <file> 29</file>
+                </tool>
+            </outputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\..\..\Common\Common.c</name>
+            <outputs>
+                <tool>
+                    <name>ICC8051</name>
+                    <file> 3</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 11</file>
+                </tool>
+                <tool>
+                    <name>__cstat</name>
+                    <file> 32</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICC8051</name>
+                    <file> 26 27 28 25 24 12 6 20</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 6 24 28 20 27 25 12 26</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\..\..\Common\Delay.c</name>
+            <outputs>
+                <tool>
+                    <name>ICC8051</name>
+                    <file> 16</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 13</file>
+                </tool>
+                <tool>
+                    <name>__cstat</name>
+                    <file> 31</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICC8051</name>
+                    <file> 26 27 28 25 24 12 6 20</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 6 24 28 27 25 20 26 12</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\Code\I2C_S.c</name>
+            <outputs>
+                <tool>
+                    <name>ICC8051</name>
+                    <file> 23</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 22</file>
+                </tool>
+                <tool>
+                    <name>__cstat</name>
+                    <file> 30</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICC8051</name>
+                    <file> 26 27 28 25 24 12 6 20</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 6 24 28 27 25 12 20 26</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\..\Common\Common.c</name>
+            <outputs>
+                <tool>
+                    <name>ICC8051</name>
+                    <file> 3</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 11</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICC8051</name>
+                    <file> 19 10 21 14 15 12 6 20</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\..\Common\Delay.c</name>
+            <outputs>
+                <tool>
+                    <name>ICC8051</name>
+                    <file> 16</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 13</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICC8051</name>
+                    <file> 19 10 21 14 15 12 6 20</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\Debug\Exe\I2C_Slave.bin</name>
+            <inputs>
+                <tool>
+                    <name>XLINK</name>
+                    <file> 17 3 16 9 18</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\Debug\Exe\I2C_Slave.d51</name>
+            <inputs>
+                <tool>
+                    <name>XLINK</name>
+                    <file> 33 3 16 23 18</file>
+                </tool>
+            </inputs>
+        </file>
+        <forcedrebuild>
+            <name>$PROJ_DIR$\..\..\Common\Common.c</name>
+            <tool>ICC8051</tool>
+        </forcedrebuild>
+        <forcedrebuild>
+            <name>$PROJ_DIR$\..\..\Common\Delay.c</name>
+            <tool>ICC8051</tool>
+        </forcedrebuild>
+    </configuration>
+    <configuration>
+        <name>Release</name>
+        <outputs />
+        <forcedrebuild>
+            <name>[MULTI_TOOL]</name>
+            <tool>XLINK</tool>
+        </forcedrebuild>
+        <forcedrebuild>
+            <name>[REBUILD_ALL]</name>
+        </forcedrebuild>
+    </configuration>
+</project>

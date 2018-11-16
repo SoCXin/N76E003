@@ -1,0 +1,94 @@
+C51 COMPILER V9.52.0.0   UID_CHECK                                                         11/18/2016 10:58:19 PAGE 1   
+
+
+C51 COMPILER V9.52.0.0, COMPILATION OF MODULE UID_CHECK
+OBJECT MODULE PLACED IN .\Output\UID_check.obj
+COMPILER INVOKED BY: C:\Keil\C51\BIN\C51.EXE Code\UID_check.C BROWSE INCDIR(..\..\Common;..\..\Include) DEFINE(FOSC_1600
+                    -00) DEBUG OBJECTEXTEND PRINT(.\List\UID_check.lst) TABS(2) OBJECT(.\Output\UID_check.obj)
+
+line level    source
+
+   1          /*--------------------------------------------------------------------------------------------------------
+             --*/
+   2          /*                                                                                                        
+             - */
+   3          /* Copyright(c) 2016 Nuvoton Technology Corp. All rights reserved.                                        
+             - */
+   4          /*                                                                                                        
+             - */
+   5          /*--------------------------------------------------------------------------------------------------------
+             --*/
+   6          
+   7          //********************************************************************************************************
+             -***
+   8          //  Nuvoton Technoledge Corp. 
+   9          //  Website: http://www.nuvoton.com
+  10          //  E-Mail : MicroC-8bit@nuvoton.com
+  11          //  Date   : Apr/21/2016
+  12          //********************************************************************************************************
+             -***
+  13          
+  14          //********************************************************************************************************
+             -***
+  15          //  File Function: N76E003 read HIRC and modify to 16.6MHz demo code
+  16          //********************************************************************************************************
+             -***
+  17          #include "N76E003.h"
+  18          #include "Common.h"
+  19          #include "Delay.h"
+  20          #include "SFR_Macro.h"
+  21          #include "Function_define.h"
+  22          
+  23          UINT8 hircmap0,hircmap1;
+  24          UINT16 trimvalue16bit;
+  25          
+  26          void MODIFY_HIRC_VLAUE(void)
+  27          {
+  28   1          set_IAPEN;
+  29   1          IAPAL = 0x30;
+  30   1          IAPAH = 0x00;
+  31   1          IAPCN = READ_UID;
+  32   1          set_IAPGO;
+  33   1          hircmap0 = IAPFD;
+  34   1          IAPAL = 0x31;
+  35   1          IAPAH = 0x00;
+  36   1          set_IAPGO;
+  37   1          hircmap1 = IAPFD;
+  38   1          clr_IAPEN;
+  39   1          trimvalue16bit = ((hircmap0<<1)+(hircmap1&0x01));
+  40   1          trimvalue16bit = trimvalue16bit - 15;
+  41   1          hircmap1 = trimvalue16bit&0x01;
+  42   1          hircmap0 = trimvalue16bit>>1;
+  43   1          TA=0XAA;
+  44   1          TA=0X55;
+  45   1          RCTRIM0 = hircmap0;
+C51 COMPILER V9.52.0.0   UID_CHECK                                                         11/18/2016 10:58:19 PAGE 2   
+
+  46   1          TA=0XAA;
+  47   1          TA=0X55;
+  48   1          RCTRIM1 = hircmap1;
+  49   1      }
+  50          
+  51          void main(void)
+  52          {
+  53   1        CKDIV = 0x00;
+  54   1        P11_PushPull_Mode;
+  55   1        MODIFY_HIRC_VLAUE();
+  56   1        CKDIV = 0x50;         //HIRC devider 160
+  57   1        set_CLOEN;            //Check HIRC out wavefrom to confirm the HIRC modified
+  58   1        while(1);
+  59   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    183    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =      4    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

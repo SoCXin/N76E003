@@ -1,0 +1,7 @@
+".\Output\ADC_BG_VDD_avg_new.obj",
+".\Output\Common.obj",
+".\Output\Delay.obj",
+".\Output\STARTUP.obj" 
+TO ".\Output\ADC_Bandgap_VDD" 
+PRINT(".\LST\ADC_Bandgap_VDD.m51") RAMSIZE(256) 
+DISABLEWARNING (16) 

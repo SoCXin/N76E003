@@ -1,0 +1,159 @@
+C51 COMPILER V9.52.0.0   IAP_DATAFLASH                                                     07/06/2017 13:05:38 PAGE 1   
+
+
+C51 COMPILER V9.52.0.0, COMPILATION OF MODULE IAP_DATAFLASH
+OBJECT MODULE PLACED IN .\Output\IAP_DATAFLASH.obj
+COMPILER INVOKED BY: C:\Keil\C51\BIN\C51.EXE Code\IAP_DATAFLASH.c BROWSE INCDIR(..\..\Include) DEFINE(FOSC_160000) DEBUG
+                    - OBJECTEXTEND PRINT(.\LST\IAP_DATAFLASH.lst) TABS(2) OBJECT(.\Output\IAP_DATAFLASH.obj)
+
+line level    source
+
+   1          /*--------------------------------------------------------------------------------------------------------
+             --*/
+   2          /*                                                                                                        
+             - */
+   3          /* Copyright(c) 2017 Nuvoton Technology Corp. All rights reserved.                                        
+             - */
+   4          /*                                                                                                        
+             - */
+   5          /*--------------------------------------------------------------------------------------------------------
+             --*/
+   6          
+   7          //********************************************************************************************************
+             -***
+   8          //  Nuvoton Technoledge Corp. 
+   9          //  Website: http://www.nuvoton.com
+  10          //  E-Mail : MicroC-8bit@nuvoton.com
+  11          //  Date   : Apr/21/2017
+  12          //********************************************************************************************************
+             -***
+  13          
+  14          //********************************************************************************************************
+             -***
+  15          //  File Function: N76E003 CONFIG program demo code
+  16          //********************************************************************************************************
+             -***
+  17          
+  18          #include "N76E003.h"
+  19          #include "Common.h"
+  20          #include "Delay.h"
+  21          #include "SFR_Macro.h"
+  22          #include "Function_define.h"
+  23          
+  24          /*
+  25            Since the DATAFLASH is in the APROM. Program command is same as program APROM
+  26          */
+  27          
+  28          #define     PAGE_ERASE_CF       0xE2
+  29          #define     BYTE_READ_CF        0xC0
+  30          #define     BYTE_PROGRAM_CF     0xE1
+  31          
+  32          #define     ERASE_FAIL          0x70
+  33          #define     PROGRAM_FAIL        0x71
+  34          #define     IAPFF_FAIL          0x72
+  35          #define     IAP_PASS            0x00
+  36          
+  37              
+  38          
+  39          /********************************************************************************************
+  40           Following IAP command register is also define in SFR_Macro.h
+  41           
+  42            #define set_IAPEN   BIT_TMP=EA;EA=0;TA=0xAA;TA=0x55;CHPCON |= SET_BIT0 ;EA=BIT_TMP
+  43            #define clr_IAPEN   BIT_TMP=EA;EA=0;TA=0xAA;TA=0x55;CHPCON &= ~SET_BIT0;EA=BIT_TMP
+  44            #define set_CFUEN   BIT_TMP=EA;EA=0;TA=0xAA;TA=0x55;IAPUEN|=SET_BIT2;EA=BIT_TMP
+  45            #define clr_CFUEN   BIT_TMP=EA;EA=0;TA=0xAA;TA=0x55;IAPUEN&=~SET_BIT2;EA=BIT_TMP
+C51 COMPILER V9.52.0.0   IAP_DATAFLASH                                                     07/06/2017 13:05:38 PAGE 2   
+
+  46          **********************************************************************************************/
+  47          void IAP_ERROR_LED(void)
+  48          {
+  49   1        while (1)
+  50   1        {
+  51   2          clr_P03;
+  52   2          Timer0_Delay1ms(100);
+  53   2          set_P03;
+  54   2          Timer0_Delay1ms(100);
+  55   2        }
+  56   1      
+  57   1      }
+  58          
+  59          //--------------------------------------------------------------------------------------------------------
+             ----/
+  60          void Trigger_IAP(void)
+  61          {   
+  62   1          set_IAPGO;                                  //trigger IAP
+  63   1          if((CHPCON&SET_BIT6)==SET_BIT6)             // if fail flag is set, toggle error LED and IAP stop
+  64   1          {
+  65   2            clr_IAPFF;
+  66   2            IAP_ERROR_LED();
+  67   2          }
+  68   1      }
+  69          /*
+  70              WARNING:
+  71            No matter read or writer, when IAPFF is set 1, 
+  72            this step process is fail. DATA should be ignore.
+  73          */
+  74          //--------------------------------------------------------------------------------------------------------
+             ----/
+  75          
+  76          /*********************************************************************************************************
+             -********
+  77          Write CONFIG subroutine:
+  78          **********************************************************************************************************
+             -********/    
+  79          
+  80          void Enable_WDT_Reset_Config(void)
+  81          {
+  82   1          set_IAPEN;                                  // Enable IAP function
+  83   1          IAPAL = 0x04;
+  84   1          IAPAH = 0x00;
+  85   1          IAPFD = 0x0F;
+  86   1          IAPCN = BYTE_PROGRAM_CF;
+  87   1          set_CFUEN;                                  // Enable CONFIG writer bit
+  88   1          set_IAPGO;                                  //trigger IAP
+  89   1          while((CHPCON&SET_BIT6)==SET_BIT6);          //check IAPFF (CHPCON.6)
+  90   1          clr_CFUEN;
+  91   1          clr_IAPEN;
+  92   1      }
+  93          //--------------------------------------------------------------------------------------------------------
+             ----
+  94          
+  95          //--------------------------------------------------------------------------------------------------------
+             ----
+  96          void main (void) 
+  97          {
+  98   1      
+  99   1        Set_All_GPIO_Quasi_Mode;
+ 100   1      //---------toggle GPIO1---------  
+ 101   1        clr_GPIO1;
+C51 COMPILER V9.52.0.0   IAP_DATAFLASH                                                     07/06/2017 13:05:38 PAGE 3   
+
+ 102   1        Timer0_Delay1ms(100);
+ 103   1        set_GPIO1;
+ 104   1        Timer0_Delay1ms(100);
+ 105   1        clr_GPIO1;
+ 106   1        Timer0_Delay1ms(100);
+ 107   1        set_GPIO1;
+ 108   1        Timer0_Delay1ms(100);
+ 109   1      //---------end toggle GPIO1---------
+ 110   1        
+ 111   1          Enable_WDT_Reset_Config();
+ 112   1          while(1);
+ 113   1      }
+ 114          //--------------------------------------------------------------------------------------------------------
+             ----
+ 115          
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    255    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

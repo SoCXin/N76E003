@@ -1,0 +1,210 @@
+C51 COMPILER V9.52.0.0   SPI_MASTER_INT                                                    02/09/2017 15:36:24 PAGE 1   
+
+
+C51 COMPILER V9.52.0.0, COMPILATION OF MODULE SPI_MASTER_INT
+OBJECT MODULE PLACED IN .\Output\SPI_Master_Int.obj
+COMPILER INVOKED BY: C:\Keil\C51\BIN\C51.EXE Code\SPI_Master_Int.c BROWSE INCDIR(..\..\..\..\Include) DEFINE(FOSC_160000
+                    -) DEBUG OBJECTEXTEND PRINT(.\LST\SPI_Master_Int.lst) TABS(2) OBJECT(.\Output\SPI_Master_Int.obj)
+
+line level    source
+
+   1          /*--------------------------------------------------------------------------------------------------------
+             --*/
+   2          /*                                                                                                        
+             - */
+   3          /* Copyright(c) 2017 Nuvoton Technology Corp. All rights reserved.                                        
+             - */
+   4          /*                                                                                                        
+             - */
+   5          /*--------------------------------------------------------------------------------------------------------
+             --*/
+   6          
+   7          //********************************************************************************************************
+             -***
+   8          //  Website: http://www.nuvoton.com
+   9          //  E-Mail : MicroC-8bit@nuvoton.com
+  10          //  Date   : Jan/21/2017
+  11          //********************************************************************************************************
+             -***
+  12          
+  13          //********************************************************************************************************
+             -***
+  14          //  File Function: N76E003 SPI in Master mode demo code
+  15          //********************************************************************************************************
+             -***
+  16          
+  17          #include "N76E003.h"
+  18          #include "SFR_Macro.h"
+  19          #include "Function_define.h"
+  20          #include "Common.h"
+  21          #include "Delay.h"
+  22          
+  23          //********************************************************************************************************
+             -***
+  24          //  Application: SPI Function 
+  25          //  Master send 0x90 and recevie 0x4E
+  26          //  Master send 0x01 and recevie 0x55
+  27          //  Master send 0x02 and recevie 0x56
+  28          //  Master send 0x03 and recevie 0x4F
+  29          //  Master send 0x04 and recevie 0x54
+  30          //
+  31          //  Master recevie 0x4E and 0x4F form slave after transmitting
+  32          //
+  33          //  Output : P1.4 & P2.1 flash when SPI pass
+  34          //           UART show result on hyper-terminal
+  35          //           P0.7 flash when SPI error
+  36          //********************************************************************************************************
+             -***
+  37          
+  38          #if 0
+              ///*****************************************************************************************
+              //* For ADC INIT setting 
+              //*****************************************************************************************/
+              //#define   SPICLK_DIV2     clr_SPR0;clr_SPR1
+              //#define   SPICLK_DIV4     set_SPR0;clr_SPR1
+C51 COMPILER V9.52.0.0   SPI_MASTER_INT                                                    02/09/2017 15:36:24 PAGE 2   
+
+              //#define   SPICLK_DIV8     clr_SPR0;set_SPR1
+              //#define   SPICLK_DIV16    set_SPR0;set_SPR1
+              //#define   Enable_SPI_Interrupt    set_ESPI;set_EA
+              //#define   SS    P15
+              #endif
+  49          
+  50          //--------------------------------------------------------------------------------------------------------
+             ----
+  51          void SPI_Error(void)
+  52          {
+  53   1          printf ("\nSPI error.\n");
+  54   1          while(1)                                    // SPI error and P0.7 flash/
+  55   1          {
+  56   2              P07 = 1;
+  57   2              Timer0_Delay1ms(500);
+  58   2              P07 = 0;
+  59   2              Timer0_Delay1ms(500);
+  60   2          }
+  61   1        }
+  62          //--------------------------------------------------------------------------------------------------------
+             ----
+  63          void SPI_Initial(void)
+  64          {              
+  65   1          P15_Quasi_Mode;                           // P15 (SS) Quasi mode
+  66   1          P10_Quasi_Mode;                           // P10(SPCLK) Quasi mode
+  67   1          P00_Quasi_Mode;                           // P00 (MOSI) Quasi mode
+  68   1          P01_Quasi_Mode;                           // P22 (MISO) Quasi mode
+  69   1                  
+  70   1          set_DISMODF;                              // SS General purpose I/O ( No Mode Fault ) 
+  71   1          clr_SSOE;
+  72   1         
+  73   1          clr_LSBFE;                                // MSB first         
+  74   1      
+  75   1          clr_CPOL;                                 // The SPI clock is low in idle mode
+  76   1          set_CPHA;                                 // The data is sample on the second edge of SPI clock 
+  77   1          
+  78   1          set_MSTR;                                 // SPI in Master mode 
+  79   1           
+  80   1          SPICLK_DIV2;                              // Select SPI clock
+  81   1          Enable_SPI_Interrupt;                     // Enable SPI interrupt
+  82   1          set_SPIEN;                                // Enable SPI function 
+  83   1      }
+  84          //--------------------------------------------------------------------------------------------------------
+             ----
+  85          void Start_Sending_SPI(UINT8 *pu8MID,UINT8 *pu8DID)
+  86          {
+  87   1          SS = 0;
+  88   1      
+  89   1          SPDR = 0x90;                                // Send 0x90 to Slave 
+  90   1          PCON |= SET_BIT0;                           // Enter idle mode
+  91   1          if(SPDR != 0x4E)                            // Receive slave 1st DATA 
+  92   1             SPI_Error(); 
+  93   1          printf ("\nSlave Return %c!\n",SPDR);
+  94   1                                                
+  95   1          SPDR = 0x01;                                // Send 0x01 to Slave 
+  96   1          PCON |= SET_BIT0;                           // Enter idle mode
+  97   1          if(SPDR != 0x55)                            // Receive slave 2nd DATA  
+  98   1             SPI_Error();
+  99   1          printf ("\nSlave Return %c!\n",SPDR);
+ 100   1      
+ 101   1          SPDR = 0x02;                                // Send 0x02 to Slave 
+ 102   1          PCON |= SET_BIT0;                           // Enter idle mode
+C51 COMPILER V9.52.0.0   SPI_MASTER_INT                                                    02/09/2017 15:36:24 PAGE 3   
+
+ 103   1          if(SPDR != 0x56)                            // Receive slave 3rd DATA 
+ 104   1             SPI_Error();
+ 105   1          printf ("\nSlave Return %c!\n",SPDR);
+ 106   1      
+ 107   1          SPDR = 0x03;                                // Send 0x03 to Slave 
+ 108   1          PCON |= SET_BIT0;                           // Enter idle mode
+ 109   1          if(SPDR != 0x4F)                            // Receive slave 4th DATA
+ 110   1             SPI_Error();
+ 111   1          printf ("\nSlave Return %c!\n",SPDR);
+ 112   1      
+ 113   1          SPDR = 0x04;                                // Send 0x04 to Slave 
+ 114   1          PCON |= SET_BIT0;                           // Enter idle mode
+ 115   1          if(SPDR != 0x54)                            // Receive slave 5th DATA 
+ 116   1             SPI_Error();
+ 117   1          printf ("\nSlave Return %c!\n",SPDR);
+ 118   1      
+ 119   1          SPDR = 0x4F;                   
+ 120   1          PCON |= SET_BIT0;                           // Enter idle mode
+ 121   1          *pu8MID = SPDR;                             // Receive Slave 1st DATA fron Slave       
+ 122   1          printf ("\nSlave Return %c!\n",SPDR);
+ 123   1      
+ 124   1          SPDR = 0x4E;                   
+ 125   1          PCON |= SET_BIT0;                           // Enter idle mode             
+ 126   1          *pu8DID = SPDR;                             // Receive Slave 2nd DATA from Slave 
+ 127   1          printf ("\nSlave Return %c!\n",SPDR);
+ 128   1      
+ 129   1          SS = 1;    
+ 130   1      }
+ 131          //--------------------------------------------------------------------------------------------------------
+             ----
+ 132          void main(void)
+ 133          {      
+ 134   1          UINT8 u8MID,u8DID;
+ 135   1          
+ 136   1          Set_All_GPIO_Quasi_Mode;
+ 137   1          InitialUART0_Timer1(115200);             /* 115200 Baud Rate*/
+ 138   1      
+ 139   1          SPI_Initial();
+ 140   1      
+ 141   1          printf ("\nSPI Start Transmit...\n");
+ 142   1      
+ 143   1          Start_Sending_SPI(&u8MID,&u8DID);
+ 144   1              
+ 145   1          if((u8MID != 0x4F)&&(u8DID != 0x4E))
+ 146   1              SPI_Error();
+ 147   1      
+ 148   1          printf ("\nSPI Test OK!\n");
+ 149   1          while(1)                                    // SPI transmission finish
+ 150   1          {
+ 151   2              P12 = 1;
+ 152   2              Timer0_Delay1ms(500);
+ 153   2              P12 = 0;
+ 154   2              Timer0_Delay1ms(500);
+ 155   2          }
+ 156   1      }
+ 157          //--------------------------------------------------------------------------------------------------------
+             ----
+ 158          void SPI_ISR(void) interrupt 9                  // Vecotr @  0x4B
+ 159          {
+ 160   1          clr_SPIF;
+ 161   1          Timer3_Delay10us(1); 
+ 162   1      }
+C51 COMPILER V9.52.0.0   SPI_MASTER_INT                                                    02/09/2017 15:36:24 PAGE 4   
+
+ 163          //--------------------------------------------------------------------------------------------------------
+             ----
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    472    ----
+   CONSTANT SIZE    =     71    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----       8
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

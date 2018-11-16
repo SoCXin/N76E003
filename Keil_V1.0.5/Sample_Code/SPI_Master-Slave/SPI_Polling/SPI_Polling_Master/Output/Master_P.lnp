@@ -1,0 +1,7 @@
+".\Output\SPI_Master_Po.obj",
+".\Output\Common.obj",
+".\Output\Delay.obj",
+".\Output\STARTUP.obj" 
+TO ".\Output\Master_P" 
+PRINT(".\LST\Master_P.m51") RAMSIZE(256) 
+DISABLEWARNING (16) 

@@ -1,0 +1,6 @@
+".\Output\ADC.obj",
+".\Output\Common.obj",
+".\Output\STARTUP.obj" 
+TO ".\Output\ADC_PWM" 
+PRINT(".\LST\ADC_PWM.m51") RAMSIZE(256) 
+DISABLEWARNING (16) 

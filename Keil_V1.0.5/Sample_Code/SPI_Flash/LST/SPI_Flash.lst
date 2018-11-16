@@ -1,0 +1,355 @@
+C51 COMPILER V9.52.0.0   SPI_FLASH                                                         07/06/2017 11:40:54 PAGE 1   
+
+
+C51 COMPILER V9.52.0.0, COMPILATION OF MODULE SPI_FLASH
+OBJECT MODULE PLACED IN .\Output\SPI_Flash.obj
+COMPILER INVOKED BY: C:\Keil\C51\BIN\C51.EXE Code\SPI_Flash.c BROWSE INCDIR(..\..\Include) DEFINE(FOSC_160000) DEBUG OBJ
+                    -ECTEXTEND PRINT(.\LST\SPI_Flash.lst) TABS(2) OBJECT(.\Output\SPI_Flash.obj)
+
+line level    source
+
+   1          /*--------------------------------------------------------------------------------------------------------
+             --*/
+   2          /*                                                                                                        
+             - */
+   3          /* Copyright(c) 2017 Nuvoton Technology Corp. All rights reserved.                                        
+             - */
+   4          /*                                                                                                        
+             - */
+   5          /*--------------------------------------------------------------------------------------------------------
+             --*/
+   6          
+   7          //********************************************************************************************************
+             -***
+   8          //  Website: http://www.nuvoton.com
+   9          //  E-Mail : MicroC-8bit@nuvoton.com
+  10          //  Date   : Jan/21/2017
+  11          //********************************************************************************************************
+             -***
+  12          
+  13          //********************************************************************************************************
+             -***
+  14          //  File Function: N76E003 Access SPI Flash (W25Q16BV) demo code
+  15          //********************************************************************************************************
+             -***
+  16          #include "N76E003.h"
+  17          #include "SFR_Macro.h"
+  18          #include "Function_define.h"
+  19          #include "Common.h"
+  20          #include "Delay.h"
+  21          
+  22          
+  23          #define SPI_CLOCK       0
+  24          
+  25          #define SS_PIN          P15
+  26          #define WRITE_ENABLE    0x06
+  27          #define WRITE_DISABLE   0x04
+  28          #define READ_DATA       0x03
+  29          #define PAGE_PROGRAM    0x02
+  30          #define CHIP_ERASE      0xC7
+  31          #define READ_STATUS1    0x05
+  32          
+  33          //--------------------------------------------------------------------------------------------------------
+             ----
+  34          void SPI_Error(void)
+  35          {
+  36   1          printf ("\n*  SPI Error, please check the connection between MCU and SPI Flash");
+  37   1          while(1);
+  38   1      }
+  39          //--------------------------------------------------------------------------------------------------------
+             ----
+  40          void SPI_Initial(void)
+  41          {
+  42   1          #if   SPI_CLOCK == 0
+  43   1                  clr_SPR1;
+C51 COMPILER V9.52.0.0   SPI_FLASH                                                         07/06/2017 11:40:54 PAGE 2   
+
+  44   1                  clr_SPR0;
+  45   1          #elif SPI_CLOCK == 1
+                          clr_SPR1;
+                          set_SPR0;
+                  #elif SPI_CLOCK == 2
+                          set_SPR1;  
+                          clr_SPR0;
+                  #elif SPI_CLOCK == 3
+                          set_SPR1;
+                          set_SPR0;
+                  #endif
+  55   1      
+  56   1          /* /SS General purpose I/O ( No Mode Fault ) */
+  57   1          set_DISMODF;
+  58   1          clr_SSOE;
+  59   1      
+  60   1          /* SPI in Master mode */
+  61   1          set_MSTR;
+  62   1      
+  63   1          /* MSB first */
+  64   1          clr_LSBFE;
+  65   1      
+  66   1          clr_CPOL;
+  67   1          clr_CPHA;
+  68   1          
+  69   1          /* Enable SPI function */
+  70   1          set_SPIEN;
+  71   1      }
+  72          //--------------------------------------------------------------------------------------------------------
+             ----
+  73          void Read_MID_DID(UINT8 *pu8MID,UINT8 *pu8DID)
+  74          {
+  75   1          SS_PIN = 0;
+  76   1          SPDR = 0x90;
+  77   1          while((SPSR&0x80)==0x00);
+  78   1          clr_SPIF;
+  79   1      
+  80   1          SPDR = 0x00;
+  81   1          while((SPSR&0x80)==0x00);
+  82   1          clr_SPIF;
+  83   1      
+  84   1          SPDR = 0x00;
+  85   1          while((SPSR&0x80)==0x00);
+  86   1          clr_SPIF;
+  87   1      
+  88   1          SPDR = 0x00;
+  89   1          while((SPSR&0x80)==0x00);
+  90   1          clr_SPIF;
+  91   1      
+  92   1          SPDR = 0xFF;
+  93   1          while((SPSR&0x80)==0x00);
+  94   1          *pu8MID = SPDR;
+  95   1          clr_SPIF;
+  96   1      
+  97   1          SPDR = 0xFF;
+  98   1          while((SPSR&0x80)==0x00);
+  99   1          *pu8DID = SPDR;
+ 100   1          clr_SPIF;
+ 101   1          SS_PIN = 1;    
+ 102   1      }
+ 103          //--------------------------------------------------------------------------------------------------------
+             ----
+C51 COMPILER V9.52.0.0   SPI_FLASH                                                         07/06/2017 11:40:54 PAGE 3   
+
+ 104          void Flash_Write_Enable(void)
+ 105          {
+ 106   1          SS_PIN = 0;
+ 107   1          SPDR = WRITE_ENABLE;
+ 108   1          while((SPSR&0x80)==0x00);
+ 109   1          clr_SPIF;
+ 110   1          SS_PIN = 1;    
+ 111   1      }
+ 112          //--------------------------------------------------------------------------------------------------------
+             ----
+ 113          void Flash_Write_Disable(void)
+ 114          {
+ 115   1          SS_PIN = 0;
+ 116   1          SPDR = WRITE_DISABLE;
+ 117   1          while((SPSR&0x80)==0x00);
+ 118   1          clr_SPIF;
+ 119   1          SS_PIN = 1;    
+ 120   1      }
+ 121          //--------------------------------------------------------------------------------------------------------
+             ----
+ 122          void Flash_Chip_Erase(void)
+ 123          {
+ 124   1          SS_PIN = 0;
+ 125   1          SPDR = CHIP_ERASE;
+ 126   1          while((SPSR&0x80)==0x00);
+ 127   1          clr_SPIF;
+ 128   1          SS_PIN = 1;    
+ 129   1      }
+ 130          //--------------------------------------------------------------------------------------------------------
+             ----
+ 131          void Flash_Read_Status(void)
+ 132          {
+ 133   1          UINT8 u8Status;
+ 134   1      
+ 135   1          SS_PIN = 0;
+ 136   1          do{
+ 137   2              SPDR = READ_STATUS1;
+ 138   2              while((SPSR&0x80)==0x00);
+ 139   2              clr_SPIF;
+ 140   2          
+ 141   2              SPDR = 0xFF;
+ 142   2              while((SPSR&0x80)==0x00);
+ 143   2              u8Status = SPDR;
+ 144   2              clr_SPIF;
+ 145   2          }while((u8Status&0x01)==0x01);
+ 146   1          SS_PIN = 1;    
+ 147   1      }
+ 148          //--------------------------------------------------------------------------------------------------------
+             ----
+ 149          void Flash_Erase_Verify(void)
+ 150          {
+ 151   1          UINT16 u16CNT;    
+ 152   1          UINT8  u8Data;
+ 153   1      
+ 154   1          SS_PIN = 0;
+ 155   1      
+ 156   1          SPDR = READ_DATA;
+ 157   1          while((SPSR&0x80)==0x00);
+ 158   1          clr_SPIF;
+ 159   1      
+ 160   1          /* 24-bit Address */
+ 161   1          SPDR = 0x00;
+C51 COMPILER V9.52.0.0   SPI_FLASH                                                         07/06/2017 11:40:54 PAGE 4   
+
+ 162   1          while((SPSR&0x80)==0x00);
+ 163   1          clr_SPIF;
+ 164   1      
+ 165   1          SPDR = 0x00;
+ 166   1          while((SPSR&0x80)==0x00);
+ 167   1          clr_SPIF;
+ 168   1      
+ 169   1          SPDR = 0x00;
+ 170   1          while((SPSR&0x80)==0x00);
+ 171   1          clr_SPIF;
+ 172   1      
+ 173   1          for(u16CNT=0;u16CNT<256;u16CNT++)
+ 174   1          {
+ 175   2              SPDR = 0x00;
+ 176   2              while((SPSR&0x80)==0x00);
+ 177   2              u8Data = SPDR;
+ 178   2              clr_SPIF;
+ 179   2              if(u8Data != 0xFF)
+ 180   2              {
+ 181   3                  SPI_Error();
+ 182   3              }
+ 183   2          }
+ 184   1      
+ 185   1          SS_PIN = 1; 
+ 186   1      }
+ 187          //--------------------------------------------------------------------------------------------------------
+             ----
+ 188          void Flash_Program(void)
+ 189          {
+ 190   1          UINT16 u16CNT; 
+ 191   1          
+ 192   1          SS_PIN = 0;
+ 193   1      
+ 194   1          SPDR = PAGE_PROGRAM;
+ 195   1          while((SPSR&0x80)==0x00);
+ 196   1          clr_SPIF;
+ 197   1      
+ 198   1          /* 24-bit Address */
+ 199   1          SPDR = 0x00;
+ 200   1          while((SPSR&0x80)==0x00);
+ 201   1          clr_SPIF;
+ 202   1      
+ 203   1          SPDR = 0x00;
+ 204   1          while((SPSR&0x80)==0x00);
+ 205   1          clr_SPIF;
+ 206   1      
+ 207   1          SPDR = 0x00;
+ 208   1          while((SPSR&0x80)==0x00);
+ 209   1          clr_SPIF;
+ 210   1      
+ 211   1          /* Send the data to SPI_Flash buffer */
+ 212   1          for(u16CNT=0;u16CNT<256;u16CNT++)
+ 213   1          {
+ 214   2              SPDR = (UINT8)u16CNT;
+ 215   2              while((SPSR&0x80)==0x00);
+ 216   2              clr_SPIF;
+ 217   2          }
+ 218   1          
+ 219   1          SS_PIN = 1;    
+ 220   1      }
+ 221          //--------------------------------------------------------------------------------------------------------
+             ----
+C51 COMPILER V9.52.0.0   SPI_FLASH                                                         07/06/2017 11:40:54 PAGE 5   
+
+ 222          void Flash_Program_Verify(void)
+ 223          {
+ 224   1          UINT16 u16CNT;    
+ 225   1          UINT8  u8Data;
+ 226   1      
+ 227   1          SS_PIN = 0;
+ 228   1      
+ 229   1          SPDR = READ_DATA;
+ 230   1          while((SPSR&0x80)==0x00);
+ 231   1          clr_SPIF;
+ 232   1      
+ 233   1          /* 24-bit Address */
+ 234   1          SPDR = 0x00;
+ 235   1          while((SPSR&0x80)==0x00);
+ 236   1          clr_SPIF;
+ 237   1      
+ 238   1          SPDR = 0x00;
+ 239   1          while((SPSR&0x80)==0x00);
+ 240   1          clr_SPIF;
+ 241   1      
+ 242   1          SPDR = 0x00;
+ 243   1          while((SPSR&0x80)==0x00);
+ 244   1          clr_SPIF;
+ 245   1      
+ 246   1          for(u16CNT=0;u16CNT<256;u16CNT++)
+ 247   1          {
+ 248   2              SPDR = 0x00;
+ 249   2              while((SPSR&0x80)==0x00);
+ 250   2              u8Data = SPDR;
+ 251   2              clr_SPIF;
+ 252   2              if(u8Data != (UINT8)u16CNT)
+ 253   2              {
+ 254   3                  SPI_Error();
+ 255   3              }
+ 256   2          }
+ 257   1      
+ 258   1          SS_PIN = 1; 
+ 259   1      }
+ 260          //--------------------------------------------------------------------------------------------------------
+             ----
+ 261          void main(void)
+ 262          {      
+ 263   1          UINT8 u8MID,u8DID;
+ 264   1      
+ 265   1          /* Note
+ 266   1             MCU power on system clock is HIRC (22.1184MHz), so Fsys = 22.1184MHz
+ 267   1          */
+ 268   1          
+ 269   1          Set_All_GPIO_Quasi_Mode;
+ 270   1          InitialUART0_Timer3(115200);             /* 9600 Baud Rate*/
+ 271   1          SPI_Initial();
+ 272   1      
+ 273   1          Read_MID_DID(&u8MID,&u8DID);
+ 274   1      
+ 275   1          if((u8MID != 0xEF)&&(u8DID != 0x14))
+ 276   1          {
+ 277   2              SPI_Error();
+ 278   2          }
+ 279   1      
+ 280   1          /* The procedure of SPI Flash at erase mode */
+ 281   1          Flash_Write_Enable();
+ 282   1          Flash_Chip_Erase();
+C51 COMPILER V9.52.0.0   SPI_FLASH                                                         07/06/2017 11:40:54 PAGE 6   
+
+ 283   1          Flash_Read_Status();
+ 284   1          Flash_Write_Disable();
+ 285   1          
+ 286   1          Flash_Erase_Verify();
+ 287   1      
+ 288   1          /* The procedure of SPI Flash at program mode */
+ 289   1          Flash_Write_Enable();
+ 290   1          Flash_Program();
+ 291   1          Flash_Read_Status();
+ 292   1          Flash_Write_Disable();
+ 293   1      
+ 294   1          /* Program verify */
+ 295   1          Flash_Program_Verify();
+ 296   1      
+ 297   1          printf("\nFinished the SPI Demo Code and test pass!!!\n");
+ 298   1          while(1);
+ 299   1      }
+ 300          //--------------------------------------------------------------------------------------------------------
+             ----
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    560    ----
+   CONSTANT SIZE    =    115    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----      12
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

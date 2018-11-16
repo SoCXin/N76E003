@@ -1,0 +1,6 @@
+".\Output\IAP_MHIRC.obj",
+".\Output\STARTUP.obj",
+".\Output\Delay.obj" 
+TO ".\Output\IAP_MHIRC" 
+PRINT(".\List\IAP_MHIRC.m51") RAMSIZE(256) 
+DISABLEWARNING (16) 

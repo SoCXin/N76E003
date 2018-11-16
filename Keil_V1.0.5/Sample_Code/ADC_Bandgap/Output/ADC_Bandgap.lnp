@@ -1,0 +1,7 @@
+".\Output\ADC.obj",
+".\Output\Common.obj",
+".\Output\Delay.obj",
+".\Output\STARTUP.obj" 
+TO ".\Output\ADC_Bandgap" 
+PRINT(".\LST\ADC_Bandgap.m51") RAMSIZE(256) 
+DISABLEWARNING (16) 

@@ -1,0 +1,86 @@
+C51 COMPILER V9.52.0.0   GPIO                                                              01/09/2018 13:30:58 PAGE 1   
+
+
+C51 COMPILER V9.52.0.0, COMPILATION OF MODULE GPIO
+OBJECT MODULE PLACED IN .\Output\GPIO.obj
+COMPILER INVOKED BY: C:\Keil\C51\BIN\C51.EXE Code\GPIO.C OPTIMIZE(4,SPEED) BROWSE INCDIR(..\..\Include) DEFINE(FOSC_1600
+                    -00) DEBUG OBJECTEXTEND PRINT(.\LST\GPIO.lst) TABS(2) OBJECT(.\Output\GPIO.obj)
+
+line level    source
+
+   1          /*--------------------------------------------------------------------------------------------------------
+             --*/
+   2          /*                                                                                                        
+             - */
+   3          /* Copyright(c) 2017 Nuvoton Technology Corp. All rights reserved.                                        
+             - */
+   4          /*                                                                                                        
+             - */
+   5          /*--------------------------------------------------------------------------------------------------------
+             --*/
+   6          
+   7          //********************************************************************************************************
+             -***
+   8          //  Website: http://www.nuvoton.com
+   9          //  E-Mail : MicroC-8bit@nuvoton.com
+  10          //  Date   : Jan/21/2017
+  11          //********************************************************************************************************
+             -***
+  12          
+  13          //********************************************************************************************************
+             -***
+  14          //  File Function: N76E003 GPIO demo code
+  15          //********************************************************************************************************
+             -***
+  16          #include "N76E003.h"
+  17          #include "SFR_Macro.h"
+  18          #include "Function_define.h"
+  19          #include "Common.h"
+  20          #include "Delay.h"
+  21          
+  22          unsigned char temp _at_ 0x08;
+  23          unsigned char idata itemp _at_ 0x80;
+  24          unsigned char xdata xtemp _at_ 0x80;
+  25          
+  26          /****************************************************************************/
+  27          /* Define putchar send from UART1, printf function will send from P1.6(TXD_1)
+  28          /* NOTICE: Since UART1 pin is multi-function with OCD DATA/CLK pin.
+  29          /* Suggest download than use run with realchip but not OCD mode.
+  30          /****************************************************************************/
+  31          char putchar (char c)
+  32          {
+  33   1          while (!TI_1);  /* wait until transmitter ready */
+  34   1          TI_1 = 0;
+  35   1          SBUF_1 = c;      /* output character */
+  36   1          return (c);
+  37   1      }
+  38          /*==========================================================================*/
+  39            
+  40            
+  41          void main (void) 
+  42          {
+  43   1          Set_All_GPIO_Quasi_Mode;          // Define in Function_define.h
+  44   1          InitialUART1_Timer3(115200);
+  45   1          temp = 0x35;
+C51 COMPILER V9.52.0.0   GPIO                                                              01/09/2018 13:30:58 PAGE 2   
+
+  46   1          while(1)
+  47   1          {
+  48   2            printf("\n temp= 0x%bX",temp);
+  49   2            Timer0_Delay1ms(100);
+  50   2          }
+  51   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     59    ----
+   CONSTANT SIZE    =     14    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

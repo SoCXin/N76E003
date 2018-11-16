@@ -1,0 +1,8 @@
+".\Output\Print_UART1.obj",
+".\Output\PUTCHAR.obj",
+".\Output\Delay.obj",
+".\Output\Common.obj",
+".\Output\STARTUP.obj" 
+TO ".\Output\Printf_UART1" 
+PRINT(".\LST\Printf_UART1.m51") RAMSIZE(256) 
+DISABLEWARNING (16) 

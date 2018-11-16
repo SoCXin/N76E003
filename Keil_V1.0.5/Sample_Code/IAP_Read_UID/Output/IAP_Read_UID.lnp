@@ -1,0 +1,7 @@
+".\Output\UID_check.obj",
+".\Output\STARTUP.obj",
+".\Output\Delay.obj",
+".\Output\Common.obj" 
+TO ".\Output\IAP_Read_UID" 
+PRINT(".\List\IAP_Read_UID.m51") RAMSIZE(256) 
+DISABLEWARNING (16) 

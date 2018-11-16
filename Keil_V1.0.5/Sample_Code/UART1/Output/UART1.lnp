@@ -1,0 +1,6 @@
+".\Output\UART1.obj",
+".\Output\Common.obj",
+".\Output\STARTUP.obj" 
+TO ".\Output\UART1" 
+PRINT(".\LST\UART1.m51") RAMSIZE(256) 
+DISABLEWARNING (16) 

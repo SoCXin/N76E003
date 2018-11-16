@@ -1,0 +1,108 @@
+C51 COMPILER V9.52.0.0   WKT_INT_WADE                                                      06/05/2017 19:42:12 PAGE 1   
+
+
+C51 COMPILER V9.52.0.0, COMPILATION OF MODULE WKT_INT_WADE
+OBJECT MODULE PLACED IN .\Output\WKT_INT_wade.obj
+COMPILER INVOKED BY: C:\Keil\C51\BIN\C51.EXE Code\WKT_INT_wade.c BROWSE INCDIR(..\..\Include;..\..\Common) DEFINE(FOSC_1
+                    -60000) DEBUG OBJECTEXTEND PRINT(.\LST\WKT_INT_wade.lst) TABS(2) OBJECT(.\Output\WKT_INT_wade.obj)
+
+line level    source
+
+   1          /*--------------------------------------------------------------------------------------------------------
+             --*/
+   2          /*                                                                                                        
+             - */
+   3          /* Copyright(c) 2017 Nuvoton Technology Corp. All rights reserved.                                        
+             - */
+   4          /*                                                                                                        
+             - */
+   5          /*--------------------------------------------------------------------------------------------------------
+             --*/
+   6          
+   7          //********************************************************************************************************
+             -***
+   8          //  Website: http://www.nuvoton.com
+   9          //  E-Mail : MicroC-8bit@nuvoton.com
+  10          //  Date   : Jan/21/2017
+  11          //********************************************************************************************************
+             -***
+  12          
+  13          //********************************************************************************************************
+             -***
+  14          //  File Function: N76E003 wake up timer interrupt demo code
+  15          //********************************************************************************************************
+             -***
+  16          
+  17          #include "N76E003.h"
+  18          #include "Common.h"
+  19          #include "Delay.h"
+  20          #include "SFR_Macro.h"
+  21          #include "Function_define.h"
+  22          
+  23          
+  24          void WakeUp_Timer_ISR (void)   interrupt 17     //ISR for self wake-up timer
+  25          {
+  26   1          clr_WKTF;                                  //clear interrupt flag
+  27   1          //clr_GPIO1;
+  28   1          //Timer1_Delay10ms(5);
+  29   1          //set_GPIO1;
+  30   1          //Timer1_Delay10ms(5);
+  31   1          P12 ^= 1;
+  32   1             
+  33   1      }
+  34          
+  35          
+  36          /*********************************************************************************************************
+             -***
+  37          *    Main function 
+  38          **********************************************************************************************************
+             -**/
+  39          void main (void)
+  40          {
+  41   1         
+  42   1          P12_PushPull_Mode;
+  43   1      
+C51 COMPILER V9.52.0.0   WKT_INT_WADE                                                      06/05/2017 19:42:12 PAGE 2   
+
+  44   1          clr_GPIO1;
+  45   1          Timer0_Delay1ms(400);
+  46   1          set_GPIO1;
+  47   1          Timer0_Delay1ms(400);
+  48   1          clr_GPIO1;
+  49   1          Timer0_Delay1ms(400);
+  50   1          set_GPIO1;
+  51   1          Timer0_Delay1ms(400);
+  52   1          clr_GPIO1;
+  53   1          Timer0_Delay1ms(400);
+  54   1          set_GPIO1;
+  55   1      
+  56   1      //-----------------------------------------------------
+  57   1      //  WKT initial   
+  58   1      //----------------------------------------------------- 
+  59   1          WKCON = 0x06;                     //timer base 10k, Pre-scale = 1/1024
+  60   1      //    RWK = 0XFF;                     //  if prescale is 0x00, never set RWK = 0xff
+  61   1          RWK = 0xF0;
+  62   1          set_EWKT;                         // enable WKT interrupt
+  63   1          set_WKTR;                         // Wake-up timer run 
+  64   1          EA = 1;
+  65   1        
+  66   1          while(1)
+  67   1          {
+  68   2      //      set_PD;
+  69   2          }
+  70   1      }
+  71          
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    102    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

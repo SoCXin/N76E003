@@ -1,0 +1,651 @@
+A51 MACRO ASSEMBLER  XRAM_768BYTE                                                         08/23/2016 10:09:32 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.02b
+OBJECT MODULE PLACED IN .\Output\xRAM_768byte.OBJ
+ASSEMBLER INVOKED BY: C:\Keil\C51\BIN\A51.EXE .\Output\xRAM_768byte.src PR(.\LST\xRAM_768byte.ls1) EP DEBUG
+
+LOC  OBJ            LINE     SOURCE
+
+                       1     ; .\Output\xRAM_768byte.SRC generated from: Code\xRAM_768byte.c
+                       2     ; COMPILER INVOKED BY:
+                       3     ;        C:\Keil\C51\BIN\C51.EXE Code\xRAM_768byte.c BROWSE INCDIR(..\..\Include) DEBUG OBJ
+                             ECTEXTEND PRINT(.\LST\xRAM_768byte.lst) TABS(2) SRC(.\Output\xRAM_768byte.SRC)
+                       4     
+                       5     $nomod51 
+                       6     
+                       7     NAME    XRAM_768BYTE
+                       8     
+  00F6                 9     AINDIDS DATA    0F6H
+  00B1                10     P0M1    DATA    0B1H
+  00B3                11     P1M1    DATA    0B3H
+  00B2                12     P0M2    DATA    0B2H
+  0080                13     P0      DATA    080H
+  00BB                14     SADDR_1 DATA    0BBH
+  00B4                15     P1M2    DATA    0B4H
+  0090                16     P1      DATA    090H
+  00C2                17     AA      BIT     0C0H.2
+  00AC                18     P3M1    DATA    0ACH
+  00A0                19     P2      DATA    0A0H
+  00B0                20     P3      DATA    0B0H
+  00AD                21     P3M2    DATA    0ADH
+  00D6                22     AC      BIT     0D0H.6
+  008F                23     WKCON   DATA    08FH
+  009C                24     EIE1    DATA    09CH
+  00AF                25     EA      BIT     0A8H.7
+  00D8                26     PWMCON0 DATA    0D8H
+  00DF                27     PWMCON1 DATA    0DFH
+  0097                28     AIN0    BIT     090H.7
+  0081                29     AIN1    BIT     080H.1
+  0082                30     AIN2    BIT     080H.2
+  009F                31     FE      BIT     098H.7
+  0083                32     AIN3    BIT     080H.3
+  0084                33     AIN4    BIT     080H.4
+  0085                34     AIN5    BIT     080H.5
+  00AE                35     EADC    BIT     0A8H.6
+  00D1                36     PWMPH   DATA    0D1H
+  00A8                37     IE      DATA    0A8H
+  0096                38     CKSWT   DATA    096H
+  0086                39     AIN6    BIT     080H.6
+  00EF                40     ADCF    BIT     0E8H.7
+  0087                41     AIN7    BIT     080H.7
+  00FE                42     EIP1    DATA    0FEH
+  00D9                43     PWMPL   DATA    0D9H
+  00E8                44     ADCHS0  BIT     0E8H.0
+  00C7                45     TA      DATA    0C7H
+  00E9                46     ADCHS1  BIT     0E8H.1
+  00EA                47     ADCHS2  BIT     0E8H.2
+  00AC                48     ES      BIT     0A8H.4
+  00EB                49     ADCHS3  BIT     0E8H.3
+  00C1                50     I2ADDR  DATA    0C1H
+  00BE                51     PADC    BIT     0B8H.6
+  00B8                52     IP      DATA    0B8H
+  0098                53     RI      BIT     098H.0
+  00AD                54     EBOD    BIT     0A8H.5
+  0080                55     INT0    BIT     080H.0
+  00C3                56     SI      BIT     0C0H.3
+  00D7                57     CY      BIT     0D0H.7
+A51 MACRO ASSEMBLER  XRAM_768BYTE                                                         08/23/2016 10:09:32 PAGE     2
+
+  00EE                58     ADCS    BIT     0E8H.6
+  00FF                59     FE_1    BIT     0F8H.7
+  0081                60     INT1    BIT     080H.1
+  0099                61     TI      BIT     098H.1
+  00DE                62     LOAD    BIT     0D8H.6
+  0097                63     CKEN    DATA    097H
+  00BC                64     PS      BIT     0B8H.4
+  0081                65     SP      DATA    081H
+  0090                66     PWM0    BIT     090H.0
+  00D2                67     OV      BIT     0D0H.2
+  00B7                68     PWMINTC DATA    0B7H
+  0084                69     SS      BIT     080H.4
+  0091                70     PWM1    BIT     090H.1
+  00BD                71     PBOD    BIT     0B8H.5
+  00B2                72     P0SR    DATA    0B2H
+  0082                73     PWM2    BIT     080H.2
+  00F7                74     EIPH    DATA    0F7H
+  00B4                75     P1SR    DATA    0B4H
+  0083                76     PWM3    BIT     080H.3
+  0085                77     PWM4    BIT     080H.5
+  00AD                78     P3SR    DATA    0ADH
+  0086                79     PWM5    BIT     080H.6
+  0087                80     PWM6    BIT     080H.7
+  00F8                81     RI_1    BIT     0F8H.0
+  00F9                82     TI_1    BIT     0F8H.1
+  00CB                83     RCMP2H  DATA    0CBH
+  00CF                84     ADCMPH  DATA    0CFH
+  0080                85     P00     BIT     080H.0
+  0081                86     P01     BIT     080H.1
+  0090                87     P10     BIT     090H.0
+  00FB                88     PMEN    DATA    0FBH
+  0099                89     SBUF    DATA    099H
+  0087                90     PCON    DATA    087H
+  0082                91     P02     BIT     080H.2
+  0091                92     P11     BIT     090H.1
+  00A0                93     P20     BIT     0A0H.0
+  00CA                94     RCMP2L  DATA    0CAH
+  0083                95     P03     BIT     080H.3
+  0092                96     P12     BIT     090H.2
+  00B0                97     P30     BIT     0B0H.0
+  00E3                98     ADCDLY  DATA    0E3H
+  00CE                99     ADCMPL  DATA    0CEH
+  0084               100     P04     BIT     080H.4
+  0080               101     VREF    BIT     080H.0
+  0098               102     SCON    DATA    098H
+  0085               103     P05     BIT     080H.5
+  0089               104     TMOD    DATA    089H
+  0088               105     TCON    DATA    088H
+  0086               106     P06     BIT     080H.6
+  0087               107     P07     BIT     080H.7
+  0097               108     P17     BIT     090H.7
+  00F3               109     SPCR    DATA    0F3H
+  00BD               110     I2STAT  DATA    0BDH
+  00F5               111     SPDR    DATA    0F5H
+  00DD               112     PWMF    BIT     0D8H.5
+  00E5               113     C0H     DATA    0E5H
+  00E7               114     C1H     DATA    0E7H
+  00EE               115     C2H     DATA    0EEH
+  009F               116     CHPCON  DATA    09FH
+  0089               117     IE0     BIT     088H.1
+  008B               118     IE1     BIT     088H.3
+  00E4               119     C0L     DATA    0E4H
+  0091               120     SFRS    DATA    091H
+  00E6               121     C1L     DATA    0E6H
+  00C8               122     CM_RL2  BIT     0C8H.0
+  00F0               123     B       DATA    0F0H
+A51 MACRO ASSEMBLER  XRAM_768BYTE                                                         08/23/2016 10:09:32 PAGE     3
+
+  00ED               124     C2L     DATA    0EDH
+  009A               125     SBUF_1  DATA    09AH
+  00A5               126     IAPUEN  DATA    0A5H
+  00F8               127     SCON_1  DATA    0F8H
+  00E0               128     ACC     DATA    0E0H
+  00A9               129     ET0     BIT     0A8H.1
+  00F4               130     SPSR    DATA    0F4H
+  00A4               131     IAPTRG  DATA    0A4H
+  008D               132     TF0     BIT     088H.5
+  00AB               133     ET1     BIT     0A8H.3
+  008F               134     TF1     BIT     088H.7
+  009A               135     RB8     BIT     098H.2
+  00CF               136     TF2     BIT     0C8H.7
+  00D7               137     FBD     DATA    0D7H
+  008C               138     TH0     DATA    08CH
+  0088               139     IT0     BIT     088H.0
+  00A8               140     EX0     BIT     0A8H.0
+  00C6               141     RH3     DATA    0C6H
+  008D               142     TH1     DATA    08DH
+  008A               143     IT1     BIT     088H.2
+  009B               144     TB8     BIT     098H.3
+  00AA               145     EX1     BIT     0A8H.2
+  00CD               146     TH2     DATA    0CDH
+  00D0               147     P       BIT     0D0H.0
+  00FA               148     PDTCNT  DATA    0FAH
+  009F               149     SM0     BIT     098H.7
+  008A               150     TL0     DATA    08AH
+  009E               151     SM1     BIT     098H.6
+  00C5               152     RL3     DATA    0C5H
+  008B               153     TL1     DATA    08BH
+  009D               154     SM2     BIT     098H.5
+  00C6               155     I2CEN   BIT     0C0H.6
+  00CC               156     TL2     DATA    0CCH
+  00B1               157     P0S     DATA    0B1H
+  009B               158     EIE     DATA    09BH
+  00B9               159     PT0     BIT     0B8H.1
+  00B3               160     P1S     DATA    0B3H
+  00BB               161     PT1     BIT     0B8H.3
+  00D3               162     RS0     BIT     0D0H.3
+  00BC               163     I2DAT   DATA    0BCH
+  00B5               164     P2S     DATA    0B5H
+  008C               165     TR0     BIT     088H.4
+  00D4               166     RS1     BIT     0D0H.4
+  00BE               167     I2CLK   DATA    0BEH
+  00AC               168     P3S     DATA    0ACH
+  008E               169     TR1     BIT     088H.6
+  00DC               170     CLRPWM  BIT     0D8H.4
+  00B8               171     PX0     BIT     0B8H.0
+  00CA               172     TR2     BIT     0C8H.2
+  00FF               173     EIPH1   DATA    0FFH
+  00BA               174     PX1     BIT     0B8H.2
+  00E8               175     ADCCON0 DATA    0E8H
+  00E1               176     ADCCON1 DATA    0E1H
+  00E2               177     ADCCON2 DATA    0E2H
+  00C0               178     I2CON   DATA    0C0H
+  0083               179     DPH     DATA    083H
+  00FA               180     RB8_1   BIT     0F8H.2
+  00EF               181     EIP     DATA    0EFH
+  00FB               182     TB8_1   BIT     0F8H.3
+  00EC               183     PIF     DATA    0ECH
+  0082               184     DPL     DATA    082H
+  00FF               185     SM0_1   BIT     0F8H.7
+  00FC               186     PMD     DATA    0FCH
+  00B7               187     IPH     DATA    0B7H
+  0086               188     SCL     BIT     080H.6
+  00FE               189     SM1_1   BIT     0F8H.6
+A51 MACRO ASSEMBLER  XRAM_768BYTE                                                         08/23/2016 10:09:32 PAGE     4
+
+  00BF               190     I2TOC   DATA    0BFH
+  00FD               191     SM2_1   BIT     0F8H.5
+  00C3               192     ADCRH   DATA    0C3H
+  00A7               193     IAPAH   DATA    0A7H
+  009C               194     REN     BIT     098H.4
+  00AE               195     IAPFD   DATA    0AEH
+  0092               196     CAPCON0 DATA    092H
+  00C0               197     I2CPX   BIT     0C0H.0
+  00C9               198     T2MOD   DATA    0C9H
+  00C8               199     T2CON   DATA    0C8H
+  00C2               200     ADCRL   DATA    0C2H
+  00A3               201     BODCON0 DATA    0A3H
+  0093               202     CAPCON1 DATA    093H
+  00C5               203     STA     BIT     0C0H.5
+  00C4               204     T3CON   DATA    0C4H
+  00AB               205     BODCON1 DATA    0ABH
+  00A6               206     IAPAL   DATA    0A6H
+  0094               207     CAPCON2 DATA    094H
+  00F1               208     CAPCON3 DATA    0F1H
+  00F2               209     CAPCON4 DATA    0F2H
+  00DF               210     PWMRUN  BIT     0D8H.7
+  00F3               211     SPCR2   DATA    0F3H
+  00B9               212     SADEN   DATA    0B9H
+  00AF               213     IAPCN   DATA    0AFH
+  00D2               214     PWM0H   DATA    0D2H
+  00D6               215     PNP     DATA    0D6H
+  00D3               216     PWM1H   DATA    0D3H
+  00D4               217     PWM2H   DATA    0D4H
+  00A9               218     SADDR   DATA    0A9H
+  008E               219     CKCON   DATA    08EH
+  0083               220     TXD     BIT     080H.3
+  00D5               221     PWM3H   DATA    0D5H
+  00DA               222     PWM0L   DATA    0DAH
+  00C4               223     PWM4H   DATA    0C4H
+  00DB               224     PWM1L   DATA    0DBH
+  00C5               225     PWM5H   DATA    0C5H
+  00A2               226     AUXR1   DATA    0A2H
+  0095               227     CKDIV   DATA    095H
+  00DC               228     PWM2L   DATA    0DCH
+  00DD               229     PWM3L   DATA    0DDH
+  0086               230     RWK     DATA    086H
+  00D5               231     F0      BIT     0D0H.5
+  00CC               232     PWM4L   DATA    0CCH
+  00C4               233     STO     BIT     0C0H.4
+  00EC               234     ETGSEL0 BIT     0E8H.4
+  00FC               235     REN_1   BIT     0F8H.4
+  00CD               236     PWM5L   DATA    0CDH
+  00ED               237     ETGSEL1 BIT     0E8H.5
+  00E9               238     PICON   DATA    0E9H
+  00DE               239     PIOCON0 DATA    0DEH
+  00D0               240     PSW     DATA    0D0H
+  0085               241     SPICK   BIT     080H.5
+  00EA               242     PINEN   DATA    0EAH
+  00C6               243     PIOCON1 DATA    0C6H
+  00F9               244     PDTEN   DATA    0F9H
+  00AA               245     WDCON   DATA    0AAH
+  00EB               246     PIPEN   DATA    0EBH
+  00BA               247     SADEN_1 DATA    0BAH
+                     248     ?PR?main?XRAM_768BYTE                    SEGMENT CODE 
+                     249             EXTRN   CODE (?C_STARTUP)
+                     250             PUBLIC  main
+                     251     ; #include <stdio.h>
+                     252     ; #include "N76E003.h"
+                     253     ; #include "Function_define.h"
+                     254     ; 
+                     255     ; /******************************************************
+A51 MACRO ASSEMBLER  XRAM_768BYTE                                                         08/23/2016 10:09:32 PAGE     5
+
+                     256     ;  The C file combine with assembler code compiler
+                     257     ;   Please always confirm the .c file option mark enable 
+                     258     ;       "Generate assembler SRC file" and "Assembler SRC file
+                     259     ; ******************************************************/
+                     260     ; 
+                     261     ; 
+                     262     ; /*------------------------------------------------
+                     263     ; The main C function.  Program execution starts
+                     264     ; here after stack initialization.
+                     265     ; ------------------------------------------------*/
+                     266     ; void main (void) 
+                     267     
+----                 268             RSEG  ?PR?main?XRAM_768BYTE
+0000                 269     main:
+                     270             USING   0
+                     271                             ; SOURCE LINE # 16
+                     272     ; {
+                     273                             ; SOURCE LINE # 17
+                     274     ; 
+                     275     ;       Set_All_GPIO_Quasi_Mode;
+                     276                             ; SOURCE LINE # 19
+0000 E4              277             CLR     A
+0001 F5B1            278             MOV     P0M1,A
+0003 F5B1            279             MOV     P0M1,A
+0005 F5B3            280             MOV     P1M1,A
+0007 F5B4            281             MOV     P1M2,A
+0009 F5AC            282             MOV     P3M1,A
+000B F5AD            283             MOV     P3M2,A
+                     284     ;                
+                     285     ; #pragma asm 
+                     286     ;                       MOV DPH,0
+000D 850083          287               MOV DPH,0
+                     288     ;                       MOV DPL,0
+0010 850082          289               MOV DPL,0
+                     290     ;                       
+                     291               
+                     292     ;                       ;Write XRAM
+                     293               ;Write XRAM
+                     294     ; L1:
+0013                 295               L1:
+                     296     ;                       MOV A,DPL
+0013 E582            297               MOV A,DPL
+                     298     ;                       MOVX @DPTR,A
+0015 F0              299               MOVX @DPTR,A
+                     300     ;                       INC DPTR
+0016 A3              301               INC DPTR
+                     302     ;                       MOV A,DPH
+0017 E583            303               MOV A,DPH
+                     304     ;                       CJNE A,#03H,L1
+0019 B403F7          305               CJNE A,#03H,L1
+                     306     ; 
+                     307               
+                     308     ; 
+                     309               
+                     310     ;                       ;read check
+                     311               ;read check
+                     312     ;                       MOV DPL,#0
+001C 758200          313               MOV DPL,#0
+                     314     ;                       MOV DPH,#0
+001F 758300          315               MOV DPH,#0
+                     316     ; L2:
+0022                 317               L2:
+                     318     ;                       MOV A,DPL
+0022 E582            319               MOV A,DPL
+                     320     ;                       MOV 11H,A
+0024 F511            321               MOV 11H,A
+A51 MACRO ASSEMBLER  XRAM_768BYTE                                                         08/23/2016 10:09:32 PAGE     6
+
+                     322     ;                       MOVX A,@DPTR
+0026 E0              323               MOVX A,@DPTR
+                     324     ;                       CJNE A,11H,L3
+0027 B5110B          325               CJNE A,11H,L3
+                     326     ;                       INC DPTR
+002A A3              327               INC DPTR
+                     328     ;                       MOV A,DPH
+002B E583            329               MOV A,DPH
+                     330     ;                       CJNE A,#03H,L2
+002D B403F2          331               CJNE A,#03H,L2
+                     332     ;                       MOV P1,#69
+0030 759045          333               MOV P1,#69
+                     334     ;                       sjmp $
+0033 80FE            335               sjmp $
+                     336     ;                       ;read check end 
+                     337               ;read check end       
+                     338     ; 
+                     339               
+                     340     ; 
+                     341               
+                     342     ;                       ;error alart
+                     343               ;error alart
+                     344     ; L3:
+0035                 345               L3:
+                     346     ;                       MOV R0,#05h
+0035 7805            347               MOV R0,#05h
+                     348     ;                       MOV A,#55H
+0037 7455            349               MOV A,#55H
+                     350     ;                       MOVX @R0,A
+0039 F2              351               MOVX @R0,A
+                     352     ;                       MOV P1,A
+003A F590            353               MOV P1,A
+                     354     ;                       sjmp $
+003C 80FE            355               sjmp $
+                     356     ;                       
+                     357               
+                     358     ; #pragma endasm 
+                     359     ;              
+                     360     ; 
+                     361     ; }                     ; SOURCE LINE # 61
+003E 22              362             RET     
+                     363     ; END OF main
+                     364     
+                     365             END
+A51 MACRO ASSEMBLER  XRAM_768BYTE                                                         08/23/2016 10:09:32 PAGE     7
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E                T Y P E  V A L U E   ATTRIBUTES
+
+?C_STARTUP. . . . . .  C ADDR   -----       EXT
+?PR?MAIN?XRAM_768BYTE  C SEG    003FH       REL=UNIT
+AA. . . . . . . . . .  B ADDR   00C0H.2 A   
+AC. . . . . . . . . .  B ADDR   00D0H.6 A   
+ACC . . . . . . . . .  D ADDR   00E0H   A   
+ADCCON0 . . . . . . .  D ADDR   00E8H   A   
+ADCCON1 . . . . . . .  D ADDR   00E1H   A   
+ADCCON2 . . . . . . .  D ADDR   00E2H   A   
+ADCDLY. . . . . . . .  D ADDR   00E3H   A   
+ADCF. . . . . . . . .  B ADDR   00E8H.7 A   
+ADCHS0. . . . . . . .  B ADDR   00E8H.0 A   
+ADCHS1. . . . . . . .  B ADDR   00E8H.1 A   
+ADCHS2. . . . . . . .  B ADDR   00E8H.2 A   
+ADCHS3. . . . . . . .  B ADDR   00E8H.3 A   
+ADCMPH. . . . . . . .  D ADDR   00CFH   A   
+ADCMPL. . . . . . . .  D ADDR   00CEH   A   
+ADCRH . . . . . . . .  D ADDR   00C3H   A   
+ADCRL . . . . . . . .  D ADDR   00C2H   A   
+ADCS. . . . . . . . .  B ADDR   00E8H.6 A   
+AIN0. . . . . . . . .  B ADDR   0090H.7 A   
+AIN1. . . . . . . . .  B ADDR   0080H.1 A   
+AIN2. . . . . . . . .  B ADDR   0080H.2 A   
+AIN3. . . . . . . . .  B ADDR   0080H.3 A   
+AIN4. . . . . . . . .  B ADDR   0080H.4 A   
+AIN5. . . . . . . . .  B ADDR   0080H.5 A   
+AIN6. . . . . . . . .  B ADDR   0080H.6 A   
+AIN7. . . . . . . . .  B ADDR   0080H.7 A   
+AINDIDS . . . . . . .  D ADDR   00F6H   A   
+AUXR1 . . . . . . . .  D ADDR   00A2H   A   
+B . . . . . . . . . .  D ADDR   00F0H   A   
+BODCON0 . . . . . . .  D ADDR   00A3H   A   
+BODCON1 . . . . . . .  D ADDR   00ABH   A   
+C0H . . . . . . . . .  D ADDR   00E5H   A   
+C0L . . . . . . . . .  D ADDR   00E4H   A   
+C1H . . . . . . . . .  D ADDR   00E7H   A   
+C1L . . . . . . . . .  D ADDR   00E6H   A   
+C2H . . . . . . . . .  D ADDR   00EEH   A   
+C2L . . . . . . . . .  D ADDR   00EDH   A   
+CAPCON0 . . . . . . .  D ADDR   0092H   A   
+CAPCON1 . . . . . . .  D ADDR   0093H   A   
+CAPCON2 . . . . . . .  D ADDR   0094H   A   
+CAPCON3 . . . . . . .  D ADDR   00F1H   A   
+CAPCON4 . . . . . . .  D ADDR   00F2H   A   
+CHPCON. . . . . . . .  D ADDR   009FH   A   
+CKCON . . . . . . . .  D ADDR   008EH   A   
+CKDIV . . . . . . . .  D ADDR   0095H   A   
+CKEN. . . . . . . . .  D ADDR   0097H   A   
+CKSWT . . . . . . . .  D ADDR   0096H   A   
+CLRPWM. . . . . . . .  B ADDR   00D8H.4 A   
+CM_RL2. . . . . . . .  B ADDR   00C8H.0 A   
+CY. . . . . . . . . .  B ADDR   00D0H.7 A   
+DPH . . . . . . . . .  D ADDR   0083H   A   
+DPL . . . . . . . . .  D ADDR   0082H   A   
+EA. . . . . . . . . .  B ADDR   00A8H.7 A   
+EADC. . . . . . . . .  B ADDR   00A8H.6 A   
+EBOD. . . . . . . . .  B ADDR   00A8H.5 A   
+EIE . . . . . . . . .  D ADDR   009BH   A   
+EIE1. . . . . . . . .  D ADDR   009CH   A   
+EIP . . . . . . . . .  D ADDR   00EFH   A   
+EIP1. . . . . . . . .  D ADDR   00FEH   A   
+A51 MACRO ASSEMBLER  XRAM_768BYTE                                                         08/23/2016 10:09:32 PAGE     8
+
+EIPH. . . . . . . . .  D ADDR   00F7H   A   
+EIPH1 . . . . . . . .  D ADDR   00FFH   A   
+ES. . . . . . . . . .  B ADDR   00A8H.4 A   
+ET0 . . . . . . . . .  B ADDR   00A8H.1 A   
+ET1 . . . . . . . . .  B ADDR   00A8H.3 A   
+ETGSEL0 . . . . . . .  B ADDR   00E8H.4 A   
+ETGSEL1 . . . . . . .  B ADDR   00E8H.5 A   
+EX0 . . . . . . . . .  B ADDR   00A8H.0 A   
+EX1 . . . . . . . . .  B ADDR   00A8H.2 A   
+F0. . . . . . . . . .  B ADDR   00D0H.5 A   
+FBD . . . . . . . . .  D ADDR   00D7H   A   
+FE. . . . . . . . . .  B ADDR   0098H.7 A   
+FE_1. . . . . . . . .  B ADDR   00F8H.7 A   
+I2ADDR. . . . . . . .  D ADDR   00C1H   A   
+I2CEN . . . . . . . .  B ADDR   00C0H.6 A   
+I2CLK . . . . . . . .  D ADDR   00BEH   A   
+I2CON . . . . . . . .  D ADDR   00C0H   A   
+I2CPX . . . . . . . .  B ADDR   00C0H.0 A   
+I2DAT . . . . . . . .  D ADDR   00BCH   A   
+I2STAT. . . . . . . .  D ADDR   00BDH   A   
+I2TOC . . . . . . . .  D ADDR   00BFH   A   
+IAPAH . . . . . . . .  D ADDR   00A7H   A   
+IAPAL . . . . . . . .  D ADDR   00A6H   A   
+IAPCN . . . . . . . .  D ADDR   00AFH   A   
+IAPFD . . . . . . . .  D ADDR   00AEH   A   
+IAPTRG. . . . . . . .  D ADDR   00A4H   A   
+IAPUEN. . . . . . . .  D ADDR   00A5H   A   
+IE. . . . . . . . . .  D ADDR   00A8H   A   
+IE0 . . . . . . . . .  B ADDR   0088H.1 A   
+IE1 . . . . . . . . .  B ADDR   0088H.3 A   
+INT0. . . . . . . . .  B ADDR   0080H.0 A   
+INT1. . . . . . . . .  B ADDR   0080H.1 A   
+IP. . . . . . . . . .  D ADDR   00B8H   A   
+IPH . . . . . . . . .  D ADDR   00B7H   A   
+IT0 . . . . . . . . .  B ADDR   0088H.0 A   
+IT1 . . . . . . . . .  B ADDR   0088H.2 A   
+L1. . . . . . . . . .  C ADDR   0013H   R   SEG=?PR?MAIN?XRAM_768BYTE
+L2. . . . . . . . . .  C ADDR   0022H   R   SEG=?PR?MAIN?XRAM_768BYTE
+L3. . . . . . . . . .  C ADDR   0035H   R   SEG=?PR?MAIN?XRAM_768BYTE
+LOAD. . . . . . . . .  B ADDR   00D8H.6 A   
+MAIN. . . . . . . . .  C ADDR   0000H   R   SEG=?PR?MAIN?XRAM_768BYTE
+OV. . . . . . . . . .  B ADDR   00D0H.2 A   
+P . . . . . . . . . .  B ADDR   00D0H.0 A   
+P0. . . . . . . . . .  D ADDR   0080H   A   
+P00 . . . . . . . . .  B ADDR   0080H.0 A   
+P01 . . . . . . . . .  B ADDR   0080H.1 A   
+P02 . . . . . . . . .  B ADDR   0080H.2 A   
+P03 . . . . . . . . .  B ADDR   0080H.3 A   
+P04 . . . . . . . . .  B ADDR   0080H.4 A   
+P05 . . . . . . . . .  B ADDR   0080H.5 A   
+P06 . . . . . . . . .  B ADDR   0080H.6 A   
+P07 . . . . . . . . .  B ADDR   0080H.7 A   
+P0M1. . . . . . . . .  D ADDR   00B1H   A   
+P0M2. . . . . . . . .  D ADDR   00B2H   A   
+P0S . . . . . . . . .  D ADDR   00B1H   A   
+P0SR. . . . . . . . .  D ADDR   00B2H   A   
+P1. . . . . . . . . .  D ADDR   0090H   A   
+P10 . . . . . . . . .  B ADDR   0090H.0 A   
+P11 . . . . . . . . .  B ADDR   0090H.1 A   
+P12 . . . . . . . . .  B ADDR   0090H.2 A   
+P17 . . . . . . . . .  B ADDR   0090H.7 A   
+P1M1. . . . . . . . .  D ADDR   00B3H   A   
+P1M2. . . . . . . . .  D ADDR   00B4H   A   
+P1S . . . . . . . . .  D ADDR   00B3H   A   
+P1SR. . . . . . . . .  D ADDR   00B4H   A   
+P2. . . . . . . . . .  D ADDR   00A0H   A   
+A51 MACRO ASSEMBLER  XRAM_768BYTE                                                         08/23/2016 10:09:32 PAGE     9
+
+P20 . . . . . . . . .  B ADDR   00A0H.0 A   
+P2S . . . . . . . . .  D ADDR   00B5H   A   
+P3. . . . . . . . . .  D ADDR   00B0H   A   
+P30 . . . . . . . . .  B ADDR   00B0H.0 A   
+P3M1. . . . . . . . .  D ADDR   00ACH   A   
+P3M2. . . . . . . . .  D ADDR   00ADH   A   
+P3S . . . . . . . . .  D ADDR   00ACH   A   
+P3SR. . . . . . . . .  D ADDR   00ADH   A   
+PADC. . . . . . . . .  B ADDR   00B8H.6 A   
+PBOD. . . . . . . . .  B ADDR   00B8H.5 A   
+PCON. . . . . . . . .  D ADDR   0087H   A   
+PDTCNT. . . . . . . .  D ADDR   00FAH   A   
+PDTEN . . . . . . . .  D ADDR   00F9H   A   
+PICON . . . . . . . .  D ADDR   00E9H   A   
+PIF . . . . . . . . .  D ADDR   00ECH   A   
+PINEN . . . . . . . .  D ADDR   00EAH   A   
+PIOCON0 . . . . . . .  D ADDR   00DEH   A   
+PIOCON1 . . . . . . .  D ADDR   00C6H   A   
+PIPEN . . . . . . . .  D ADDR   00EBH   A   
+PMD . . . . . . . . .  D ADDR   00FCH   A   
+PMEN. . . . . . . . .  D ADDR   00FBH   A   
+PNP . . . . . . . . .  D ADDR   00D6H   A   
+PS. . . . . . . . . .  B ADDR   00B8H.4 A   
+PSW . . . . . . . . .  D ADDR   00D0H   A   
+PT0 . . . . . . . . .  B ADDR   00B8H.1 A   
+PT1 . . . . . . . . .  B ADDR   00B8H.3 A   
+PWM0. . . . . . . . .  B ADDR   0090H.0 A   
+PWM0H . . . . . . . .  D ADDR   00D2H   A   
+PWM0L . . . . . . . .  D ADDR   00DAH   A   
+PWM1. . . . . . . . .  B ADDR   0090H.1 A   
+PWM1H . . . . . . . .  D ADDR   00D3H   A   
+PWM1L . . . . . . . .  D ADDR   00DBH   A   
+PWM2. . . . . . . . .  B ADDR   0080H.2 A   
+PWM2H . . . . . . . .  D ADDR   00D4H   A   
+PWM2L . . . . . . . .  D ADDR   00DCH   A   
+PWM3. . . . . . . . .  B ADDR   0080H.3 A   
+PWM3H . . . . . . . .  D ADDR   00D5H   A   
+PWM3L . . . . . . . .  D ADDR   00DDH   A   
+PWM4. . . . . . . . .  B ADDR   0080H.5 A   
+PWM4H . . . . . . . .  D ADDR   00C4H   A   
+PWM4L . . . . . . . .  D ADDR   00CCH   A   
+PWM5. . . . . . . . .  B ADDR   0080H.6 A   
+PWM5H . . . . . . . .  D ADDR   00C5H   A   
+PWM5L . . . . . . . .  D ADDR   00CDH   A   
+PWM6. . . . . . . . .  B ADDR   0080H.7 A   
+PWMCON0 . . . . . . .  D ADDR   00D8H   A   
+PWMCON1 . . . . . . .  D ADDR   00DFH   A   
+PWMF. . . . . . . . .  B ADDR   00D8H.5 A   
+PWMINTC . . . . . . .  D ADDR   00B7H   A   
+PWMPH . . . . . . . .  D ADDR   00D1H   A   
+PWMPL . . . . . . . .  D ADDR   00D9H   A   
+PWMRUN. . . . . . . .  B ADDR   00D8H.7 A   
+PX0 . . . . . . . . .  B ADDR   00B8H.0 A   
+PX1 . . . . . . . . .  B ADDR   00B8H.2 A   
+RB8 . . . . . . . . .  B ADDR   0098H.2 A   
+RB8_1 . . . . . . . .  B ADDR   00F8H.2 A   
+RCMP2H. . . . . . . .  D ADDR   00CBH   A   
+RCMP2L. . . . . . . .  D ADDR   00CAH   A   
+REN . . . . . . . . .  B ADDR   0098H.4 A   
+REN_1 . . . . . . . .  B ADDR   00F8H.4 A   
+RH3 . . . . . . . . .  D ADDR   00C6H   A   
+RI. . . . . . . . . .  B ADDR   0098H.0 A   
+RI_1. . . . . . . . .  B ADDR   00F8H.0 A   
+RL3 . . . . . . . . .  D ADDR   00C5H   A   
+RS0 . . . . . . . . .  B ADDR   00D0H.3 A   
+RS1 . . . . . . . . .  B ADDR   00D0H.4 A   
+A51 MACRO ASSEMBLER  XRAM_768BYTE                                                         08/23/2016 10:09:32 PAGE    10
+
+RWK . . . . . . . . .  D ADDR   0086H   A   
+SADDR . . . . . . . .  D ADDR   00A9H   A   
+SADDR_1 . . . . . . .  D ADDR   00BBH   A   
+SADEN . . . . . . . .  D ADDR   00B9H   A   
+SADEN_1 . . . . . . .  D ADDR   00BAH   A   
+SBUF. . . . . . . . .  D ADDR   0099H   A   
+SBUF_1. . . . . . . .  D ADDR   009AH   A   
+SCL . . . . . . . . .  B ADDR   0080H.6 A   
+SCON. . . . . . . . .  D ADDR   0098H   A   
+SCON_1. . . . . . . .  D ADDR   00F8H   A   
+SFRS. . . . . . . . .  D ADDR   0091H   A   
+SI. . . . . . . . . .  B ADDR   00C0H.3 A   
+SM0 . . . . . . . . .  B ADDR   0098H.7 A   
+SM0_1 . . . . . . . .  B ADDR   00F8H.7 A   
+SM1 . . . . . . . . .  B ADDR   0098H.6 A   
+SM1_1 . . . . . . . .  B ADDR   00F8H.6 A   
+SM2 . . . . . . . . .  B ADDR   0098H.5 A   
+SM2_1 . . . . . . . .  B ADDR   00F8H.5 A   
+SP. . . . . . . . . .  D ADDR   0081H   A   
+SPCR. . . . . . . . .  D ADDR   00F3H   A   
+SPCR2 . . . . . . . .  D ADDR   00F3H   A   
+SPDR. . . . . . . . .  D ADDR   00F5H   A   
+SPICK . . . . . . . .  B ADDR   0080H.5 A   
+SPSR. . . . . . . . .  D ADDR   00F4H   A   
+SS. . . . . . . . . .  B ADDR   0080H.4 A   
+STA . . . . . . . . .  B ADDR   00C0H.5 A   
+STO . . . . . . . . .  B ADDR   00C0H.4 A   
+T2CON . . . . . . . .  D ADDR   00C8H   A   
+T2MOD . . . . . . . .  D ADDR   00C9H   A   
+T3CON . . . . . . . .  D ADDR   00C4H   A   
+TA. . . . . . . . . .  D ADDR   00C7H   A   
+TB8 . . . . . . . . .  B ADDR   0098H.3 A   
+TB8_1 . . . . . . . .  B ADDR   00F8H.3 A   
+TCON. . . . . . . . .  D ADDR   0088H   A   
+TF0 . . . . . . . . .  B ADDR   0088H.5 A   
+TF1 . . . . . . . . .  B ADDR   0088H.7 A   
+TF2 . . . . . . . . .  B ADDR   00C8H.7 A   
+TH0 . . . . . . . . .  D ADDR   008CH   A   
+TH1 . . . . . . . . .  D ADDR   008DH   A   
+TH2 . . . . . . . . .  D ADDR   00CDH   A   
+TI. . . . . . . . . .  B ADDR   0098H.1 A   
+TI_1. . . . . . . . .  B ADDR   00F8H.1 A   
+TL0 . . . . . . . . .  D ADDR   008AH   A   
+TL1 . . . . . . . . .  D ADDR   008BH   A   
+TL2 . . . . . . . . .  D ADDR   00CCH   A   
+TMOD. . . . . . . . .  D ADDR   0089H   A   
+TR0 . . . . . . . . .  B ADDR   0088H.4 A   
+TR1 . . . . . . . . .  B ADDR   0088H.6 A   
+TR2 . . . . . . . . .  B ADDR   00C8H.2 A   
+TXD . . . . . . . . .  B ADDR   0080H.3 A   
+VREF. . . . . . . . .  B ADDR   0080H.0 A   
+WDCON . . . . . . . .  D ADDR   00AAH   A   
+WKCON . . . . . . . .  D ADDR   008FH   A   
+XRAM_768BYTE. . . . .  N NUMB   -----       
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

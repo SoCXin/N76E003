@@ -1,0 +1,145 @@
+C51 COMPILER V9.52.0.0   4V_BG                                                             01/18/2018 17:27:26 PAGE 1   
+
+
+C51 COMPILER V9.52.0.0, COMPILATION OF MODULE 4V_BG
+OBJECT MODULE PLACED IN .\Output\4V_BG.obj
+COMPILER INVOKED BY: C:\Keil\C51\BIN\C51.EXE Code\4V_BG.c OPTIMIZE(4,SPEED) BROWSE INCDIR(..\..\Include) DEFINE(FOSC_160
+                    -000) DEBUG OBJECTEXTEND PRINT(.\LST\4V_BG.lst) TABS(2) OBJECT(.\Output\4V_BG.obj)
+
+line level    source
+
+   1          /*--------------------------------------------------------------------------------------------------------
+             --*/
+   2          /*                                                                                                        
+             - */
+   3          /* Copyright(c) 2016 Nuvoton Technology Corp. All rights reserved.                                        
+             - */
+   4          /*                                                                                                        
+             - */
+   5          /*--------------------------------------------------------------------------------------------------------
+             --*/
+   6          
+   7          //********************************************************************************************************
+             -***
+   8          //  Nuvoton Technoledge Corp. 
+   9          //  Website: http://www.nuvoton.com
+  10          //  E-Mail : MicroC-8bit@nuvoton.com
+  11          //  Date   : Apr/21/2016
+  12          //********************************************************************************************************
+             -***
+  13          
+  14          //********************************************************************************************************
+             -***
+  15          //  File Function: N76E885 ADC demo code
+  16          //********************************************************************************************************
+             -***
+  17          
+  18          #include "N76E003.h"
+  19          #include "SFR_Macro.h"
+  20          #include "Function_define.h"
+  21          #include "Common.h"
+  22          #include "Delay.h"
+  23          
+  24          
+  25          #define     PAGE_ERASE_LD       0x62
+  26          #define     BYTE_READ_LD        0x40
+  27          #define     BYTE_PROGRAM_LD     0x61
+  28          #define     PAGE_SIZE           128
+  29          
+  30          double  Bandgap_Voltage,VDD_Voltage,Bandgap_ADC_Voltage;      //please always use "double" mode for this
+  31          unsigned  char xdata ADCdataH[100], ADCdataL[100];
+  32          int ADCsumH=0, ADCsumL=0;
+  33          unsigned char ADCavgH,ADCavgL;
+  34          
+  35          void Erase_LDROM(void)
+  36          {   
+  37   1          set_IAPEN;                          // Enable IAP function
+  38   1          IAPFD = 0xFF;                       // IMPORTANT !! To erase function must setting IAPFD = 0xFF 
+  39   1          IAPCN = PAGE_ERASE_LD;
+  40   1          set_LDUEN;                          //  APROM modify Enable
+  41   1          IAPAL = 0;
+  42   1          IAPAH = 0;
+  43   1          set_IAPGO; 
+  44   1      }
+  45          //--------------------------------------------------------------------------------------------------------
+C51 COMPILER V9.52.0.0   4V_BG                                                             01/18/2018 17:27:26 PAGE 2   
+
+             ----
+  46          //--------------------------------------------------------------------------------------------------------
+             ----
+  47          void Program_LDROM(UINT16 u16_addr,UINT8 u8_data)
+  48          {   
+  49   1          set_IAPEN;
+  50   1          set_LDUEN;    
+  51   1          IAPAL = u16_addr;
+  52   1          IAPAH = u16_addr>>8;
+  53   1          IAPCN = BYTE_PROGRAM_LD;
+  54   1          IAPFD = u8_data;     
+  55   1          set_IAPGO;
+  56   1             
+  57   1          clr_LDUEN;
+  58   1          clr_IAPEN;
+  59   1      }
+  60          
+  61              
+  62          /******************************************************************************
+  63          The main C function.  Program execution starts
+  64          here after stack initialization.
+  65          ******************************************************************************/
+  66          void main (void) 
+  67          {
+  68   1          double bgvalue;
+  69   1          unsigned int i;
+  70   1      
+  71   1          P02_Quasi_Mode;                           //For GPIO1 output, Find in "Function_define.h" - "GPIO INIT"
+  72   1          InitialUART0_Timer1(115200);
+  73   1      
+  74   1          Enable_ADC_BandGap;                       //Find in "Function_define.h" - "ADC INIT"
+  75   1      
+  76   1          CKDIV = 0x02;
+  77   1          for(i=0;i<5;i++)
+  78   1          {
+  79   2            clr_ADCF;
+  80   2            set_ADCS;                 // ADC start trig signal
+  81   2            while(ADCF == 0);
+  82   2            ADCdataH[i] = ADCRH;
+  83   2            ADCdataL[i] = ADCRL;
+  84   2          }   
+  85   1            CKDIV = 0x00;
+  86   1          
+  87   1          for(i=2;i<5;i++)
+  88   1          {
+  89   2            ADCsumH = ADCsumH + ADCdataH[i];
+  90   2            ADCsumL = ADCsumL + ADCdataL[i];
+  91   2          }       
+  92   1      
+  93   1          ADCavgH = ADCdataH[4];
+  94   1          ADCavgL = ADCsumL/3;
+  95   1      
+  96   1          Erase_LDROM();
+  97   1          Program_LDROM(0,ADCavgH);
+  98   1          Program_LDROM(1,ADCavgL);
+  99   1          bgvalue = (ADCavgH<<4) + ADCavgL;
+ 100   1          Bandgap_ADC_Voltage = bgvalue/4096*3075;
+ 101   1            printf ("\n BG ADC = %e",Bandgap_ADC_Voltage);
+ 102   1      
+ 103   1          while(1);
+ 104   1      }
+ 105          
+C51 COMPILER V9.52.0.0   4V_BG                                                             01/18/2018 17:27:26 PAGE 3   
+
+ 106          
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    422    ----
+   CONSTANT SIZE    =     14    ----
+   XDATA SIZE       =    200    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =     18    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

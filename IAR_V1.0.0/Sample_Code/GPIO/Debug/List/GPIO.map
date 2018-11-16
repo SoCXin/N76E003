@@ -1,0 +1,857 @@
+################################################################################
+#                                                                              #
+#      IAR Universal Linker V6.4.6.89                                          #
+#                                                                              #
+#           Link time     =  25/Dec/2017  16:33:18                             #
+#           Target CPU    =  x51                                               #
+#           List file     =  C:\Users\lcwang0\Desktop\N76E003_BSP_IAR_C51_V1.0 #
+#                            .1_20171002\N76E003_BSP_IAR_C51_V1.0.1\Sample_Cod #
+#                            e\GPIO\Debug\List\GPIO.map                        #
+#           Output file 1 =  C:\Users\lcwang0\Desktop\N76E003_BSP_IAR_C51_V1.0 #
+#                            .1_20171002\N76E003_BSP_IAR_C51_V1.0.1\Sample_Cod #
+#                            e\GPIO\Debug\Exe\GPIO.d51                         #
+#                            Format: ubrof10                                   #
+#                            UBROF version 10.0.6                              #
+#                            Using library modules for C-SPY (-rt)             #
+#           Command line  =  -f                                                #
+#                            C:\Users\lcwang0\AppData\Local\Temp\EWEEAF.tmp    #
+#                            (C:\Users\lcwang0\Desktop\N76E003_BSP_IAR_C51_V1. #
+#                            0.1_20171002\N76E003_BSP_IAR_C51_V1.0.1\Sample_Co #
+#                            de\GPIO\Debug\Obj\Common.r51                      #
+#                            C:\Users\lcwang0\Desktop\N76E003_BSP_IAR_C51_V1.0 #
+#                            .1_20171002\N76E003_BSP_IAR_C51_V1.0.1\Sample_Cod #
+#                            e\GPIO\Debug\Obj\Delay.r51                        #
+#                            C:\Users\lcwang0\Desktop\N76E003_BSP_IAR_C51_V1.0 #
+#                            .1_20171002\N76E003_BSP_IAR_C51_V1.0.1\Sample_Cod #
+#                            e\GPIO\Debug\Obj\GPIO.r51                         #
+#                            -e_small_write=_formatted_write                   #
+#                            -e_medium_read=_formatted_read -o                 #
+#                            C:\Users\lcwang0\Desktop\N76E003_BSP_IAR_C51_V1.0 #
+#                            .1_20171002\N76E003_BSP_IAR_C51_V1.0.1\Sample_Cod #
+#                            e\GPIO\Debug\Exe\GPIO.d51                         #
+#                            -l                                                #
+#                            C:\Users\lcwang0\Desktop\N76E003_BSP_IAR_C51_V1.0 #
+#                            .1_20171002\N76E003_BSP_IAR_C51_V1.0.1\Sample_Cod #
+#                            e\GPIO\Debug\List\GPIO.map                        #
+#                            -xms                                              #
+#                            "-IC:\Program Files (x86)\IAR Systems\Embedded Wo #
+#                            rkbench 8.0\8051\LIB\"                            #
+#                            -f                                                #
+#                            "C:\Program Files (x86)\IAR Systems\Embedded Work #
+#                            bench 8.0\8051\config\devices\NuvoTon\lnk51ew_N76 #
+#                            E003.xcl"                                         #
+#                            (-D_IDATA0_START=0x00 -D_IDATA0_END=0xFF          #
+#                            -D_PDATA0_START=0x0000 -D_PDATA0_END=0x00FF       #
+#                            -D_IXDATA0_START=0x0001 -D_IXDATA0_END=0x02FF     #
+#                            -D_XDATA0_START=0x0001 -D_XDATA0_END=0x02FF       #
+#                            -D_CODE0_START=0x0000 -D_CODE0_END=0x47FF         #
+#                            -D?REGISTER_BANK=0x0 -D_REGISTER_BANK_START=0x0   #
+#                            -D_BREG_START=0x00 -D?VB=0x20                     #
+#                            -Z(BIT)BREG=_BREG_START -Z(BIT)BIT_N=0-7F         #
+#                            -Z(DATA)REGISTERS+8=_REGISTER_BANK_START          #
+#                            -Z(DATA)BDATA_Z,BDATA_N,BDATA_I=20-2F             #
+#                            -Z(DATA)VREG=08-7F -Z(DATA)PSP,XSP=08-7F          #
+#                            -Z(DATA)DOVERLAY=08-7F                            #
+#                            -Z(DATA)DATA_I,DATA_Z,DATA_N=08-7F                #
+#                            -U(IDATA)0-7F=(DATA)0-7F                          #
+#                            -Z(IDATA)IDATA_I,IDATA_Z,IDATA_N=08-_IDATA0_END   #
+#                            -Z(IDATA)ISTACK+_IDATA_STACK_SIZE#08-_IDATA0_END  #
+#                            -Z(IDATA)IOVERLAY=08-FF -Z(CODE)INTVEC=0          #
+#                            -Z(CODE)CSTART=_CODE0_START-_CODE0_END            #
+#                            -Z(CODE)BIT_ID,BDATA_ID,DATA_ID,IDATA_ID,IXDATA_I #
+#                            D,PDATA_ID,XDATA_ID=_CODE0_START-_CODE0_END       #
+#                            -Z(CODE)HUGE_ID=_CODE0_START-_CODE0_END           #
+#                            -Z(CODE)RCODE,DIFUNCT=_CODE0_START-_CODE0_END     #
+#                            -P(CODE)CODE_C,CODE_N,NEAR_CODE=_CODE0_START-_COD #
+#                            E0_END                                            #
+#                            -Z(CODE)CHECKSUM#_CODE0_END                       #
+#                            -Z(XDATA)PDATA_Z,PDATA_I=_PDATA0_START-_PDATA0_EN #
+#                            D                                                 #
+#                            -P(XDATA)PDATA_N=_PDATA0_START-_PDATA0_END        #
+#                            -Z(XDATA)PSTACK+_PDATA_STACK_SIZE=_PDATA0_START-_ #
+#                            PDATA0_END                                        #
+#                            -Z(XDATA)EXT_STACK+_EXTENDED_STACK_SIZE=_EXTENDED #
+#                            _STACK_START                                      #
+#                            -Z(XDATA)XSTACK+_XDATA_STACK_SIZE=_XDATA0_START-_ #
+#                            XDATA0_END                                        #
+#                            -Z(XDATA)IXDATA_I,IXDATA_Z=_IXDATA0_START-_IXDATA #
+#                            0_END                                             #
+#                            -P(XDATA)IXDATA_N=_IXDATA0_START-_IXDATA0_END     #
+#                            -Z(XDATA)XDATA_I,XDATA_Z=_XDATA0_START-_XDATA0_EN #
+#                            D                                                 #
+#                            -P(XDATA)XDATA_N=_XDATA0_START-_XDATA0_END        #
+#                            -Z(XDATA)XDATA_HEAP+_XDATA_HEAP_SIZE=_XDATA0_STAR #
+#                            T-_XDATA0_END                                     #
+#                            -Z(CONST)XDATA_ROM_C=_XDATA0_START-_XDATA0_END    #
+#                            -Z(CODE)FAR22_ID=[_CODE0_START-_CODE0_END]/10000  #
+#                            -Z(CODE)FAR_ID=[_CODE0_START-_CODE0_END]/10000    #
+#                            -cx51)                                            #
+#                            "-IC:\Program Files (x86)\IAR Systems\Embedded Wo #
+#                            rkbench 8.0\8051\CONFIG\"                         #
+#                            -D_NR_OF_VIRTUAL_REGISTERS=8 -D?PBANK=0xA0        #
+#                            -D?CBANK=0x90 -D?CBANK_MASK=0x30                  #
+#                            -e?BCALL_30=?BCALL -e?BRET_30=?BRET               #
+#                            -e?BDISPATCH_30=?BDISPATCH                        #
+#                            -D_CODEBANK_START=0x8000 -D_CODEBANK_END=0xFFFF   #
+#                            -D_NR_OF_BANKS=0x03 -rt -s __program_start        #
+#                            "C:\Program Files (x86)\IAR Systems\Embedded Work #
+#                            bench 8.0\8051\LIB\CLIB\cl-pli-nsic-1e16x01.r51"  #
+#                            -D_IDATA_STACK_SIZE=0x40 -D?ESP=0 -D?ESP_MASK=0   #
+#                            -D_EXTENDED_STACK_START=0                         #
+#                            -D_EXTENDED_STACK_SIZE=0                          #
+#                            -D_PDATA_STACK_SIZE=0x80                          #
+#                            -D_XDATA_STACK_SIZE=0xEFF                         #
+#                            -D_XDATA_HEAP_SIZE=0xFF -D_FAR_HEAP_SIZE=0xFFF    #
+#                            -D_HUGE_HEAP_SIZE=0xFFF                           #
+#                            -D_FAR22_HEAP_SIZE=0xFFF)                         #
+#                                                                              #
+#                           Copyright (C) 1987-2016 IAR Systems AB.            #
+################################################################################
+
+
+
+
+
+                ****************************************
+                *                                      *
+                *           CROSS REFERENCE            *
+                *                                      *
+                ****************************************
+
+       Program entry at : CODE      00000059  Relocatable, from module : CSTARTUP
+
+
+
+
+                ****************************************
+                *                                      *
+                *            RUNTIME MODEL             *
+                *                                      *
+                ****************************************
+
+  __SystemLibrary          = CLib
+  __calling_convention     = idata_reentrant
+  __code_model             = near
+  __core                   = plain
+  __data_model             = small
+  __dptr_size              = 16
+  __extended_stack         = disabled
+  __location_for_constants = code
+  __number_of_dptrs        = 1
+  __register_banks         = *
+  __rt_version             = 1
+
+                ****************************************
+                *                                      *
+                *    AUTOMATIC SYMBOL REDIRECTIONS     *
+                *                                      *
+                ****************************************
+
+                  There are no automatic symbol redirections.
+
+
+
+                ****************************************
+                *                                      *
+                *              MODULE MAP              *
+                *                                      *
+                ****************************************
+
+
+  DEFINED ABSOLUTE ENTRIES
+    *************************************************************************
+
+  DEFINED ABSOLUTE ENTRIES
+  PROGRAM MODULE, NAME : ?ABS_ENTRY_MOD
+
+Absolute parts
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           _FAR22_HEAP_SIZE        00000FFF 
+           _HUGE_HEAP_SIZE         00000FFF 
+           _FAR_HEAP_SIZE          00000FFF 
+           _XDATA_HEAP_SIZE        000000FF 
+           _XDATA_STACK_SIZE       00000EFF 
+           _PDATA_STACK_SIZE       00000080 
+           _EXTENDED_STACK_SIZE    00000000 
+           _EXTENDED_STACK_START   00000000 
+           ?ESP_MASK               00000000 
+           ?ESP                    00000000 
+           _IDATA_STACK_SIZE       00000040 
+           _NR_OF_BANKS            00000003 
+           _CODEBANK_END           0000FFFF 
+           _CODEBANK_START         00008000 
+           ?CBANK_MASK             00000030 
+           ?CBANK                  00000090 
+           ?PBANK                  000000A0 
+           _NR_OF_VIRTUAL_REGISTERS
+                                   00000008 
+           ?VB                     00000020        ?FUNC_ENTER_SP (?FUNC_ENTER_SP)
+                                                   ?FUNC_LEAVE_SP (?FUNC_LEAVE_SP)
+                                                   ?INTERRUPT_ENTER_SP (?INTERRUPT_ENTER_SP)
+                                                   ?INTERRUPT_LEAVE_SP (?INTERRUPT_LEAVE_SP)
+           _BREG_START             00000000 
+           _REGISTER_BANK_START    00000000 
+           ?REGISTER_BANK          00000000        Segment part 6 (CSTARTUP)
+           _CODE0_END              000047FF 
+           _CODE0_START            00000000 
+           _XDATA0_END             000002FF 
+           _XDATA0_START           00000001 
+           _IXDATA0_END            000002FF 
+           _IXDATA0_START          00000001 
+           _PDATA0_END             000000FF 
+           _PDATA0_START           00000000 
+           _IDATA0_END             000000FF 
+           _IDATA0_START           00000000 
+    *************************************************************************
+
+  FILE NAME : C:\Users\lcwang0\Desktop\N76E003_BSP_IAR_C51_V1.0.1_20171002\N76E003_BSP_IAR_C51_V1.0.1\Sample_Code\GPIO\Debug\Obj\Common.r51
+  PROGRAM MODULE, NAME : Common
+
+  SEGMENTS IN THE MODULE
+  ======================
+SFR_AN
+  Relative segment, address: DATA 00000087 - 00000087 (0x1 bytes), align: 0
+  Segment part 1. ROOT        Intra module refs:   InitialUART0_Timer3
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           PCON                    00000087 
+    -------------------------------------------------------------------------
+SFR_AN
+  Relative segment, address: DATA 00000088 - 00000088 (0x1 bytes), align: 0
+  Segment part 2. ROOT        Intra module refs:   Timer0_Delay1ms (Delay)
+                                                   Timer1_Delay10ms (Delay)
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           _A_TCON                 00000088 
+           LOCAL                   ADDRESS         
+           =====                   =======         
+           TCON                    00000088 
+           TCON_bit                00000088 
+    -------------------------------------------------------------------------
+SFR_AN
+  Relative segment, address: DATA 00000089 - 00000089 (0x1 bytes), align: 0
+  Segment part 3. ROOT        Intra module refs:   Timer0_Delay1ms (Delay)
+                                                   Timer1_Delay10ms (Delay)
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           TMOD                    00000089 
+    -------------------------------------------------------------------------
+SFR_AN
+  Relative segment, address: DATA 0000008D - 0000008D (0x1 bytes), align: 0
+  Segment part 4. ROOT        Intra module refs:   Timer1_Delay10ms (Delay)
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           TH1                     0000008D 
+    -------------------------------------------------------------------------
+SFR_AN
+  Relative segment, address: DATA 0000008E - 0000008E (0x1 bytes), align: 0
+  Segment part 5. ROOT        Intra module refs:   Timer0_Delay1ms (Delay)
+                                                   Timer1_Delay10ms (Delay)
+                                                   main (GPIO)
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           CKCON                   0000008E 
+    -------------------------------------------------------------------------
+SFR_AN
+  Relative segment, address: DATA 00000098 - 00000098 (0x1 bytes), align: 0
+  Segment part 6. ROOT        Intra module refs:   InitialUART0_Timer3
+                                                   Send_Data_To_UART0
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           _A_SCON                 00000098 
+           LOCAL                   ADDRESS         
+           =====                   =======         
+           SCON                    00000098 
+           SCON_bit                00000098 
+    -------------------------------------------------------------------------
+SFR_AN
+  Relative segment, address: DATA 00000099 - 00000099 (0x1 bytes), align: 0
+  Segment part 7. ROOT        Intra module refs:   Send_Data_To_UART0
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           SBUF                    00000099 
+    -------------------------------------------------------------------------
+SFR_AN
+  Relative segment, address: DATA 0000009A - 0000009A (0x1 bytes), align: 0
+  Segment part 8. ROOT 
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           SBUF_1                  0000009A 
+    -------------------------------------------------------------------------
+SFR_AN
+  Relative segment, address: DATA 000000B1 - 000000B1 (0x1 bytes), align: 0
+  Segment part 9. ROOT        Intra module refs:   InitialUART0_Timer3
+                                                   main (GPIO)
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           P0M1                    000000B1 
+    -------------------------------------------------------------------------
+SFR_AN
+  Relative segment, address: DATA 000000B2 - 000000B2 (0x1 bytes), align: 0
+  Segment part 10. ROOT       Intra module refs:   InitialUART0_Timer3
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           P0M2                    000000B2 
+    -------------------------------------------------------------------------
+SFR_AN
+  Relative segment, address: DATA 000000B3 - 000000B3 (0x1 bytes), align: 0
+  Segment part 11. ROOT       Intra module refs:   main (GPIO)
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           P1M1                    000000B3 
+    -------------------------------------------------------------------------
+SFR_AN
+  Relative segment, address: DATA 000000B4 - 000000B4 (0x1 bytes), align: 0
+  Segment part 12. ROOT       Intra module refs:   main (GPIO)
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           P1M2                    000000B4 
+    -------------------------------------------------------------------------
+SFR_AN
+  Relative segment, address: DATA 000000C4 - 000000C4 (0x1 bytes), align: 0
+  Segment part 13. ROOT       Intra module refs:   InitialUART0_Timer3
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           T3CON                   000000C4 
+    -------------------------------------------------------------------------
+SFR_AN
+  Relative segment, address: DATA 000000C5 - 000000C5 (0x1 bytes), align: 0
+  Segment part 14. ROOT       Intra module refs:   InitialUART0_Timer3
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           RL3                     000000C5 
+    -------------------------------------------------------------------------
+SFR_AN
+  Relative segment, address: DATA 000000C6 - 000000C6 (0x1 bytes), align: 0
+  Segment part 15. ROOT       Intra module refs:   InitialUART0_Timer3
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           RH3                     000000C6 
+    -------------------------------------------------------------------------
+SFR_AN
+  Relative segment, address: DATA 000000F8 - 000000F8 (0x1 bytes), align: 0
+  Segment part 16. ROOT 
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           _A_SCON_1               000000F8 
+           LOCAL                   ADDRESS         
+           =====                   =======         
+           SCON_1                  000000F8 
+           SCON_1_bit              000000F8 
+    -------------------------------------------------------------------------
+<CODE_C,NEAR_CODE> 1 (was NEAR_CODE)
+  Relative segment, address: CODE 000002CB - 00000362 (0x98 bytes), align: 0
+  Segment part 27.
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           InitialUART0_Timer3     000002CB        main (GPIO)
+               ISTACK = 00000000 ( 0000000F )
+    -------------------------------------------------------------------------
+<CODE_C,NEAR_CODE> 1 (was NEAR_CODE)
+  Relative segment, address: CODE 00000363 - 0000036F (0xd bytes), align: 0
+  Segment part 29.
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           Send_Data_To_UART0      00000363        main (GPIO)
+               ISTACK = 00000002 ( 00000000 )
+    -------------------------------------------------------------------------
+<CODE_C,NEAR_CODE> 1 (was CODE_C)
+  Relative segment, address: CODE 00000408 - 0000040B (0x4 bytes), align: 0
+  Segment part 23.            Intra module refs:   Timer0_Delay1ms (Delay)
+                                                   Timer1_Delay10ms (Delay)
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           __Constant_ffffffff     00000408 
+    -------------------------------------------------------------------------
+<CODE_C,NEAR_CODE> 1 (was CODE_C)
+  Relative segment, address: CODE 00000404 - 00000407 (0x4 bytes), align: 0
+  Segment part 24.            Intra module refs:   PinInterrupt_ISR (GPIO)
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           __Constant_a            00000404 
+
+    *************************************************************************
+
+  FILE NAME : C:\Users\lcwang0\Desktop\N76E003_BSP_IAR_C51_V1.0.1_20171002\N76E003_BSP_IAR_C51_V1.0.1\Sample_Code\GPIO\Debug\Obj\Delay.r51
+  PROGRAM MODULE, NAME : Delay
+
+  SEGMENTS IN THE MODULE
+  ======================
+SFR_AN
+  Relative segment, address: DATA 0000008A - 0000008A (0x1 bytes), align: 0
+  Segment part 3. ROOT        Intra module refs:   Timer0_Delay1ms
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           TL0                     0000008A 
+    -------------------------------------------------------------------------
+SFR_AN
+  Relative segment, address: DATA 0000008B - 0000008B (0x1 bytes), align: 0
+  Segment part 4. ROOT        Intra module refs:   Timer1_Delay10ms
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           TL1                     0000008B 
+    -------------------------------------------------------------------------
+SFR_AN
+  Relative segment, address: DATA 0000008C - 0000008C (0x1 bytes), align: 0
+  Segment part 5. ROOT        Intra module refs:   Timer0_Delay1ms
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           TH0                     0000008C 
+    -------------------------------------------------------------------------
+SFR_AN
+  Relative segment, address: DATA 000000C8 - 000000C8 (0x1 bytes), align: 0
+  Segment part 11. ROOT 
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           _A_T2CON                000000C8 
+           LOCAL                   ADDRESS         
+           =====                   =======         
+           T2CON                   000000C8 
+           T2CON_bit               000000C8 
+    -------------------------------------------------------------------------
+SFR_AN
+  Relative segment, address: DATA 000000C9 - 000000C9 (0x1 bytes), align: 0
+  Segment part 12. ROOT 
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           T2MOD                   000000C9 
+    -------------------------------------------------------------------------
+SFR_AN
+  Relative segment, address: DATA 000000CC - 000000CC (0x1 bytes), align: 0
+  Segment part 13. ROOT 
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           TL2                     000000CC 
+    -------------------------------------------------------------------------
+SFR_AN
+  Relative segment, address: DATA 000000CD - 000000CD (0x1 bytes), align: 0
+  Segment part 14. ROOT 
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           TH2                     000000CD 
+    -------------------------------------------------------------------------
+<CODE_C,NEAR_CODE> 1 (was NEAR_CODE)
+  Relative segment, address: CODE 00000370 - 000003B5 (0x46 bytes), align: 0
+  Segment part 23.
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           Timer0_Delay1ms         00000370        main (GPIO)
+               ISTACK = 00000000 ( 00000004 )
+    -------------------------------------------------------------------------
+<CODE_C,NEAR_CODE> 1 (was NEAR_CODE)
+  Relative segment, address: CODE 000003B6 - 000003FB (0x46 bytes), align: 0
+  Segment part 24.
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           Timer1_Delay10ms        000003B6        PinInterrupt_ISR (GPIO)
+               ISTACK = 00000000 ( 00000004 )
+
+    *************************************************************************
+
+  FILE NAME : C:\Users\lcwang0\Desktop\N76E003_BSP_IAR_C51_V1.0.1_20171002\N76E003_BSP_IAR_C51_V1.0.1\Sample_Code\GPIO\Debug\Obj\GPIO.r51
+  PROGRAM MODULE, NAME : GPIO
+
+  SEGMENTS IN THE MODULE
+  ======================
+SFR_AN
+  Relative segment, address: DATA 00000090 - 00000090 (0x1 bytes), align: 0
+  Segment part 2. ROOT        Intra module refs:   PinInterrupt_ISR
+                                                   main
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           _A_P1                   00000090 
+           LOCAL                   ADDRESS         
+           =====                   =======         
+           P1                      00000090 
+           P1_bit                  00000090 
+    -------------------------------------------------------------------------
+SFR_AN
+  Relative segment, address: DATA 000000AC - 000000AC (0x1 bytes), align: 0
+  Segment part 3. ROOT        Intra module refs:   main
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           P3M1                    000000AC 
+    -------------------------------------------------------------------------
+SFR_AN
+  Relative segment, address: DATA 000000AD - 000000AD (0x1 bytes), align: 0
+  Segment part 4. ROOT        Intra module refs:   main
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           P3M2                    000000AD 
+    -------------------------------------------------------------------------
+SFR_AN
+  Relative segment, address: DATA 000000EC - 000000EC (0x1 bytes), align: 0
+  Segment part 8. ROOT        Intra module refs:   PinInterrupt_ISR
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           PIF                     000000EC 
+    -------------------------------------------------------------------------
+XDATA_Z
+  Relative segment, address: XDATA 00000001 - 00000001 (0x1 bytes), align: 0
+  Segment part 15.            Intra module refs:   main
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           page1                   00000001 
+    -------------------------------------------------------------------------
+XDATA_Z
+  Relative segment, address: XDATA 00000002 - 00000002 (0x1 bytes), align: 0
+  Segment part 16.            Intra module refs:   main
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           page2                   00000002 
+    -------------------------------------------------------------------------
+<CODE_C,NEAR_CODE> 1 (was NEAR_CODE)
+  Relative segment, address: CODE 0000019D - 00000261 (0xc5 bytes), align: 0
+  Segment part 20.            Intra module refs:   PinInterrupt_ISR::??INTVEC 59
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           PinInterrupt_ISR        0000019D 
+               interrupt function
+               calls direct
+               ISTACK = 00000000 ( 00000010 )
+    -------------------------------------------------------------------------
+<CODE_C,NEAR_CODE> 1 (was NEAR_CODE)
+  Relative segment, address: CODE 00000262 - 000002CA (0x69 bytes), align: 0
+  Segment part 21.
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           main                    00000262        ?call_main (?cmain)
+               calls direct
+    -------------------------------------------------------------------------
+INTVEC
+  Common segment, address: CODE 00000000 - 0000003D (0x3e bytes), align: 0
+  Segment part 9. ROOT 
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           PinInterrupt_ISR::??INTVEC 59
+                                   0000003B 
+    -------------------------------------------------------------------------
+<CODE_C,NEAR_CODE> 1 (was CODE_C)
+  Relative segment, address: CODE 00000400 - 00000403 (0x4 bytes), align: 0
+  Segment part 18.            Intra module refs:   main
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           __Constant_1c200        00000400 
+    -------------------------------------------------------------------------
+<CODE_C,NEAR_CODE> 1 (was CODE_C)
+  Relative segment, address: CODE 000003FC - 000003FF (0x4 bytes), align: 0
+  Segment part 19.            Intra module refs:   main
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           __Constant_12c          000003FC 
+
+    *************************************************************************
+
+  FILE NAME : C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.0\8051\LIB\CLIB\cl-pli-nsic-1e16x01.r51
+  LIBRARY MODULE, NAME : ?cexit
+
+  SEGMENTS IN THE MODULE
+  ======================
+CSTART
+  Relative segment, address: CODE 0000003E - 00000042 (0x5 bytes), align: 0
+  Segment part 0.
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           exit                    0000003E        ?call_main (?cmain)
+           ?C_EXIT                 0000003E 
+           ?ROM_MONITOR_NOPS       0000003E 
+
+    -------------------------------------------------------------------------
+  LIBRARY MODULE, NAME : ?cmain
+
+  SEGMENTS IN THE MODULE
+  ======================
+CSTART
+  Relative segment, address: CODE 00000043, align: 0
+  Segment part 5.
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           ?cmain                  00000043        Segment part 13 (CSTARTUP)
+               calls direct
+    -------------------------------------------------------------------------
+CSTART
+  Relative segment, address: CODE 00000043 - 00000052 (0x10 bytes), align: 0
+  Segment part 16.
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           __INIT_XDATA_Z          00000043        page1 (GPIO)
+                                                   page2 (GPIO)
+    -------------------------------------------------------------------------
+CSTART
+  Relative segment, address: CODE 00000053 - 00000058 (0x6 bytes), align: 0
+  Segment part 38.            Intra module refs:   ?cmain
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           ?call_main              00000053 
+
+    -------------------------------------------------------------------------
+  LIBRARY MODULE, NAME : CSTARTUP
+
+  SEGMENTS IN THE MODULE
+  ======================
+REGISTERS
+  Relative segment, address: DATA 00000000, align: 0
+  Segment part 0.             Intra module refs:   Segment part 6
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           ?REGISTERS              00000000 
+    -------------------------------------------------------------------------
+ISTACK
+  Relative segment, address: IDATA 000000C0, align: 0
+  Segment part 1.             Intra module refs:   Segment part 6
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           ?ISTACK_START           000000C0 
+    -------------------------------------------------------------------------
+INTVEC
+  Common segment, address: CODE 00000000 - 00000002 (0x3 bytes), align: 0
+  Segment part 5. ROOT        Intra module refs:   Segment part 6
+    -------------------------------------------------------------------------
+CSTART
+  Relative segment, address: CODE 00000059 - 0000005E (0x6 bytes), align: 0
+  Segment part 6. ROOT        Intra module refs:   Segment part 5
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           __program_start         00000059        Absolute parts (?ABS_ENTRY_MOD)
+           ?RESET_SP               0000005C 
+    -------------------------------------------------------------------------
+CSTART
+  Relative segment, address: CODE 0000005F - 00000061 (0x3 bytes), align: 0
+  Segment part 13.            Intra module refs:   Absolute parts
+
+    -------------------------------------------------------------------------
+  LIBRARY MODULE, NAME : VIRTUAL_REGISTERS
+
+  SEGMENTS IN THE MODULE
+  ======================
+BREG
+  Relative segment, address: BIT 00000020.0 - 00000020.7 (0x8 bits), align: 0
+  Segment part 0.
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           ?B0                     00000020.0      Absolute parts (CSTARTUP)
+    -------------------------------------------------------------------------
+VREG
+  Relative segment, address: DATA 00000008 - 00000008 (0x1 bytes), align: 0
+  Segment part 1.             Intra module refs:   ?V1
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           ?V0                     00000008        ?FUNC_ENTER_SP (?FUNC_ENTER_SP)
+                                                   ?FUNC_LEAVE_SP (?FUNC_LEAVE_SP)
+                                                   ?INTERRUPT_ENTER_SP (?INTERRUPT_ENTER_SP)
+                                                   ?INTERRUPT_LEAVE_SP (?INTERRUPT_LEAVE_SP)
+                                                   InitialUART0_Timer3 (Common)
+                                                   PinInterrupt_ISR (GPIO)
+                                                   Timer0_Delay1ms (Delay)
+                                                   Timer1_Delay10ms (Delay)
+                                                   main (GPIO)
+    -------------------------------------------------------------------------
+VREG
+  Relative segment, address: DATA 00000009 - 00000009 (0x1 bytes), align: 0
+  Segment part 2.             Intra module refs:   ?V2
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           ?V1                     00000009        InitialUART0_Timer3 (Common)
+                                                   PinInterrupt_ISR (GPIO)
+                                                   Timer0_Delay1ms (Delay)
+                                                   Timer1_Delay10ms (Delay)
+                                                   main (GPIO)
+    -------------------------------------------------------------------------
+VREG
+  Relative segment, address: DATA 0000000A - 0000000A (0x1 bytes), align: 0
+  Segment part 3.             Intra module refs:   ?V3
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           ?V2                     0000000A        InitialUART0_Timer3 (Common)
+                                                   PinInterrupt_ISR (GPIO)
+                                                   Timer0_Delay1ms (Delay)
+                                                   Timer1_Delay10ms (Delay)
+                                                   main (GPIO)
+    -------------------------------------------------------------------------
+VREG
+  Relative segment, address: DATA 0000000B - 0000000B (0x1 bytes), align: 0
+  Segment part 4.             Intra module refs:   ?V4
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           ?V3                     0000000B        InitialUART0_Timer3 (Common)
+                                                   PinInterrupt_ISR (GPIO)
+                                                   Timer0_Delay1ms (Delay)
+                                                   Timer1_Delay10ms (Delay)
+                                                   main (GPIO)
+    -------------------------------------------------------------------------
+VREG
+  Relative segment, address: DATA 0000000C - 0000000C (0x1 bytes), align: 0
+  Segment part 5.             Intra module refs:   ?V5
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           ?V4                     0000000C        InitialUART0_Timer3 (Common)
+    -------------------------------------------------------------------------
+VREG
+  Relative segment, address: DATA 0000000D - 0000000D (0x1 bytes), align: 0
+  Segment part 6.             Intra module refs:   ?V6
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           ?V5                     0000000D        InitialUART0_Timer3 (Common)
+    -------------------------------------------------------------------------
+VREG
+  Relative segment, address: DATA 0000000E - 0000000E (0x1 bytes), align: 0
+  Segment part 7.             Intra module refs:   ?V7
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           ?V6                     0000000E        InitialUART0_Timer3 (Common)
+    -------------------------------------------------------------------------
+VREG
+  Relative segment, address: DATA 0000000F - 0000000F (0x1 bytes), align: 0
+  Segment part 8.
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           ?V7                     0000000F        InitialUART0_Timer3 (Common)
+
+    -------------------------------------------------------------------------
+  LIBRARY MODULE, NAME : ?UL_DIV_MOD
+
+  SEGMENTS IN THE MODULE
+  ======================
+RCODE
+  Relative segment, address: CODE 00000062 - 000000D0 (0x6f bytes), align: 0
+  Segment part 1.
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           ?UL_DIV_MOD             00000062        InitialUART0_Timer3 (Common)
+
+    -------------------------------------------------------------------------
+  LIBRARY MODULE, NAME : ?L_ADD_C
+
+  SEGMENTS IN THE MODULE
+  ======================
+RCODE
+  Relative segment, address: CODE 000000D1 - 000000E7 (0x17 bytes), align: 0
+  Segment part 1.
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           ?L_ADD_C                000000D1        Timer0_Delay1ms (Delay)
+                                                   Timer1_Delay10ms (Delay)
+
+    -------------------------------------------------------------------------
+  LIBRARY MODULE, NAME : ?L_MOV
+
+  SEGMENTS IN THE MODULE
+  ======================
+RCODE
+  Relative segment, address: CODE 000000E8 - 000000F6 (0xf bytes), align: 0
+  Segment part 0.
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           ?L_MOV                  000000E8        InitialUART0_Timer3 (Common)
+
+    -------------------------------------------------------------------------
+  LIBRARY MODULE, NAME : ?L_MOV_C
+
+  SEGMENTS IN THE MODULE
+  ======================
+RCODE
+  Relative segment, address: CODE 000000F7 - 00000109 (0x13 bytes), align: 0
+  Segment part 0.
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           ?L_MOV_C                000000F7        PinInterrupt_ISR (GPIO)
+                                                   main (GPIO)
+
+    -------------------------------------------------------------------------
+  LIBRARY MODULE, NAME : ?FUNC_ENTER_SP
+
+  SEGMENTS IN THE MODULE
+  ======================
+RCODE
+  Relative segment, address: CODE 0000010A - 0000011F (0x16 bytes), align: 0
+  Segment part 0.
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           ?FUNC_ENTER_SP          0000010A        InitialUART0_Timer3 (Common)
+
+    -------------------------------------------------------------------------
+  LIBRARY MODULE, NAME : ?FUNC_LEAVE_SP
+
+  SEGMENTS IN THE MODULE
+  ======================
+RCODE
+  Relative segment, address: CODE 00000120 - 00000136 (0x17 bytes), align: 0
+  Segment part 0.
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           ?FUNC_LEAVE_SP          00000120        InitialUART0_Timer3 (Common)
+
+    -------------------------------------------------------------------------
+  LIBRARY MODULE, NAME : ?INTERRUPT_ENTER_SP
+
+  SEGMENTS IN THE MODULE
+  ======================
+RCODE
+  Relative segment, address: CODE 00000137 - 0000016D (0x37 bytes), align: 0
+  Segment part 0.
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           ?INTERRUPT_ENTER_SP     00000137        PinInterrupt_ISR (GPIO)
+
+    -------------------------------------------------------------------------
+  LIBRARY MODULE, NAME : ?INTERRUPT_LEAVE_SP
+
+  SEGMENTS IN THE MODULE
+  ======================
+RCODE
+  Relative segment, address: CODE 0000016E - 0000019C (0x2f bytes), align: 0
+  Segment part 0.
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           ?INTERRUPT_LEAVE_SP     0000016E        PinInterrupt_ISR (GPIO)
+
+
+
+
+                ****************************************
+                *                                      *
+                *      SEGMENTS IN ADDRESS ORDER       *
+                *                                      *
+                ****************************************
+
+
+SEGMENT              SPACE    START ADDRESS   END ADDRESS     SIZE  TYPE  ALIGN
+=======              =====    =============   ===========     ====  ====  =====
+INTVEC               CODE          00000000 - 0000003D          3E   com    0
+CSTART               CODE          0000003E - 00000061          24   rel    0
+RCODE                CODE          00000062 - 0000019C         13B   rel    0
+<CODE_C,NEAR_CODE> 1
+                     CODE          0000019D - 0000040B         26F   rel    0
+REGISTERS            DATA          00000000 - 00000007           8   rel    0
+VREG                 DATA          00000008 - 0000000F           8   rel    0
+BREG                 BIT        00000020.0  -  00000020.7        8   rel    0
+SFR_AN               DATA          00000087 - 0000008E           8   rel    0
+                     DATA          00000090 - 00000090           1 
+                     DATA          00000098 - 0000009A           3 
+                     DATA          000000AC - 000000AD           2 
+                     DATA          000000B1 - 000000B4           4 
+                     DATA          000000C4 - 000000C6           3 
+                     DATA          000000C8 - 000000C9           2 
+                     DATA          000000CC - 000000CD           2 
+                     DATA          000000EC - 000000EC           1 
+                     DATA          000000F8 - 000000F8           1 
+XDATA_I              XDATA              00000001                     dse    0
+XDATA_Z              XDATA         00000001 - 00000002           2   rel    0
+ISTACK               IDATA         000000C0 - 000000FF          40   rel    0
+
+                ****************************************
+                *                                      *
+                *        END OF CROSS REFERENCE        *
+                *                                      *
+                ****************************************
+
+ 1 036 bytes of CODE  memory
+    16 bytes of DATA  memory (+ 27 absolute )
+     2 bytes of XDATA memory
+    64 bytes of IDATA memory
+     8 bits  of BIT   memory
+
+Errors: none
+Warnings: none
+
