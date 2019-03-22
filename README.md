@@ -1,39 +1,40 @@
 ﻿# [N76E003](https://github.com/mcuyun/N76E003) 
 
-台湾新唐51单片机
+[![sites](SoC/SoC.png)](http://www.qitas.cn) 
 
-[![sites](mcuyun/mcuyun.png)](http://www.mcuyun.com)
+####  qitas@qitas.cn
 
-#### 更多MCU：[mcuyun](https://github.com/mcuyun/whyme)可访问 www.mcuyun.com
+#### 归属：[8051](https://github.com/sochub/MCS-51) 
 
----
-
-### 简介
+## [描述](https://github.com/sochub/N76E003/wiki) 
 
 N76E003是低成本高可靠性单片机的代表，价格秒杀同规格产品，单片机的各种外设齐全，包括UART/SPI/IIC和12bit ADC等
 
+资源下载
+
+[![sites](docs/FTP.png)](http://www.qitas.cn) 
+
+主要特点：超高性价比的低成本方案
+
+功能特点：接口全面
+
+主要短板：8051内核和 20PIN
+
+器件封装：
+
+#### [docs](docs/)
+
+参考设计和数据手册
+
+#### [工程文件](project/)
+
+包括软硬件设计资源
+
+https://github.com/OpenNuvoton
+
+#### [开发工具](tools/)
+
+
 ---
 
-### 组成
-
-- docs
-
-包括芯片手册资料等
-
-- tools
-
-包括相关的工具
-
-- hardware
-
-硬件开发相关
-
-- IAR_V1.0.0 & Keil_V1.0.5
-
-更多官方例程:https://github.com/OpenNuvoton
-
-
----
-
-###  www.mcuyun.com   |    qitas@qitas.cn
-
+###  [SoC开发平台](http://www.qitas.cn)   
