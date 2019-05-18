@@ -34,11 +34,9 @@ key feature：
 	* [IAR开发工程](src/)
 	* [keil开发工程](src/)
 	* [硬件设计](src/hardware)
-* [模板工程](demo/)
+* [ISP工程](ISP/)
 * [开发工具](tools/)
 	* [ISP下载工具](tools/)
-	* [串口下载工具](tools/)
-	* [keil驱动工具](tools)
 
 ### [替换方案](https://github.com/sochub/N76E003)
 
