@@ -35,6 +35,7 @@ key feature：
 	* [keil开发工程](src/)
 	* [硬件设计](src/hardware)
 * [ISP工程](ISP/)
+* [demo工程](demo/)
 * [开发工具](tools/)
 	* [ISP下载工具](tools/)
 
