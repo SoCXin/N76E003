@@ -40,6 +40,13 @@ key feature：
 * [开发工具](tools/)
 	* [ISP下载工具](tools/)
 
+#### [硬件开发资源](https://github.com/sochub/N76E003)
+
+包括官方cadence资源文件和整理的AD集成库文件
+
+[![sites](src/AD/N76E003-SCH.png)](http://www.qitas.cn)
+[![sites](src/AD/N76E003-PCB.png)](http://www.qitas.cn)
+
 ### [替换方案](https://github.com/sochub/N76E003)
 
 * 高性价比替换方案[STM32F030](https://github.com/sochub/STM32F030)
