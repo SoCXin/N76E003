@@ -12,7 +12,7 @@ N76E003是新唐高速1T 8051 单片机产品，18 KB Flash ROM、1 KB SRAM，�
 
 N76E003 在20 pin封装下提供高达18根I/O脚位；周边包含双串口、SPI、I²C、6通道PWM输出；内建优于同类产品之 < 2% 误差之高精确度16 MHz RC晶振与高分辨率8通道12位ADC；
 
-N76E003是低成本高可靠性单片机的代表，价格秒杀同规格产品，单片机的各种外设齐全，并具备自我唤醒、欠压检测等功能。
+N76E003是低成本高可靠性单片机的代表，价格在同规格产品很有竞争力，各种外设齐全，具备自我唤醒欠压检测等功能。
 
 [![sites](SoC/N76E003.png)](http://www.nuvoton.com.cn/hq/products/microcontrollers/8bit-8051-mcus/low-pin-count-8051-series/n76e003/?__locale=zh)
 
@@ -33,7 +33,8 @@ key feature：
 * [参考资源](src/)
 	* [IAR开发工程](src/)
 	* [keil开发工程](src/)
-	* [硬件设计](src/hardware)
+	* [硬件参考设计](src/hardware)
+	* [官方硬件资料](http://www.nuvoton.com.cn/hq/support/tool-and-software/development-tool-hardware/development-kit/?__locale=zh)
 * [ISP工程](ISP/)
 * [demo工程](demo/)
 * [开发工具](tools/)
