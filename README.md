@@ -16,14 +16,14 @@ N76E003是低成本高可靠性单片机的代表，价格在同规格产品很�
 
 [![sites](SoC/N76E003.png)](http://www.nuvoton.com.cn/hq/products/microcontrollers/8bit-8051-mcus/low-pin-count-8051-series/n76e003/?__locale=zh)
 
-key feature：
+关键特性：
 
 * 超高性价比低成本MCU
 * 接口全面，兼容性强
 
-主要不足：只有20PIN封装规格
+不足：只有20PIN的封装
 
-器件封装：TSSOP20 (4mm*6.5mm) QFN20 (3mm*3mm)
+封装：TSSOP20 (4mm*6.5mm) QFN20 (3mm*3mm)
 
 
 ### [资源组成](https://github.com/sochub/N76E003)
@@ -44,10 +44,11 @@ key feature：
 
 包括官方cadence资源文件和整理的AD集成库文件
 
+[![sites](src/AD/N76E003AQ.png)](http://www.qitas.cn)
 [![sites](src/AD/N76E003-SCH.png)](http://www.qitas.cn)
 [![sites](src/AD/N76E003-PCB.png)](http://www.qitas.cn)
 
-### [替换方案](https://github.com/sochub/N76E003)
+### [选型建议](https://github.com/sochub/N76E003)
 
 * 高性价比替换方案[STM32F030](https://github.com/sochub/STM32F030)
 * 硬件兼容替换方案[STM8S003](https://github.com/sochub/STM8S003)
