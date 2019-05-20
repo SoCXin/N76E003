@@ -23,8 +23,10 @@ N76E003是低成本高可靠性单片机的代表，价格在同规格产品很�
 
 不足：只有20PIN的封装
 
-封装：TSSOP20 (4mm*6.5mm) QFN20 (3mm*3mm)
-
+封装：TSSOP20 (4mm x 6.5mm) 
+[![sites](docs/TSSOP20.png)](http://www.qitas.cn)
+封装：QFN20 (3mm x 3mm)
+[![sites](docs/QFN20.png)](http://www.qitas.cn)
 
 ### [资源组成](https://github.com/sochub/N76E003)
 
