@@ -23,11 +23,6 @@ N76E003是低成本高可靠性单片机的代表，价格在同规格产品很�
 
 不足：只有20PIN的封装
 
-封装：TSSOP20 (4mm x 6.5mm) 
-[![sites](docs/TSSOP20.png)](http://www.qitas.cn)
-封装：QFN20 (3mm x 3mm)
-[![sites](docs/QFN20.png)](http://www.qitas.cn)
-
 ### [资源组成](https://github.com/sochub/N76E003)
 
 * [参考文档](docs/)
@@ -46,9 +41,20 @@ N76E003是低成本高可靠性单片机的代表，价格在同规格产品很�
 
 包括官方cadence资源文件和整理的AD集成库文件
 
-[![sites](src/AD/N76E003AQ.png)](http://www.qitas.cn)
+* N76E003AS20封装：TSSOP20 (4mm x 6.5mm) 
+
+[![sites](docs/TSSOP20.png)](http://www.qitas.cn)
 [![sites](src/AD/N76E003-SCH.png)](http://www.qitas.cn)
 [![sites](src/AD/N76E003-PCB.png)](http://www.qitas.cn)
+
+* N76E003AQ20封装：QFN20 (3mm x 3mm, O.4mm pitch)
+* N76E003BQ20封装：QFN20 (3mm x 3mm, O.5mm pitch)
+
+[![sites](docs/QFN20.png)](http://www.qitas.cn)
+[![sites](src/AD/N76E003AQ.png)](http://www.qitas.cn)
+
+* [kicad资源](src/kicad/)
+* [AD资源](src/AD/)
 
 ### [选型建议](https://github.com/sochub/N76E003)
 
