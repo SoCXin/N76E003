@@ -6,7 +6,7 @@
 
 #### 归属：[8051](https://github.com/sochub/8051)
 
-## [芯片描述](https://github.com/sochub/N76E003/wiki)
+## [N76E003简介](https://github.com/sochub/N76E003/wiki)
 
 N76E003是新唐高速1T 8051 单片机产品，18 KB Flash ROM、1 KB SRAM，支持2.4V - 5.5V宽工作电压，具备高抗干扰能力7KV ESD/4KV EFT。
 
@@ -28,20 +28,26 @@ N76E003是低成本高可靠性单片机的代表，价格在同规格产品很�
 * [参考文档](docs/)
 	* [芯片手册](docs/)
 * [参考资源](src/)
-	* [IAR开发工程](src/)
-	* [keil开发工程](src/)
-	* [硬件参考设计](src/hardware)
-	* [官方硬件资料](http://www.nuvoton.com.cn/hq/support/tool-and-software/development-tool-hardware/development-kit/?__locale=zh)
+	* [IAR开发工程](src/IAR)
+	* [keil开发工程](src/Keil)
+	* [SDCC开发工程](src/SDCC)
+	* [modbus工程](src/modbus)
 * [ISP工程](ISP/)
-* [demo工程](demo/)
-* [开发工具](tools/)
-	* [ISP下载工具](tools/)
+	* [ISP Keil工程](ISP/keil)
+	* [ISP 下载工具](ISP/tools)
+
+资源说明：
+
+本仓库正在整理过程中，涵盖的资源没有完善相应的体系，但是相应的资源已经可以使用
+
+* [官方硬件资料](http://www.nuvoton.com.cn/hq/support/tool-and-software/development-tool-hardware/development-kit/?__locale=zh)
+* [官方开源代码](https://github.com/OpenNuvoton/N76E003-BSP)
 
 #### [硬件开发资源](https://github.com/sochub/N76E003)
 
 包括官方cadence资源文件和整理的AD集成库文件
 
-* N76E003AS20封装：TSSOP20 (4mm x 6.5mm) 
+* N76E003AS20封装：TSSOP20 (4mm x 6.5mm)
 
 [![sites](docs/TSSOP20.png)](http://www.qitas.cn)
 [![sites](src/AD/N76E003-SCH.png)](http://www.qitas.cn)
