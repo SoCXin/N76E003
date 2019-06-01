@@ -48,19 +48,17 @@ N76E003是低成本高可靠性单片机的代表，价格在同规格产品很�
 
 #### [硬件开发资源](https://github.com/sochub/N76E003)
 
-包括官方cadence资源文件和整理的AD集成库文件
-
-* N76E003AS20封装：TSSOP20 (4mm x 6.5mm)
+* N76E003AS20 封装：TSSOP20 (4mm x 6.5mm)
 
 [![sites](docs/TSSOP20.png)](http://www.qitas.cn)
-[![sites](firmware/AD/N76E003-SCH.png)](http://www.qitas.cn)
-[![sites](firmware/AD/N76E003-PCB.png)](http://www.qitas.cn)
+[![sites](hardware/AD/N76E003-SCH.png)](http://www.qitas.cn)
+[![sites](hardware/AD/N76E003-PCB.png)](http://www.qitas.cn)
 
-* N76E003AQ20封装：QFN20 (3mm x 3mm, O.4mm pitch)
-* N76E003BQ20封装：QFN20 (3mm x 3mm, O.5mm pitch)
+* N76E003AQ20 封装：QFN20 (3mm x 3mm, O.4mm pitch)
+* N76E003BQ20 封装：QFN20 (3mm x 3mm, O.5mm pitch)
 
 [![sites](docs/QFN20.png)](http://www.qitas.cn)
-[![sites](firmware/AD/N76E003AQ.png)](http://www.qitas.cn)
+[![sites](hardware/AD/N76E003AQ.png)](http://www.qitas.cn)
 
 ### [选型建议](https://github.com/sochub/N76E003)
 
