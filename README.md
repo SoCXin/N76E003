@@ -27,11 +27,14 @@ N76E003是低成本高可靠性单片机的代表，价格在同规格产品很�
 
 * [参考文档](docs/)
 	* [芯片手册](docs/)
-* [参考资源](src/)
-	* [IAR开发工程](src/IAR)
-	* [keil开发工程](src/Keil)
-	* [SDCC开发工程](src/SDCC)
-	* [modbus工程](src/modbus)
+* [固件资源](firmware/)
+	* [IAR开发工程](firmware/IAR)
+	* [Keil开发工程](firmware/Keil)
+	* [SDCC开发工程](firmware/SDCC)
+	* [modbus工程](firmware/modbus)
+* [硬件资源](hardware/)
+	* [kicad资源](hardware/kicad/)
+	* [AD资源](hardware/AD/)
 * [ISP工程](ISP/)
 	* [ISP Keil工程](ISP/keil)
 	* [ISP 下载工具](ISP/tools)
@@ -50,17 +53,14 @@ N76E003是低成本高可靠性单片机的代表，价格在同规格产品很�
 * N76E003AS20封装：TSSOP20 (4mm x 6.5mm)
 
 [![sites](docs/TSSOP20.png)](http://www.qitas.cn)
-[![sites](src/AD/N76E003-SCH.png)](http://www.qitas.cn)
-[![sites](src/AD/N76E003-PCB.png)](http://www.qitas.cn)
+[![sites](firmware/AD/N76E003-SCH.png)](http://www.qitas.cn)
+[![sites](firmware/AD/N76E003-PCB.png)](http://www.qitas.cn)
 
 * N76E003AQ20封装：QFN20 (3mm x 3mm, O.4mm pitch)
 * N76E003BQ20封装：QFN20 (3mm x 3mm, O.5mm pitch)
 
 [![sites](docs/QFN20.png)](http://www.qitas.cn)
-[![sites](src/AD/N76E003AQ.png)](http://www.qitas.cn)
-
-* [kicad资源](src/kicad/)
-* [AD资源](src/AD/)
+[![sites](firmware/AD/N76E003AQ.png)](http://www.qitas.cn)
 
 ### [选型建议](https://github.com/sochub/N76E003)
 
