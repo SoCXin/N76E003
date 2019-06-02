@@ -11,7 +11,7 @@
             <name>C-SPY</name>
             <archiveVersion>2</archiveVersion>
             <data>
-                <version>8</version>
+                <version>9</version>
                 <wantNonLocal>1</wantNonLocal>
                 <debug>1</debug>
                 <option>
@@ -153,6 +153,10 @@
                 <option>
                     <name>Exclude Getchar Breakpoint</name>
                     <state>0</state>
+                </option>
+                <option>
+                    <name>DebuggerPCIsReadOnly</name>
+                    <state>1</state>
                 </option>
             </data>
         </settings>
@@ -468,6 +472,19 @@
             </data>
         </settings>
         <settings>
+            <name>NULINK_ID</name>
+            <archiveVersion>1</archiveVersion>
+            <data>
+                <version>0</version>
+                <wantNonLocal>1</wantNonLocal>
+                <debug>1</debug>
+                <option>
+                    <name>NuLinkDriverMandatory</name>
+                    <state>1</state>
+                </option>
+            </data>
+        </settings>
+        <settings>
             <name>ROM_ID</name>
             <archiveVersion>1</archiveVersion>
             <data>
@@ -691,11 +708,19 @@
         </settings>
         <debuggerPlugins>
             <plugin>
+                <file>$TOOLKIT_DIR$\plugins\rtos\embOS\embOSPlugin.ewplugin</file>
+                <loadFlag>0</loadFlag>
+            </plugin>
+            <plugin>
                 <file>$EW_DIR$\common\plugins\CodeCoverage\CodeCoverage.ENU.ewplugin</file>
                 <loadFlag>1</loadFlag>
             </plugin>
             <plugin>
                 <file>$EW_DIR$\common\plugins\Orti\Orti.ENU.ewplugin</file>
+                <loadFlag>0</loadFlag>
+            </plugin>
+            <plugin>
+                <file>$EW_DIR$\common\plugins\TargetAccessServer\TargetAccessServer.ENU.ewplugin</file>
                 <loadFlag>0</loadFlag>
             </plugin>
             <plugin>
@@ -714,7 +739,7 @@
             <name>C-SPY</name>
             <archiveVersion>2</archiveVersion>
             <data>
-                <version>8</version>
+                <version>9</version>
                 <wantNonLocal>1</wantNonLocal>
                 <debug>0</debug>
                 <option>
@@ -856,6 +881,10 @@
                 <option>
                     <name>Exclude Getchar Breakpoint</name>
                     <state>0</state>
+                </option>
+                <option>
+                    <name>DebuggerPCIsReadOnly</name>
+                    <state>1</state>
                 </option>
             </data>
         </settings>
@@ -1171,6 +1200,19 @@
             </data>
         </settings>
         <settings>
+            <name>NULINK_ID</name>
+            <archiveVersion>1</archiveVersion>
+            <data>
+                <version>0</version>
+                <wantNonLocal>1</wantNonLocal>
+                <debug>0</debug>
+                <option>
+                    <name>NuLinkDriverMandatory</name>
+                    <state>1</state>
+                </option>
+            </data>
+        </settings>
+        <settings>
             <name>ROM_ID</name>
             <archiveVersion>1</archiveVersion>
             <data>
@@ -1394,11 +1436,19 @@
         </settings>
         <debuggerPlugins>
             <plugin>
+                <file>$TOOLKIT_DIR$\plugins\rtos\embOS\embOSPlugin.ewplugin</file>
+                <loadFlag>0</loadFlag>
+            </plugin>
+            <plugin>
                 <file>$EW_DIR$\common\plugins\CodeCoverage\CodeCoverage.ENU.ewplugin</file>
                 <loadFlag>1</loadFlag>
             </plugin>
             <plugin>
                 <file>$EW_DIR$\common\plugins\Orti\Orti.ENU.ewplugin</file>
+                <loadFlag>0</loadFlag>
+            </plugin>
+            <plugin>
+                <file>$EW_DIR$\common\plugins\TargetAccessServer\TargetAccessServer.ENU.ewplugin</file>
                 <loadFlag>0</loadFlag>
             </plugin>
             <plugin>

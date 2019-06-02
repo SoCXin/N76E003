@@ -78,7 +78,7 @@ void main (void)
 #else
 		InitialUART0_Timer3(115200);
     while(1)
-    Send_Data_To_UART0(0x55);
+    Send_Data_To_UART0(0x85);
 #endif
 			
 	

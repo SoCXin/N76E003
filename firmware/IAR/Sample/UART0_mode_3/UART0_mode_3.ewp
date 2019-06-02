@@ -751,7 +751,7 @@
                 </option>
                 <option>
                     <name>OutputFile</name>
-                    <state>UART0_mode_3.bin</state>
+                    <state>UART0_mode_3.d51</state>
                 </option>
                 <option>
                     <name>OutputFormat</name>

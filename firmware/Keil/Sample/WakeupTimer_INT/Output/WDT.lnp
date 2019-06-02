@@ -1,4 +1,0 @@
-".\Output\WDT_WD_WK.obj" 
-TO ".\Output\WDT" 
-PRINT(".\LST\WDT.m51") RAMSIZE(256) 
-DISABLEWARNING (16) 
