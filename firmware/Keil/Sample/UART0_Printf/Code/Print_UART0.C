@@ -27,13 +27,12 @@ unsigned char xdata xtemp _at_ 0x80;
 /*==========================================================================*/
 void main (void) 
 {
-		set_CLOEN;
-		Set_All_GPIO_Quasi_Mode;					// Define in Function_define.h
-		InitialUART1_Timer3(115200);
-	  temp = 0x35;
+		InitialUART0_Timer3(115200);
+	  TI = 1;															// Important, use prinft function must set TI=1;
+	
 		while(1)
 		{
-			printf("\n temp= 0x%bX",temp);
-			Timer0_Delay1ms(100);
+			printf("\n Hello world");
+			Timer0_Delay1ms(300);
 		}
 }
