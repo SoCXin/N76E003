@@ -29,7 +29,7 @@ void main (void)
 {
 		set_CLOEN;
 		Set_All_GPIO_Quasi_Mode;					// Define in Function_define.h
-		InitialUART0_Timer3(115200);
+		InitialUART1_Timer3(115200);
 	  temp = 0x35;
 		while(1)
 		{

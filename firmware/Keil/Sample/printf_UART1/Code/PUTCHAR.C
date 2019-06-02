@@ -31,7 +31,7 @@ char putchar (char c)
 {
 		while (!TI_1);  /* wait until transmitter ready */
 		TI_1 = 0;
-		SBUF = c;      /* output character */
+		SBUF_1 = c;      /* output character */
 		return (c);
 }
 #else
