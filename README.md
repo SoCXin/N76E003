@@ -2,9 +2,9 @@
 
 [![sites](SoC/SoC.png)](http://www.qitas.cn)
 
-#### 父级：[nuvoton](https://github.com/sochub/nuvoton)
+#### 厂商：[nuvoton](https://github.com/sochub/nuvoton)
 
-#### 归属：[8051](https://github.com/sochub/8051)
+#### 架构：[8051](https://github.com/sochub/8051)
 
 ## [N76E003简介](https://github.com/sochub/N76E003/wiki)
 
@@ -21,7 +21,7 @@ N76E003是低成本高可靠性单片机的代表，价格在同规格产品很�
 * 超高性价比低成本MCU
 * 接口全面，兼容性强
 
-不足：只有20PIN的封装
+不足：只有20PIN的封装规格
 
 ### [资源组成](https://github.com/sochub/N76E003)
 
@@ -31,7 +31,6 @@ N76E003是低成本高可靠性单片机的代表，价格在同规格产品很�
 	* [IAR开发工程](firmware/IAR)
 	* [Keil开发工程](firmware/Keil)
 	* [SDCC开发工程](firmware/SDCC)
-	* [modbus工程](firmware/modbus)
 * [硬件资源](hardware/)
 	* [kicad资源](hardware/kicad/)
 	* [AD资源](hardware/AD/)
@@ -48,11 +47,13 @@ N76E003是低成本高可靠性单片机的代表，价格在同规格产品很�
 
 #### [硬件开发资源](https://github.com/sochub/N76E003)
 
-* N76E003AS20 封装：TSSOP20 (4mm x 6.5mm)
+* N76E003AS20 封装：TSSOP20 (4.4mm x 6.5mm)
 
 [![sites](docs/TSSOP20.png)](http://www.qitas.cn)
 [![sites](hardware/AD/N76E003-SCH.png)](http://www.qitas.cn)
 [![sites](hardware/AD/N76E003-PCB.png)](http://www.qitas.cn)
+
+TSSOP20封装兼容升级替换可选[STM32F030F4](https://github.com/sochub/STM32F030F4)
 
 * N76E003AQ20 封装：QFN20 (3mm x 3mm, O.4mm pitch)
 * N76E003BQ20 封装：QFN20 (3mm x 3mm, O.5mm pitch)
