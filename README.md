@@ -31,12 +31,12 @@ N76E003是低成本高可靠性单片机的代表，价格在同规格产品很�
 	* [IAR开发工程](firmware/IAR)
 	* [Keil开发工程](firmware/Keil)
 	* [SDCC开发工程](firmware/SDCC)
+	* [ISP工程](firmware/ISP)
 * [硬件资源](hardware/)
 	* [kicad资源](hardware/kicad/)
 	* [AD资源](hardware/AD/)
-* [ISP工程](ISP/)
-	* [ISP Keil工程](ISP/keil)
-	* [ISP 下载工具](ISP/tools)
+
+* [辅助工具](tools)
 
 资源说明：
 
