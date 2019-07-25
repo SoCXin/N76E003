@@ -1,0 +1,9 @@
+EESchema-DOCLIB  Version 2.0
+#
+$CMP N76E003
+D 16MHz, 8K Flash, 1k RAM, 128 EEPROM, USART, I2C, SPI, TSSOP20
+K 8051 N76E003
+F http://www.nuvoton.com/resource-files/DS_N76E003_EN_Rev1.07.pdf
+$ENDCMP
+#
+#End Doc Library

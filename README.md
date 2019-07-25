@@ -1,11 +1,8 @@
 ﻿# [N76E003](https://github.com/sochub/N76E003)
-
 [![sites](SoC/SoC.png)](http://www.qitas.cn)
-
 #### 厂商：[nuvoton](https://github.com/sochub/nuvoton)
-
 #### 架构：[8051](https://github.com/sochub/8051)
-
+#### 芯片定级：[Level](https://github.com/sochub/Level)
 ## [N76E003简介](https://github.com/sochub/N76E003/wiki)
 
 N76E003是新唐高速1T 8051 单片机产品，18 KB Flash ROM、1 KB SRAM，支持2.4V - 5.5V宽工作电压，具备高抗干扰能力7KV ESD/4KV EFT。
@@ -21,31 +18,25 @@ N76E003是低成本高可靠性单片机的代表，价格在同规格产品很�
 * 超高性价比低成本MCU
 * 接口全面，兼容性强
 
-不足：只有20PIN的封装规格
-
 ### [资源组成](https://github.com/sochub/N76E003)
 
-* [参考文档](docs/)
-	* [芯片手册](docs/)
-* [固件资源](firmware/)
-	* [IAR开发工程](firmware/IAR)
-	* [Keil开发工程](firmware/Keil)
-	* [SDCC开发工程](firmware/SDCC)
-	* [ISP工程](firmware/ISP)
-* [硬件资源](hardware/)
+* [文档](docs/)
+* [固件](firmware/)
+	* [IAR工程](firmware/IAR)
+	* [Keil工程](firmware/Keil)
+	* [SDCC工程](firmware/SDCC)
+	* [ISP引导工程](firmware/ISP)
+* [硬件](hardware/)
 	* [kicad资源](hardware/kicad/)
 	* [AD资源](hardware/AD/)
+* [工具](tools)
 
-* [辅助工具](tools)
-
-资源说明：
-
-本仓库正在整理过程中，涵盖的资源没有完善相应的体系，但是相应的资源已经可以使用
+#### [外部资源](https://github.com/sochub/N76E003)
 
 * [官方硬件资料](http://www.nuvoton.com.cn/hq/support/tool-and-software/development-tool-hardware/development-kit/?__locale=zh)
 * [官方开源代码](https://github.com/OpenNuvoton/N76E003-BSP)
 
-#### [硬件开发资源](https://github.com/sochub/N76E003)
+#### [硬件资源](https://github.com/sochub/N76E003)
 
 * N76E003AS20 封装：TSSOP20 (4.4mm x 6.5mm)
 
@@ -61,7 +52,9 @@ TSSOP20封装兼容升级替换可选[STM32F030F4](https://github.com/sochub/STM
 [![sites](docs/QFN20.png)](http://www.qitas.cn)
 [![sites](hardware/AD/N76E003AQ.png)](http://www.qitas.cn)
 
-### [选型建议](https://github.com/sochub/N76E003)
+### [选型建议](https://github.com/sochub)
+
+[N76E003](https://github.com/sochub/N76E003)在规模产品中十分有竞争力，各种外设全面，厂商提供源码工具，但是在开源硬件中少见，对于SDCC编译的资源不是很多。
 
 * 高性价比替换方案[STM32F030](https://github.com/sochub/STM32F030)
 * 硬件兼容替换方案[STM8S003](https://github.com/sochub/STM8S003)
