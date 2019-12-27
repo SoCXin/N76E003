@@ -122,7 +122,7 @@ void main (void)
 		MODIFY_HIRC_16588();
 	 //uart initial 
 		READ_ID_CONFIG();
-//	UART0_ini_38400();
+	//UART0_ini_38400();
 		UART0_ini_115200();
 //		TM0_ini();
 
