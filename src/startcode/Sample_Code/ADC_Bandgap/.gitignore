@@ -1,0 +1,9 @@
+*.uvop*
+*.uvgu*
+obj/
+list/
+Output/
+LST/
+*.pyc
+.pio/
+.vscode/
