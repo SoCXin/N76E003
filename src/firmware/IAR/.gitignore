@@ -1,0 +1,9 @@
+.pio/
+.vscode/
+*.bin
+*.out
+*.dep
+*.ewt
+*.ewd
+*.o
+~$*

@@ -1,7 +1,0 @@
-*.uvop*
-*.uvgu*
-obj/
-list/
-*.pyc
-.pio/
-.vscode/
