@@ -48,9 +48,8 @@
         "SWD": true,
         "speed": 115200
     },
-    "vendor":"WCH",
-    "url":"http://www.SoC.xin/CH552",
-    "repo":"https://github.com/SoCXin/CH552",
-    "homepage": "http://www.wch.cn/products/CH552.html",
+    "vendor":"nuvoton",
+    "url":"http://www.SoC.xin/N76E003",
+    "repo":"https://github.com/SoCXin/N76E003",
     "version":"1.0.0"
 }

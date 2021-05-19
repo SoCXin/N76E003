@@ -72,9 +72,9 @@ jobs:
         run: |
           make
 
-      # - uses: actions/upload-artifact@v2
-      #   if: success()
-      #   with:
-      #     name: build_project
-      #     path: project/examples/${{ matrix.items }}
+      - uses: actions/upload-artifact@v2
+        if: success()
+        with:
+          name: N76E003_project
+          path: project/examples
 
