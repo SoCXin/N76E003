@@ -1,6 +1,9 @@
-
 #include "N76E003.h"
-//
+#include "Common.h"
+#include "Delay.h"
+#include "SFR_Macro.h"
+#include "Function_define.h"
+
 //----------------------------------------------------------------------------------
 // UART0 baud rate initial setting
 //----------------------------------------------------------------------------------
@@ -105,7 +108,6 @@ void Send_Data_To_UART1 (UINT8 c)
     while(TI_1==0);
 }
 
-
 /*==========================================================================*/
 #ifdef SW_Reset
 void SW_Reset(void)
@@ -115,4 +117,18 @@ void SW_Reset(void)
     set_SWRST;
 }
 #endif
-/*==========================================================================*/
+
+unsigned char
+_sdcc_external_startup (void)
+{
+    __asm
+        mov	0xC7, #0xAA
+	mov	0xC7, #0x55
+	mov	0xFD, #0x5A
+	mov	0xC7, #0xAA
+	mov	0xC7, #0x55
+	mov	0xFD, #0xA5
+    __endasm;
+    return 0;
+}
+

@@ -1,8 +1,10 @@
 
 #include "N76E003.h"
-
-
-bit BIT_TMP;
+#include "Common.h"
+#include "Delay.h"
+#include "SFR_Macro.h"
+#include "Function_define.h"
+__bit BIT_TMP;
 
 //-------------------------------------------------------------------------
 void Timer0_Delay100us(UINT32 u32CNT)
