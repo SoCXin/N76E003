@@ -22,14 +22,13 @@ int putchar (int c) {
 
 
 /*==========================================================================*/
-void main (void) 
+void main (void)
 {
-	  InitialUART0_Timer3(115200);
-	  TI = 1;															// Important, use prinft function must set TI=1;
-	
-		while(1)
-		{
-			printf_small("\n Hello world");
-			Timer0_Delay1ms(300);
-		}
+	InitialUART0_Timer3(115200);
+	TI = 1;															// Important, use prinft function must set TI=1;
+	while(1)
+	{
+		printf_small("\n Hello world");
+		Timer0_Delay1ms(300);
+	}
 }

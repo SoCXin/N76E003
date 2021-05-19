@@ -4,11 +4,11 @@
     "type":"MCU",
     "Core":"MCS51",
     "Freq":"16MHz",
-    "description":"nuvoton 8051 MCU",
+    "description":"nuvoton 1T 8051 MCU",
     "peripheral": ["ADC","IIC","UART","SPI","LDO","PWM"],
     "package":["QFN20","TSSOP20"],
     "SRAM":1,
-    "Flash":16,
+    "Flash":18,
     "DATA":128,
     "UART": {
         "num": 2,
@@ -18,18 +18,13 @@
     },
     "ADC": {
         "num": 1,
-        "channel": 4,
-        "resolution": 8,
+        "channel": 8,
+        "resolution": 12,
         "rate": 2400
     },
     "TIM": {
         "resolution":[16,16,16],
         "rate": 1024
-    },
-    "USB": {
-        "num": 1,
-        "FIFO": 64,
-        "more":["FS","type-C","device"]
     },
     "PWR": {
         "VDD": [2800,5000],

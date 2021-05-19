@@ -23,7 +23,13 @@ jobs:
 
       - name: Build
         working-directory: src/N76_sdcc
-        run: make
+        run: |
+          make
+
+      - name: Build sample
+        working-directory: src/sample
+        run: |
+          make
 
       - uses: actions/upload-artifact@v2
         with:
