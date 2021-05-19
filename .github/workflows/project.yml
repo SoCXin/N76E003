@@ -48,9 +48,9 @@ jobs:
       fail-fast: false
       matrix:
         items:
-          - "JTAG"
-          - "jump_to_bl"
-          - "si5351"
+          - "ws2812"
+          - "aht10"
+          - "blink"
         os: [ubuntu-latest]
     runs-on: ${{ matrix.os }}
     steps:
@@ -68,7 +68,7 @@ jobs:
 
       - name: Build project
         if: success()
-        working-directory: project
+        working-directory: project/examples
         run: |
           make -C ${{ matrix.items }}
 
@@ -76,5 +76,5 @@ jobs:
         if: success()
         with:
           name: build_project
-          path: project/${{ matrix.items }}
+          path: project/examples/${{ matrix.items }}
 

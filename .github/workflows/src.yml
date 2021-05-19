@@ -22,10 +22,10 @@ jobs:
           echo `pwd`/sdcc-4.0.0/bin >> $GITHUB_PATH
 
       - name: Build
-        working-directory: src/template
+        working-directory: src/N76_sdcc
         run: make
 
       - uses: actions/upload-artifact@v2
         with:
           name: sdcc_template
-          path: src/template/out
+          path: src/N76_sdcc/obj
