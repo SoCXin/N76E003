@@ -47,10 +47,10 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        items:
-          - "ws2812"
-          - "aht10"
-          - "blink"
+        # items:
+        #   - "ws2812"
+        #   - "aht10"
+        #   - "blink"
         os: [ubuntu-latest]
     runs-on: ${{ matrix.os }}
     steps:
@@ -68,13 +68,13 @@ jobs:
 
       - name: Build project
         if: success()
-        working-directory: project/examples
+        working-directory: project
         run: |
-          make -C ${{ matrix.items }}
+          make
 
-      - uses: actions/upload-artifact@v2
-        if: success()
-        with:
-          name: build_project
-          path: project/examples/${{ matrix.items }}
+      # - uses: actions/upload-artifact@v2
+      #   if: success()
+      #   with:
+      #     name: build_project
+      #     path: project/examples/${{ matrix.items }}
 
