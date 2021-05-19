@@ -75,6 +75,6 @@ jobs:
       - uses: actions/upload-artifact@v2
         if: success()
         with:
-          name: N76E003_project
-          path: project/examples
+          name: N76E003
+          path: project/build
 

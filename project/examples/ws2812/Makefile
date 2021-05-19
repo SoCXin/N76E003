@@ -1,6 +1,7 @@
 NAME=ws2812
 
 all: $(NAME).bin
+	cp $(NAME).bin ../../build
 
 include ../../Rules.mk
 
