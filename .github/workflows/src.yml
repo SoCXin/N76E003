@@ -21,17 +21,14 @@ jobs:
           tar -xf sdcc-4.0.0-amd64-unknown-linux2.5.tar.bz2
           echo `pwd`/sdcc-4.0.0/bin >> $GITHUB_PATH
 
-      - name: Build
-        working-directory: src/N76_sdcc
-        run: |
-          make
-
       - name: Build sample
         working-directory: src/sample
         run: |
-          make
+          make -C uart
+          make -C blink
+          make -C sdcc
 
       - uses: actions/upload-artifact@v2
         with:
-          name: sdcc_template
-          path: src/N76_sdcc/obj
+          name: sdcc_sample
+          path: src/sample
