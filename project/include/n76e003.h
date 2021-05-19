@@ -1,0 +1,447 @@
+/* Permission to use, copy, modify, and/or distribute this software for any
+ * purpose with or without fee is hereby granted
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH
+ * REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY
+ * AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT,
+ * INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM
+ * LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR
+ * OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
+ * PERFORMANCE OF THIS SOFTWARE.
+ */
+#ifndef N76E003_H
+#define N76E003_H
+#include <compiler.h>
+
+#define DEFINE_FIELD(reg, field, bit, len) \
+	reg##_##field##_Pos = (bit), \
+	reg##_##field##_Msk = (((1 << (len)) - 1) << (bit)),
+#define GET_FIELD(reg, field) \
+	(((reg) & reg##_##field##_Msk) >> reg##_##field##_Pos)
+#define SET_FIELD(reg, field, val) \
+	do { \
+		(reg) = ((reg) & ~(reg##_##field##_Msk)) | \
+				(((val) << (reg##_##field##_Pos)) & (reg##_##field##_Msk)); \
+	} while(0)
+
+SFR(P0, 0x80);
+SFR(SP, 0x81);
+SFR(DPL, 0x82);
+SFR(DPH, 0x83);
+SFR(RCTRIM0, 0x84);
+SFR(RCTRIM1, 0x85);
+SFR(RWK, 0x86);
+
+SFR(PCON, 0x87);
+enum {
+	DEFINE_FIELD(PCON, SMOD,  7, 1)
+	DEFINE_FIELD(PCON, SMOD0, 6, 1)
+	DEFINE_FIELD(PCON, POF,   4, 1)
+	DEFINE_FIELD(PCON, GF1,   3, 1)
+	DEFINE_FIELD(PCON, GF0,   2, 1)
+	DEFINE_FIELD(PCON, PD,    1, 1)
+	DEFINE_FIELD(PCON, IDL,   0, 1)
+};
+
+SFR(TCON, 0x88);
+SFR(TMOD, 0x89);
+enum {
+	DEFINE_FIELD(TMOD, T0M,    0, 2)
+	DEFINE_FIELD(TMOD, T0CT,   2, 1)
+	DEFINE_FIELD(TMOD, T0GATE, 3, 1)
+
+
+	DEFINE_FIELD(TMOD, T1M,    4, 2)
+	DEFINE_FIELD(TMOD, T1CT,   6, 1)
+	DEFINE_FIELD(TMOD, T1GATE, 7, 1)
+};
+
+SFR(TL0, 0x8A);
+SFR(TH0, 0x8C);
+SFR16E(THL0, 0x8C8A);
+
+SFR(TL1, 0x8B);
+SFR(TH1, 0x8D);
+SFR16E(THL1, 0x8D8B);
+
+SFR(CKCON, 0x8E);
+enum {
+	DEFINE_FIELD(CKCON, PWMCKS, 6, 1)
+	DEFINE_FIELD(CKCON, T1M,    4, 1)
+	DEFINE_FIELD(CKCON, T0M,    3, 1)
+	DEFINE_FIELD(CKCON, CLOEN,  1, 1)
+};
+
+SFR(WKCON, 0x8F);
+
+SFR(P1, 0x90);
+SFR(SFRS, 0x91); //TA Protection
+SFR(CAPCON0, 0x92);
+SFR(CAPCON1, 0x93);
+SFR(CAPCON2, 0x94);
+SFR(CKDIV, 0x95);
+SFR(CKSWT, 0x96); //TA Protection
+SFR(CKEN, 0x97); //TA Protection
+
+SFR(SCON, 0x98);
+SFR(SBUF, 0x99);
+SFR(SBUF_1, 0x9A);
+SFR(EIE, 0x9B);
+SFR(EIE1, 0x9C);
+enum {
+	EIE_ET2_BIT  = (1 << 7),
+	EIE_ESPI_BIT = (1 << 6),
+	EIE_EFB_BIT  = (1 << 5),
+	EIE_EWDT_BIT = (1 << 4),
+	EIE_EPWM_BIT = (1 << 3),
+	EIE_ECAP_BIT = (1 << 2),
+	EIE_EPI_BIT  = (1 << 1),
+	EIE_EI2C_BIT = (1 << 0),
+};
+
+SFR(CHPCON, 0x9F); //TA Protection
+
+SFR(P2, 0xA0);
+SFR(AUXR1, 0xA2);
+SFR(BODCON0, 0xA3); //TA Protection
+SFR(IAPTRG, 0xA4); //TA Protection
+SFR(IAPUEN, 0xA5);	//TA Protection
+SFR(IAPAL, 0xA6);
+SFR(IAPAH, 0xA7);
+SFR16(IAPA, 0xA6);
+
+SFR(IE, 0xA8);
+SFR(SADDR, 0xA9);
+SFR(WDCON, 0xAA); //TA Protection
+SFR(BODCON1, 0xAB); //TA Protection
+SFR(P3M1, 0xAC);
+SFR(P3S, 0xAC); //Page1
+SFR(P3M2, 0xAD);
+SFR(P3SR, 0xAD); //Page1
+SFR(IAPFD, 0xAE);
+SFR(IAPCN, 0xAF);
+
+/* Follows Table 21-1. IAP Modes and Command Codes */
+enum ipa_modes {
+    READ_UID = 0x04,
+    DID_READ = 0x0c,
+    CID_READ = 0x0b,
+    LDROM_READ = 0x40,
+};
+
+SFR(P3, 0xB0);
+SFR(P0M1, 0xB1);
+SFR(P0S, 0xB1); //Page1
+SFR(P0M2, 0xB2);
+SFR(P0SR, 0xB2); //Page1
+SFR(P1M1, 0xB3);
+SFR(P1S, 0xB3); //Page1
+SFR(P1M2, 0xB4);
+SFR(P1SR, 0xB4); //Page1
+SFR(P2S, 0xB5);
+SFR(IPH, 0xB7);
+SFR(PWMINTC, 0xB7);	//Page1
+
+SFR(IP, 0xB8);
+SFR(SADEN, 0xB9);
+SFR(SADEN_1, 0xBA);
+SFR(SADDR_1, 0xBB);
+
+SFR(I2DAT, 0xBC);
+SFR(I2STAT, 0xBD);
+SFR(I2CLK, 0xBE);
+SFR(I2TOC, 0xBF);
+SFR(I2CON, 0xC0);
+SFR(I2ADDR, 0xC1);
+
+
+enum {
+	I2CSTAT_BUS_ERROR      = 0x00,
+	I2CSTAT_BUS_RELEASED   = 0xF8,
+
+	I2CSTAT_M_START        = 0x08,
+	I2CSTAT_M_REPEAT_START = 0x10,
+	I2CSTAT_M_TX_ADDR_ACK  = 0x18,
+	I2CSTAT_M_TX_ADDR_NACK = 0x20,
+	I2CSTAT_M_TX_DATA_ACK  = 0x28,
+	I2CSTAT_M_TX_DATA_NACK = 0x30,
+	I2CSTAT_M_ARB_LOST     = 0x38,
+	I2CSTAT_M_RX_ADDR_ACK  = 0x40,
+	I2CSTAT_M_RX_ADDR_NACK = 0x48,
+	I2CSTAT_M_RX_DATA_ACK  = 0x50,
+	I2CSTAT_M_RX_DATA_NACK = 0x58,
+
+	I2CSTAT_S_TX_REPEAT_START_OR_STOP = 0xA0,
+	I2CSTAT_S_TX_ARB_LOST  = 0xB0,
+	I2CSTAT_S_TX_DATA_ACK  = 0xB8,
+	I2CSTAT_S_TX_DATA_NACK = 0xC0,
+	I2CSTAT_S_TX_LAST_DATA_ACK = 0xC8,
+	I2CSTAT_S_RX_ACK = 0x60,
+	I2CSTAT_S_RX_ARB_LOST = 0x68,
+	I2CSTAT_S_RX_DATA_ACK = 0x80,
+	I2CSTAT_S_RX_DATA_NACK = 0x88,
+
+	I2CSTAT_GC_ADDR_ACK  = 0x70,
+	I2CSTAT_GC_ARB_LOST  = 0x78,
+	I2CSTAT_GC_DATA_ACK  = 0x90,
+	I2CSTAT_GC_DATA_NACK = 0x98,
+};
+
+
+SFR(ADCRL, 0xC2);
+SFR(ADCRH, 0xC3);
+SFR(T3CON, 0xC4);
+enum {
+	DEFINE_FIELD(T3CON, SMOD_1,  7, 1)
+	DEFINE_FIELD(T3CON, SMOD0_1, 6, 1)
+	DEFINE_FIELD(T3CON, BRCK,    5, 1)
+	DEFINE_FIELD(T3CON, TF3,     4, 1)
+	DEFINE_FIELD(T3CON, TR3,     3, 1)
+	DEFINE_FIELD(T3CON, T3PS,    0, 3)
+};
+
+SFR(PWM4H, 0xC4); //Page1
+SFR(RL3, 0xC5);
+SFR(PWM5H, 0xC5);	//Page1
+SFR(RH3, 0xC6);
+SFR(PIOCON1, 0xC6); //Page1
+SFR(TA, 0xC7);
+
+SFR(T2CON, 0xC8);
+SFR(T2MOD, 0xC9);
+SFR(RCMP2L, 0xCA);
+SFR(RCMP2H, 0xCB);
+SFR(TL2, 0xCC);
+SFR(PWM4L, 0xCC); //Page1
+SFR(TH2, 0xCD);
+SFR(PWM5L, 0xCD); //Page1
+SFR(ADCMPL, 0xCE);
+SFR(ADCMPH, 0xCF);
+
+SFR(PSW, 0xD0);
+SFR(PWMPH, 0xD1);
+SFR(PWM0H, 0xD2);
+SFR(PWM1H, 0xD3);
+SFR(PWM2H, 0xD4);
+SFR(PWM3H, 0xD5);
+SFR(PNP, 0xD6);
+SFR(FBD, 0xD7);
+
+SFR(PWMCON0, 0xD8);
+SFR(PWMPL, 0xD9);
+SFR(PWM0L, 0xDA);
+SFR(PWM1L, 0xDB);
+SFR(PWM2L, 0xDC);
+SFR(PWM3L, 0xDD);
+SFR(PIOCON0, 0xDE);
+SFR(PWMCON1, 0xDF);
+
+SFR(ACC, 0xE0);
+SFR(ADCCON1, 0xE1);
+SFR(ADCCON2, 0xE2);
+SFR(ADCDLY, 0xE3);
+SFR(C0L, 0xE4);
+SFR(C0H, 0xE5);
+SFR(C1L, 0xE6);
+SFR(C1H, 0xE7);
+
+SFR(ADCCON0, 0xE8);
+SFR(PICON, 0xE9);
+SFR(PINEN, 0xEA);
+SFR(PIPEN, 0xEB);
+SFR(PIF, 0xEC);
+SFR(C2L, 0xED);
+SFR(C2H, 0xEE);
+SFR(EIP, 0xEF);
+
+SFR(B, 0xF0);
+SFR(CAPCON3, 0xF1);
+SFR(CAPCON4, 0xF2);
+SFR(SPCR, 0xF3);
+enum {
+	DEFINE_FIELD(SPCR, SSOE,  7, 1)
+	DEFINE_FIELD(SPCR, SPIEN,  6, 1)
+	DEFINE_FIELD(SPCR, LSBFE,  5, 1)
+	DEFINE_FIELD(SPCR, MSTR,  4, 1)
+	DEFINE_FIELD(SPCR, CPOL,  3, 1)
+	DEFINE_FIELD(SPCR, CPHA,  2, 1)
+	DEFINE_FIELD(SPCR, SPR,  0, 2)
+};
+
+SFR(SPCR2, 0xF3); //Page1
+SFR(SPSR, 0xF4);
+enum {
+	DEFINE_FIELD(SPSR, SPIF,  7, 1)
+	DEFINE_FIELD(SPSR, WCOL,  6, 1)
+	DEFINE_FIELD(SPSR, SPIOVF,  5, 1)
+	DEFINE_FIELD(SPSR, MODF,  4, 1)
+	DEFINE_FIELD(SPSR, DISMODF,  3, 1)
+	DEFINE_FIELD(SPSR, TXBUF,  2, 1)
+};
+
+SFR(SPDR, 0xF5);
+SFR(AINDIDS, 0xF6);
+SFR(EIPH, 0xF7);
+
+SFR(SCON_1, 0xF8);
+SFR(PDTEN, 0xF9); //TA Protection
+SFR(PDTCNT, 0xFA); //TA Protection
+SFR(PMEN, 0xFB);
+SFR(PMD, 0xFC);
+SFR(PORDIS, 0xFD); //TA Protection
+SFR(EIP1, 0xFE);
+SFR(EIPH1, 0xFF);
+
+/*  BIT Registers  */
+/*  SCON_1  */
+SBIT(SM0_1,  0xF8, 7);
+SBIT(FE_1,   0xF8, 7);
+SBIT(SM1_1,  0xF8, 6);
+SBIT(SM2_1,  0xF8, 5);
+SBIT(REN_1,  0xF8, 4);
+SBIT(TB8_1,  0xF8, 3);
+SBIT(RB8_1,  0xF8, 2);
+SBIT(TI_1,   0xF8, 1);
+SBIT(RI_1,   0xF8, 0);
+
+/*  ADCCON0  */
+SBIT(ADCF,   0xE8, 7);
+SBIT(ADCS,   0xE8, 6);
+SBIT(ETGSEL1,0xE8, 5);
+SBIT(ETGSEL0,0xE8, 4);
+SBIT(ADCHS3, 0xE8, 3);
+SBIT(ADCHS2, 0xE8, 2);
+SBIT(ADCHS1, 0xE8, 1);
+SBIT(ADCHS0, 0xE8, 0);
+
+/*  PWMCON0  */
+SBIT(PWMRUN, 0xD8, 7);
+SBIT(LOAD,   0xD8, 6);
+SBIT(PWMF,   0xD8, 5);
+SBIT(CLRPWM, 0xD8, 4);
+
+
+/*  PSW */
+SBIT(CY,     0xD0, 7);
+SBIT(AC,     0xD0, 6);
+SBIT(F0,     0xD0, 5);
+SBIT(RS1,    0xD0, 4);
+SBIT(RS0,    0xD0, 3);
+SBIT(OV,     0xD0, 2);
+SBIT(P,      0xD0, 0);
+/*  T2CON  */
+SBIT(TF2,    0xC8, 7);
+SBIT(TR2,    0xC8, 2);
+SBIT(CM_RL2, 0xC8, 0);
+
+/* I2CON
+ * Naming differs from Nuvoton headers:
+ * I2C prefixes added to ambiguous bits
+ */
+SBIT(I2CEN,  0xC0, 6);
+SBIT(I2CSTA, 0xC0, 5);
+SBIT(I2CSTO, 0xC0, 4);
+SBIT(I2CSI,  0xC0, 3);
+SBIT(I2CAA,  0xC0, 2);
+SBIT(I2CPX,  0xC0, 0);
+
+/*  IP  */
+SBIT(PADC,   0xB8, 6);
+SBIT(PBOD,   0xB8, 5);
+SBIT(PS,     0xB8, 4);
+SBIT(PT1,    0xB8, 3);
+SBIT(PX1,    0xB8, 2);
+SBIT(PT0,    0xB8, 1);
+SBIT(PX0,    0xB8, 0);
+
+/*  P3  */
+SBIT(P30,    0xB0, 0);
+
+
+/*  IE  */
+SBIT(EA,     0xA8, 7);
+SBIT(EADC,   0xA8, 6);
+SBIT(EBOD,   0xA8, 5);
+SBIT(ES,     0xA8, 4);
+SBIT(ET1,    0xA8, 3);
+SBIT(EX1,    0xA8, 2);
+SBIT(ET0,    0xA8, 1);
+SBIT(EX0,    0xA8, 0);
+
+/*  P2  */
+SBIT(P20,    0xA0, 0);
+
+/*  SCON  */
+SBIT(SM0,    0x98, 7);
+SBIT(FE,     0x98, 7);
+SBIT(SM1,    0x98, 6);
+SBIT(SM2,    0x98, 5);
+SBIT(REN,    0x98, 4);
+SBIT(TB8,    0x98, 3);
+SBIT(RB8,    0x98, 2);
+SBIT(TI,     0x98, 1);
+SBIT(RI,     0x98, 0);
+
+/*  P1  */
+SBIT(P17,    0x90, 7);
+SBIT(P16,    0x90, 6);
+SBIT(TXD_1,  0x90, 6);
+SBIT(P15,    0x90, 5);
+SBIT(SS,     0x90, 5);
+SBIT(P14,    0x90, 4);
+SBIT(SDA,    0x90, 4);
+SBIT(P13,    0x90, 3);
+SBIT(SCL,    0x90, 3);
+SBIT(P12,    0x90, 2);
+SBIT(P11,    0x90, 1);
+SBIT(P10,    0x90, 0);
+
+/*  TCON  */
+SBIT(TF1,    0x88, 7);
+SBIT(TR1,    0x88, 6);
+SBIT(TF0,    0x88, 5);
+SBIT(TR0,    0x88, 4);
+SBIT(IE1,    0x88, 3);
+SBIT(IT1,    0x88, 2);
+SBIT(IE0,    0x88, 1);
+SBIT(IT0,    0x88, 0);
+
+/*  P0  */
+SBIT(P07,    0x80, 7);
+SBIT(RXD,    0x80, 7);
+SBIT(P06,    0x80, 6);
+SBIT(TXD,    0x80, 6);
+SBIT(P05,    0x80, 5);
+SBIT(P04,    0x80, 4);
+SBIT(STADC,  0x80, 4);
+SBIT(P03,    0x80, 3);
+SBIT(P02,    0x80, 2);
+SBIT(RXD_1,  0x80, 2);
+SBIT(P01,    0x80, 1);
+SBIT(MISO,   0x80, 1);
+SBIT(P00,    0x80, 0);
+SBIT(MOSI,   0x80, 0);
+
+/* Interrupts. */
+enum {
+	INT_EXT0 = 0,
+	INT_T0_OVERFLOW = 1,
+	INT_EXT1 = 2,
+	INT_T1_OVERFLOW = 3,
+	INT_UART0 = 4,
+	INT_T2_EVENT = 5,
+	INT_I2C = 6,
+	INT_PIN = 7,
+	INT_BROWN_OUT = 8,
+	INT_SPI = 9,
+	INT_WDT = 10,
+	INT_ADC = 11,
+	INT_CAPTURE = 12,
+	INT_PWM = 13,
+	INT_FAULT_BREAK = 14,
+	INT_UART1 = 15,
+	INT_T3_OVERFLOW = 16,
+	INT_WAKE_UP = 17,
+};
+
+#endif
