@@ -5,8 +5,8 @@
 [![Build Status](https://github.com/SoCXin/N76E003/workflows/project/badge.svg)](https://github.com/SoCXin/N76E003/actions/workflows/project.yml)
 [![Build Status](https://github.com/SoCXin/N76E003/workflows/src/badge.svg)](https://github.com/SoCXin/N76E003/actions/workflows/src.yml)
 
-* [nuvoton](http://www.nuvoton.com.cn/)：[8051](https://github.com/SoCXin/8051)
-* [Level](https://github.com/SoCXin/Level)：16MHz
+* [nuvoton](http://www.nuvoton.com.cn/)：[1T 8051](https://github.com/SoCXin/8051)
+* [L1R2](https://github.com/SoCXin/Level)：16 MHz
 
 ## [简介](http://www.SoC.Xin/N76E003)
 
@@ -16,12 +16,26 @@
 
 ### 关键特性
 
-* 2.4V - 5.5V宽工作电压
 * 7KV ESD/4KV EFT
 * 8ch*12bit ADC
+* 2.4V 至 5.5V
+* 40 ℃ 至 105 ℃
+* 内置< 2 % 误差16 MHz 高精度RC晶振
+* 内置低速省电10 kHz RC晶振
 
-### 封装规格
+### [资源收录](https://github.com/SoCXin)
 
+* [参考资源](src/)
+* [参考文档](docs/)
+* [参考工程](project/)
+
+### [选型建议](https://github.com/SoCXin)
+
+[N76E003](https://github.com/SoCXin/N76E003) 和 [STM8S003](https://github.com/SoCXin/STM8S003) 是市场上众多 003 系列小封装单片机的标杆，十分经典。
+
+[相关工具](https://www.nuvoton.com/tool-and-software/ide-and-compiler/)
+
+#### 封装规格
 
 [![sites](docs/TSSOP20.png)](http://www.qitas.cn)
 * 封装TSSOP20 (4.4mm x 6.5mm)
@@ -31,14 +45,4 @@
 * N76E003AQ20 封装：QFN20 (3mm x 3mm, 0.4mm pitch)
 * N76E003BQ20 封装：QFN20 (3mm x 3mm, 0.5mm pitch)
 
-### [资源收录](https://github.com/SoCXin/N76E003)
-
-* [参考文档](docs/)
-* [参考资源](src/)
-* [参考工程](project/)
-
-### [选型建议](https://github.com/SoCXin)
-
-[N76E003](https://github.com/SoCXin/N76E003) 和 [STM8S003](https://github.com/SoCXin/STM8S003) 是市场上众多 003 系列小封装单片机的标杆，市场定位清晰准确，十分经典。
-
-###  [探索芯世界 www.SoC.xin](http://www.SoC.Xin)
+### [探索芯世界 www.SoC.xin](http://www.SoC.Xin)

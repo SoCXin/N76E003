@@ -4,3 +4,10 @@
 *.out
 *.o
 ~$*
+*.lst
+*log*
+*.obj
+*uvgui*
+# *.ini
+Output
+LST

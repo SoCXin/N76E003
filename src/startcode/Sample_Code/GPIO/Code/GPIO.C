@@ -144,12 +144,12 @@ void main (void)
 		P0 = 0x00;
 		P2 = 0x00;
 		P1 = 0x00;
-		Timer0_Delay1ms(30);
+		Timer0_Delay1ms(300);
 		P0 = 0xff;
 		P2 = 0xff;
 		P1 = 0xff;
 		set_GPIO1;	
-		Timer0_Delay1ms(30);
+		Timer0_Delay1ms(300);
   }
 #endif
 	
